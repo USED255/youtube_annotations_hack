@@ -1,25 +1,6 @@
-var _____WB$wombat$assign$function_____ = function(name) {
-  return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name];
-};
 
-if (!self.__WB_pmw) {
-  self.__WB_pmw = function(obj) {
-      this.__WB_source = obj;
-      return this;
-  }
-}
 
-{
-  let window = _____WB$wombat$assign$function_____("window");
-  let self = _____WB$wombat$assign$function_____("self");
-  let document = _____WB$wombat$assign$function_____("document");
-  let location = _____WB$wombat$assign$function_____("location");
-  let top = _____WB$wombat$assign$function_____("top");
-  let parent = _____WB$wombat$assign$function_____("parent");
-  let frames = _____WB$wombat$assign$function_____("frames");
-  let opener = _____WB$wombat$assign$function_____("opener");
 
-  (function(ytPlayer) {
       var window = this;
       var ova = function(a, b) {
               var c = !1,
@@ -29,23 +10,23 @@ if (!self.__WB_pmw) {
                       a)
           },
           pva = function(a, b, c, d) {
-              c = (0, ytPlayer.z)(c, d || a.l);
-              b = ytPlayer.AF(b, "change", c, "iv-card-poll-choice-input");
+              c = (0, _yt_player.z)(c, d || a.l);
+              b = _yt_player.AF(b, "change", c, "iv-card-poll-choice-input");
               a.g.push(b)
           },
           qva = function(a) {
-              a.g || (a.g = new ytPlayer.XC, ytPlayer.N(a, a.g));
+              a.g || (a.g = new _yt_player.XC, _yt_player.N(a, a.g));
               return a.g
           },
           U1 = function(a) {
-              a.R("cardstatechange", ytPlayer.cV(a) && ytPlayer.dV(a) ? 1 : 0)
+              a.R("cardstatechange", _yt_player.cV(a) && _yt_player.dV(a) ? 1 : 0)
           },
           rva = function(a) {
               for (var b = [], c = 0; c < arguments.length; c++) {
                   var d = arguments[c];
-                  if (ytPlayer.Aa(d))
+                  if (_yt_player.Aa(d))
                       for (var e = 0; e < d.length; e += 8192) {
-                          var f = ytPlayer.$a(d, e, e + 8192);
+                          var f = _yt_player.$a(d, e, e + 8192);
                           f = rva.apply(null, f);
                           for (var k = 0; k < f.length; k++) b.push(f[k])
                       } else b.push(d)
@@ -72,7 +53,7 @@ if (!self.__WB_pmw) {
                   for (a = a.firstChild; a;) vva(a, b, c), a = a.nextSibling
           },
           W1 = function(a) {
-              if (ytPlayer.Xta && null !== a && "innerText" in a) a = a.innerText.replace(/(\r\n|\r|\n)/g, "\n");
+              if (_yt_player.Xta && null !== a && "innerText" in a) a = a.innerText.replace(/(\r\n|\r|\n)/g, "\n");
               else {
                   var b = [];
                   vva(a, b, !0);
@@ -80,30 +61,30 @@ if (!self.__WB_pmw) {
               }
               a = a.replace(/ \xAD /g, " ").replace(/\xAD/g, "");
               a = a.replace(/\u200B/g, "");
-              ytPlayer.Xta || (a = a.replace(/ +/g, " "));
+              _yt_player.Xta || (a = a.replace(/ +/g, " "));
               " " != a && (a = a.replace(/^\s*/, ""));
               return a
           },
           wva = function(a) {
-              return new ytPlayer.bh(a.left, a.top, a.right - a.left, a.bottom - a.top)
+              return new _yt_player.bh(a.left, a.top, a.right - a.left, a.bottom - a.top)
           },
           X1 = function(a) {
-              return "rtl" == ytPlayer.uh(a, "direction")
+              return "rtl" == _yt_player.uh(a, "direction")
           },
           Ava = function(a) {
-              var b = ytPlayer.uh(a, "fontSize");
+              var b = _yt_player.uh(a, "fontSize");
               var c = (c = b.match(xva)) && c[0] || null;
               if (b && "px" == c) return (0, window.parseInt)(b, 10);
-              if (ytPlayer.yd) {
-                  if (String(c) in yva) return ytPlayer.Oh(a, b, "left", "pixelLeft");
-                  if (a.parentNode && 1 == a.parentNode.nodeType && String(c) in zva) return a = a.parentNode, c = ytPlayer.uh(a, "fontSize"), ytPlayer.Oh(a, b == c ? "1em" : b, "left", "pixelLeft")
+              if (_yt_player.yd) {
+                  if (String(c) in yva) return _yt_player.Oh(a, b, "left", "pixelLeft");
+                  if (a.parentNode && 1 == a.parentNode.nodeType && String(c) in zva) return a = a.parentNode, c = _yt_player.uh(a, "fontSize"), _yt_player.Oh(a, b == c ? "1em" : b, "left", "pixelLeft")
               }
-              c = ytPlayer.K("SPAN", {
+              c = _yt_player.K("SPAN", {
                   style: "visibility:hidden;position:absolute;line-height:0;padding:0;margin:0;border:0;height:1em;"
               });
               a.appendChild(c);
               b = c.offsetHeight;
-              ytPlayer.Kd(c);
+              _yt_player.Kd(c);
               return b
           },
           Y1 = function(a, b) {
@@ -112,23 +93,23 @@ if (!self.__WB_pmw) {
           },
           Z1 = function(a, b) {
               if (/-[a-z]/.test(b)) return null;
-              if (ytPlayer.ek && a.dataset) {
-                  if (ytPlayer.kc() && !(b in a.dataset)) return null;
+              if (_yt_player.ek && a.dataset) {
+                  if (_yt_player.kc() && !(b in a.dataset)) return null;
                   var c = a.dataset[b];
                   return void 0 === c ? null : c
               }
-              return a.getAttribute("data-" + ytPlayer.Hb(b))
+              return a.getAttribute("data-" + _yt_player.Hb(b))
           },
           $1 = function(a, b, c, d, e, f, k) {
-              this.date = ytPlayer.ua(a) ? new Date(a, b || 0, c || 1, d || 0, e || 0, f || 0, k || 0) : new Date(a && a.getTime ? a.getTime() : (0, ytPlayer.F)())
+              this.date = _yt_player.ua(a) ? new Date(a, b || 0, c || 1, d || 0, e || 0, f || 0, k || 0) : new Date(a && a.getTime ? a.getTime() : (0, _yt_player.F)())
           },
           c2 = function(a) {
-              a = ytPlayer.Fa(a);
+              a = _yt_player.Fa(a);
               delete a2[a];
-              ytPlayer.Yb(a2) && b2 && b2.stop()
+              _yt_player.Yb(a2) && b2 && b2.stop()
           },
           Cva = function() {
-              b2 || (b2 = new ytPlayer.Yt(function() {
+              b2 || (b2 = new _yt_player.Yt(function() {
                       Bva()
                   },
                   20));
@@ -136,14 +117,14 @@ if (!self.__WB_pmw) {
               a.isActive() || a.start()
           },
           Bva = function() {
-              var a = (0, ytPlayer.F)();
-              ytPlayer.Lb(a2, function(b) {
+              var a = (0, _yt_player.F)();
+              _yt_player.Lb(a2, function(b) {
                   Dva(b, a)
               });
-              ytPlayer.Yb(a2) || Cva()
+              _yt_player.Yb(a2) || Cva()
           },
           Eva = function(a, b) {
-              ytPlayer.bf.call(this, a);
+              _yt_player.bf.call(this, a);
               this.coords = b.coords;
               this.x = b.coords[0];
               this.y = b.coords[1];
@@ -154,8 +135,8 @@ if (!self.__WB_pmw) {
               this.state = b.g
           },
           d2 = function(a, b, c, d) {
-              ytPlayer.ut.call(this);
-              if (!ytPlayer.Aa(a) || !ytPlayer.Aa(b)) throw Error("Start and end parameters must be arrays");
+              _yt_player.ut.call(this);
+              if (!_yt_player.Aa(a) || !_yt_player.Aa(b)) throw Error("Start and end parameters must be arrays");
               if (a.length != b.length) throw Error("Start and end points must be the same length");
               this.l = a;
               this.D = b;
@@ -175,7 +156,7 @@ if (!self.__WB_pmw) {
               1 == a.progress ? (a.g = 0, c2(a), a.wd(), a.xm()) : a.kb() && a.Iu()
           },
           Fva = function(a, b) {
-              ytPlayer.Ca(a.B) && (b = a.B(b));
+              _yt_player.Ca(a.B) && (b = a.B(b));
               a.coords = Array(a.l.length);
               for (var c = 0; c < a.l.length; c++) a.coords[c] = (a.D[c] - a.l[c]) * b + a.l[c]
           },
@@ -199,13 +180,13 @@ if (!self.__WB_pmw) {
           Jva = function(a, b, c, d, e, f, k) {
               a = a.clone();
               var l = Iva(b, c);
-              c = ytPlayer.Kh(b);
+              c = _yt_player.Kh(b);
               k = k ? k.clone() : c.clone();
-              a = ytPlayer.WC(a, k, l, d, e, f);
+              a = _yt_player.WC(a, k, l, d, e, f);
               if (a.status & 496) return a.status;
-              ytPlayer.wh(b, ytPlayer.gh(a.rect));
-              k = ytPlayer.fh(a.rect);
-              ytPlayer.kd(c, k) || (d = k, e = ytPlayer.md(b), f = ytPlayer.vd(ytPlayer.od(e).g), !ytPlayer.yd || ytPlayer.rc("10") || f && ytPlayer.rc("8") ? (b = b.style, ytPlayer.rh ? b.MozBoxSizing = "border-box" : ytPlayer.Ad ? b.WebkitBoxSizing = "border-box" : b.boxSizing = "border-box", b.width = Math.max(d.width, 0) + "px", b.height = Math.max(d.height, 0) + "px") : (e = b.style, f ? (f = ytPlayer.Qh(b), b = ytPlayer.Th(b), e.pixelWidth = d.width - b.left - f.left - f.right - b.right, e.pixelHeight = d.height - b.top -
+              _yt_player.wh(b, _yt_player.gh(a.rect));
+              k = _yt_player.fh(a.rect);
+              _yt_player.kd(c, k) || (d = k, e = _yt_player.md(b), f = _yt_player.vd(_yt_player.od(e).g), !_yt_player.yd || _yt_player.rc("10") || f && _yt_player.rc("8") ? (b = b.style, _yt_player.rh ? b.MozBoxSizing = "border-box" : _yt_player.Ad ? b.WebkitBoxSizing = "border-box" : b.boxSizing = "border-box", b.width = Math.max(d.width, 0) + "px", b.height = Math.max(d.height, 0) + "px") : (e = b.style, f ? (f = _yt_player.Qh(b), b = _yt_player.Th(b), e.pixelWidth = d.width - b.left - f.left - f.right - b.right, e.pixelHeight = d.height - b.top -
                   f.top - f.bottom - b.bottom) : (e.pixelWidth = d.width, e.pixelHeight = d.height)));
               return a.status
           },
@@ -213,63 +194,63 @@ if (!self.__WB_pmw) {
               var l;
               if (l = c.offsetParent) {
                   var m = "HTML" == l.tagName || "BODY" == l.tagName;
-                  if (!m || "static" != ytPlayer.uh(l, "position")) {
-                      var n = ytPlayer.Ch(l);
+                  if (!m || "static" != _yt_player.uh(l, "position")) {
+                      var n = _yt_player.Ch(l);
                       if (!m) {
                           m = X1(l);
                           var p;
                           if (p = m) {
-                              p = ytPlayer.bM && ytPlayer.Mn(10);
-                              var r = ytPlayer.Uta && 0 <= ytPlayer.Cb(ytPlayer.Fua, 10);
-                              p = ytPlayer.rh || p || r
+                              p = _yt_player.bM && _yt_player.Mn(10);
+                              var r = _yt_player.Uta && 0 <= _yt_player.Cb(_yt_player.Fua, 10);
+                              p = _yt_player.rh || p || r
                           }
-                          m = p ? -l.scrollLeft : !m || ytPlayer.oH && ytPlayer.rc("8") || "visible" == ytPlayer.uh(l, "overflowX") ? l.scrollLeft : l.scrollWidth - l.clientWidth - l.scrollLeft;
-                          n = ytPlayer.jd(n, new ytPlayer.hd(m, l.scrollTop))
+                          m = p ? -l.scrollLeft : !m || _yt_player.oH && _yt_player.rc("8") || "visible" == _yt_player.uh(l, "overflowX") ? l.scrollLeft : l.scrollWidth - l.clientWidth - l.scrollLeft;
+                          n = _yt_player.jd(n, new _yt_player.hd(m, l.scrollTop))
                       }
                   }
               }
-              l = n || new ytPlayer.hd;
-              n = ytPlayer.Lh(a);
-              (m = ytPlayer.Dh(a)) && ytPlayer.eh(n, wva(m));
-              m = ytPlayer.od(a);
-              r = ytPlayer.od(c);
-              m.g != r.g && (p = m.g.body, r = ytPlayer.Fh(p, ytPlayer.be(r)), r = ytPlayer.jd(r, ytPlayer.Ch(p)), !ytPlayer.yd ||
-                  ytPlayer.sc(9) || ytPlayer.vd(m.g) || (r = ytPlayer.jd(r, ytPlayer.zd(m.g))), n.left += r.x, n.top += r.y);
+              l = n || new _yt_player.hd;
+              n = _yt_player.Lh(a);
+              (m = _yt_player.Dh(a)) && _yt_player.eh(n, wva(m));
+              m = _yt_player.od(a);
+              r = _yt_player.od(c);
+              m.g != r.g && (p = m.g.body, r = _yt_player.Fh(p, _yt_player.be(r)), r = _yt_player.jd(r, _yt_player.Ch(p)), !_yt_player.yd ||
+                  _yt_player.sc(9) || _yt_player.vd(m.g) || (r = _yt_player.jd(r, _yt_player.zd(m.g))), n.left += r.x, n.top += r.y);
               a = Iva(a, b);
               b = n.left;
               a & 4 ? b += n.width : a & 2 && (b += n.width / 2);
-              b = new ytPlayer.hd(b, n.top + (a & 1 ? n.height : 0));
-              b = ytPlayer.jd(b, l);
+              b = new _yt_player.hd(b, n.top + (a & 1 ? n.height : 0));
+              b = _yt_player.jd(b, l);
               e && (b.x += (a & 4 ? -1 : 1) * e.x, b.y += (a & 1 ? -1 : 1) * e.y);
               var v;
-              k && (v = ytPlayer.Dh(c)) && (v.top -= l.y, v.right -= l.x, v.bottom -= l.y, v.left -= l.x);
+              k && (v = _yt_player.Dh(c)) && (v.top -= l.y, v.right -= l.x, v.bottom -= l.y, v.left -= l.x);
               return Jva(b, c, d, f, v, k, void 0)
           },
           h2 = function(a, b) {
-              a && (a.dataset ? delete a.dataset[ytPlayer.$E(b)] : a.removeAttribute("data-" + b))
+              a && (a.dataset ? delete a.dataset[_yt_player.$E(b)] : a.removeAttribute("data-" + b))
           },
           i2 = function(a) {
               var b = a.__yt_uid_key;
-              b || (b = (0, ytPlayer.Pua)(), a.__yt_uid_key = b);
+              b || (b = (0, _yt_player.Pua)(), a.__yt_uid_key = b);
               return b
           },
           j2 = function(a, b) {
-              a = ytPlayer.pd(a);
-              b = ytPlayer.pd(b);
-              return !!ytPlayer.Yd(a, function(a) {
+              a = _yt_player.pd(a);
+              b = _yt_player.pd(b);
+              return !!_yt_player.Yd(a, function(a) {
                       return a === b
                   },
                   !0, void 0)
           },
           Kva = function(a, b) {
-              var c = ytPlayer.qd(window.document, a, null, b);
+              var c = _yt_player.qd(window.document, a, null, b);
               return c.length ? c[0] : null
           },
           Lva = function() {
-              ytPlayer.U(window.document.body, "hide-players", !1);
-              var a = ytPlayer.rd("preserve-players");
-              (0, ytPlayer.B)(a, function(a) {
-                  ytPlayer.mq(a, "preserve-players")
+              _yt_player.U(window.document.body, "hide-players", !1);
+              var a = _yt_player.rd("preserve-players");
+              (0, _yt_player.B)(a, function(a) {
+                  _yt_player.mq(a, "preserve-players")
               })
           },
           Mva = function(a) {
@@ -295,7 +276,7 @@ if (!self.__WB_pmw) {
               })
           },
           Ova = function() {
-              var a = ytPlayer.LG(0),
+              var a = _yt_player.LG(0),
                   b;
               a ? b = new Nva({
                   veType: a,
@@ -304,21 +285,21 @@ if (!self.__WB_pmw) {
               return b
           },
           Pva = function(a, b) {
-              (a = ytPlayer.pd(a)) && a.style && (ytPlayer.O(a, b), ytPlayer.U(a, "hid", !b))
+              (a = _yt_player.pd(a)) && a.style && (_yt_player.O(a, b), _yt_player.U(a, "hid", !b))
           },
           m2 = function(a) {
-              return (a = ytPlayer.pd(a)) ? ytPlayer.Nh(a) && !ytPlayer.kq(a, "hid") : !1
+              return (a = _yt_player.pd(a)) ? _yt_player.Nh(a) && !_yt_player.kq(a, "hid") : !1
           },
           n2 = function(a) {
-              (0, ytPlayer.B)(arguments, function(a) {
-                  !ytPlayer.Ba(a) || a instanceof window.Element ? Pva(a, !0) : (0, ytPlayer.B)(a, function(a) {
+              (0, _yt_player.B)(arguments, function(a) {
+                  !_yt_player.Ba(a) || a instanceof window.Element ? Pva(a, !0) : (0, _yt_player.B)(a, function(a) {
                       n2(a)
                   })
               })
           },
           o2 = function(a) {
-              (0, ytPlayer.B)(arguments, function(a) {
-                  !ytPlayer.Ba(a) || a instanceof window.Element ? Pva(a, !1) : (0, ytPlayer.B)(a, function(a) {
+              (0, _yt_player.B)(arguments, function(a) {
+                  !_yt_player.Ba(a) || a instanceof window.Element ? Pva(a, !1) : (0, _yt_player.B)(a, function(a) {
                       o2(a)
                   })
               })
@@ -348,16 +329,16 @@ if (!self.__WB_pmw) {
               this.D = l2(b.icon)
           },
           q2 = function(a, b) {
-              ytPlayer.Df.call(this);
+              _yt_player.Df.call(this);
               this.El = a;
               this.rs = b;
-              this[ytPlayer.gf] = !1
+              this[_yt_player.gf] = !1
           },
           u2 = function(a, b, c, d) {
               q2.call(this, a, b);
               a = this.rs;
               b = this.la();
-              c ? (b.setAttribute("stroke", c.g), b.setAttribute("stroke-opacity", 1), c = c.Cb(), ytPlayer.u(c) && -1 != c.indexOf("px") ? b.setAttribute("stroke-width", (0, window.parseFloat)(c) / Qva(a)) : b.setAttribute("stroke-width", c)) : b.setAttribute("stroke", "none");
+              c ? (b.setAttribute("stroke", c.g), b.setAttribute("stroke-opacity", 1), c = c.Cb(), _yt_player.u(c) && -1 != c.indexOf("px") ? b.setAttribute("stroke-width", (0, window.parseFloat)(c) / Qva(a)) : b.setAttribute("stroke-width", c)) : b.setAttribute("stroke", "none");
               this.fill = d;
               c = this.rs;
               a = this.la();
@@ -374,14 +355,14 @@ if (!self.__WB_pmw) {
                           gradientUnits: "userSpaceOnUse"
                       });
                       var f = "stop-color:" + d.g;
-                      ytPlayer.ua(d.o) && (f += ";stop-opacity:" + d.o);
+                      _yt_player.ua(d.o) && (f += ";stop-opacity:" + d.o);
                       f = t2(c, "stop", {
                           offset: "0%",
                           style: f
                       });
                       e.appendChild(f);
                       f = "stop-color:" + d.l;
-                      ytPlayer.ua(d.A) && (f += ";stop-opacity:" + d.A);
+                      _yt_player.ua(d.A) && (f += ";stop-opacity:" + d.A);
                       d = t2(c, "stop", {
                           offset: "100%",
                           style: f
@@ -402,8 +383,8 @@ if (!self.__WB_pmw) {
               this.Ce = []
           },
           w2 = function(a, b, c, d) {
-              var e = a.Zd[0] - b * Math.cos(ytPlayer.gd(d)) + b * Math.cos(ytPlayer.gd(d + 90)),
-                  f = a.Zd[1] - c * Math.sin(ytPlayer.gd(d)) + c * Math.sin(ytPlayer.gd(d + 90));
+              var e = a.Zd[0] - b * Math.cos(_yt_player.gd(d)) + b * Math.cos(_yt_player.gd(d + 90)),
+                  f = a.Zd[1] - c * Math.sin(_yt_player.gd(d)) + c * Math.sin(_yt_player.gd(d + 90));
               a.rb.push(3);
               a.Ka.push(1);
               a.Ce.push(b, c, d, 90, e, f);
@@ -426,7 +407,7 @@ if (!self.__WB_pmw) {
               this.g = b
           },
           y2 = function(a, b, c, d, e) {
-              ytPlayer.Tu.call(this, e);
+              _yt_player.Tu.call(this, e);
               this.width = a;
               this.height = b;
               this.o = c || null;
@@ -434,7 +415,7 @@ if (!self.__WB_pmw) {
           },
           Qva = function(a) {
               var b = a.Hj();
-              return b ? b.width / (a.o ? new ytPlayer.I(a.o, a.K) : a.Hj()).width : 0
+              return b ? b.width / (a.o ? new _yt_player.I(a.o, a.K) : a.Hj()).width : 0
           },
           s2 = function(a, b, c, d, e, f, k, l) {
               this.B = a;
@@ -443,8 +424,8 @@ if (!self.__WB_pmw) {
               this.F = d;
               this.g = e;
               this.l = f;
-              this.o = ytPlayer.t(k) ? k : null;
-              this.A = ytPlayer.t(l) ? l : null
+              this.o = _yt_player.t(k) ? k : null;
+              this.A = _yt_player.t(l) ? l : null
           },
           r2 = function(a, b) {
               this.H = a;
@@ -459,8 +440,8 @@ if (!self.__WB_pmw) {
           A2 = function(a, b, c, d, e) {
               y2.call(this, a, b, c, d, e);
               this.l = {};
-              this.M = ytPlayer.Ad && !ytPlayer.rc(526);
-              this.I = new ytPlayer.Lm(this)
+              this.M = _yt_player.Ad && !_yt_player.rc(526);
+              this.I = new _yt_player.Lm(this)
           },
           t2 = function(a, b, c) {
               a = a.H.g.createElementNS("http://www.w3.org/2000/svg", b);
@@ -510,15 +491,15 @@ if (!self.__WB_pmw) {
               return d
           },
           $va = function() {
-              C2 || (C2 = new ytPlayer.sg(400), C2.start());
+              C2 || (C2 = new _yt_player.sg(400), C2.start());
               return C2
           },
           bwa = function(a, b, c) {
-              var d = ytPlayer.vG;
+              var d = _yt_player.vG;
               a = {
                   csn: a,
                   parentVisualElement: k2(b),
-                  visualElements: (0, ytPlayer.G)(c, function(a) {
+                  visualElements: (0, _yt_player.G)(c, function(a) {
                       return k2(a)
                   })
               };
@@ -527,23 +508,23 @@ if (!self.__WB_pmw) {
               })
           },
           D2 = function(a, b) {
-              ytPlayer.wG("visualElementShown", {
+              _yt_player.wG("visualElementShown", {
                   csn: a,
                   ve: k2(b),
                   eventType: 1
               })
           },
           E2 = function(a, b) {
-              ytPlayer.wG("visualElementGestured", {
+              _yt_player.wG("visualElementGestured", {
                   csn: a,
                   ve: k2(b),
                   gestureType: "INTERACTION_LOGGING_GESTURE_TYPE_GENERIC_CLICK"
               })
           },
           awa = function(a, b) {
-              b.eventTimeMs = Math.round(ytPlayer.hG());
-              b.lactMs = ytPlayer.uG();
-              ytPlayer.dG({
+              b.eventTimeMs = Math.round(_yt_player.hG());
+              b.lactMs = _yt_player.uG();
+              _yt_player.dG({
                       endpoint: "log_interaction",
                       payload: b
                   },
@@ -558,7 +539,7 @@ if (!self.__WB_pmw) {
                   if (a) {
                       var b = a.simpleText;
                       if (b) return b;
-                      if (a.runs) return (0, ytPlayer.G)(a.runs, function(a) {
+                      if (a.runs) return (0, _yt_player.G)(a.runs, function(a) {
                           return a.text
                       }).join("")
                   }
@@ -576,10 +557,10 @@ if (!self.__WB_pmw) {
               }
               var f = {};
               f.startMs = (0, window.parseInt)(a.startMs, 10);
-              f.impressionUrls = (0, ytPlayer.G)(a.impressionUrls || [], c);
+              f.impressionUrls = (0, _yt_player.G)(a.impressionUrls || [], c);
               f.skip = a.skipEndscreen;
               f.visualElement = l2(a.trackingParams);
-              var k = (0, ytPlayer.G)(a.elements || [], function(a, f) {
+              var k = (0, _yt_player.G)(a.elements || [], function(a, f) {
                   var k = a.endscreenElementRenderer;
                   if (!k) return null;
                   var l = {},
@@ -597,10 +578,10 @@ if (!self.__WB_pmw) {
                   l.aspectRatio = (0, window.parseFloat)(k.aspectRatio);
                   l.startMs = (0, window.parseInt)(k.startMs, 10);
                   l.endMs = (0, window.parseInt)(k.endMs, 10);
-                  l.clickUrls = (0, ytPlayer.G)(v.loggingUrls || [], c);
-                  l.qn = ytPlayer.Tb(k, "title", "accessibility", "accessibilityData", "label");
-                  l.impressionUrls = (0, ytPlayer.G)(k.impressionUrls || [], c);
-                  l.MK = (0, ytPlayer.G)(k.hovercardShowUrls || [], c);
+                  l.clickUrls = (0, _yt_player.G)(v.loggingUrls || [], c);
+                  l.qn = _yt_player.Tb(k, "title", "accessibility", "accessibilityData", "label");
+                  l.impressionUrls = (0, _yt_player.G)(k.impressionUrls || [], c);
+                  l.MK = (0, _yt_player.G)(k.hovercardShowUrls || [], c);
                   l.Rd = {
                       itct: k.trackingParams
                   };
@@ -609,7 +590,7 @@ if (!self.__WB_pmw) {
                       d(k.videoDuration);
                   else if ("PLAYLIST" == m) l.targetUrl = v.urlEndpoint ? v.urlEndpoint.url : e(v.watchEndpoint), l.Oo = !1, l.mq = b, l.playlistLength = d(k.playlistLength);
                   else if ("CHANNEL" == m) {
-                      if (m = ytPlayer.Tb(v, "browseEndpoint", "browseId")) l.channelId = m, l.targetUrl = "/channel/" + m;
+                      if (m = _yt_player.Tb(v, "browseEndpoint", "browseId")) l.channelId = m, l.targetUrl = "/channel/" + m;
                       l.Oo = !1;
                       l.mq = "new";
                       l.isSubscribe = !!k.isSubscribe;
@@ -624,7 +605,7 @@ if (!self.__WB_pmw) {
                                           var L = d(m.subscriberCountText)
                                       } else H = d(m.subscriberCountText), L = d(m.subscriberCountWithSubscribeText);
                                       var T = null;
-                                      if (k.signinEndpoint && (T = ytPlayer.Tb(k, "signinEndpoint", "webNavigationEndpointData", "url"), !T)) {
+                                      if (k.signinEndpoint && (T = _yt_player.Tb(k, "signinEndpoint", "webNavigationEndpointData", "url"), !T)) {
                                           k = void 0;
                                           break a
                                       }
@@ -647,16 +628,16 @@ if (!self.__WB_pmw) {
                       }
                       else l.subscribersText = d(k.subscribersText)
                   } else "WEBSITE" == m && (l.targetUrl =
-                      ytPlayer.Tb(v, "urlEndpoint", "url"), l.Oo = !0, l.mq = "new", l.iconUrl = k.icon.thumbnails[0].url);
+                      _yt_player.Tb(v, "urlEndpoint", "url"), l.Oo = !0, l.mq = "new", l.iconUrl = k.icon.thumbnails[0].url);
                   return l
               });
-              f.elements = (0, ytPlayer.Ld)(k, function(a) {
+              f.elements = (0, _yt_player.Ld)(k, function(a) {
                   return !!a
               });
               return f
           },
           G2 = function(a) {
-              ytPlayer.sV.call(this, a);
+              _yt_player.sV.call(this, a);
               this.o = null;
               this.J = !1;
               this.B = null;
@@ -664,22 +645,22 @@ if (!self.__WB_pmw) {
               this.F = {};
               this.D = this.A = null;
               this.K = [];
-              a = ytPlayer.Y(a);
-              this.M = ytPlayer.HM(a) || ytPlayer.IM(a);
+              a = _yt_player.Y(a);
+              this.M = _yt_player.HM(a) || _yt_player.IM(a);
               this.LE = !0;
               this.H = 0;
-              this.I = new ytPlayer.cp(null);
-              this.C = new ytPlayer.FF(this);
-              ytPlayer.N(this, this.C);
+              this.I = new _yt_player.cp(null);
+              this.C = new _yt_player.FF(this);
+              _yt_player.N(this, this.C);
               this.C.O(this.g, "crn_creatorendscreen", this.EM);
               this.C.O(this.g, "crx_creatorendscreen", this.FM);
               this.C.O(this.g, "resize", this.XA);
               this.C.O(window, "focus", this.RU);
               this.load();
-              var b = ytPlayer.Ed("STYLE");
+              var b = _yt_player.Ed("STYLE");
               (window.document.getElementsByTagName("HEAD")[0] || window.document.body).appendChild(b);
-              ytPlayer.Ze(this, function() {
-                  ytPlayer.Kd(b)
+              _yt_player.Ze(this, function() {
+                  _yt_player.Kd(b)
               });
               b.sheet && (b.sheet.insertRule(".ytp-ce-playlist-icon {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAIVBMVEVMaXGzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7P///91E4wTAAAACXRSTlMArBbpVOtYrReN+x2FAAAAAWJLR0QKaND0VgAAACFJREFUCNdjYCAWzIQAFBaZ6hgVYLKcJnBWGEyWvYGASwCXtBf7m4i3CQAAAABJRU5ErkJggg==) no-repeat center;background-size:18px;width:18px;height:18px}", 0), b.sheet.insertRule(".ytp-ce-size-853 .ytp-ce-playlist-icon, .ytp-ce-size-1280 .ytp-ce-playlist-icon, .ytp-ce-size-1920 .ytp-ce-playlist-icon {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJ1BMVEVMaXGzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7P///9RfzIKAAAAC3RSTlMAvDeyLvxYtDK9Ogx4T1QAAAABYktHRAyBs1FjAAAAK0lEQVQY02NgoBjshgO8HJoYwKiAMGAD92YHJM7uMCTO9gaEHs4FlPuZAQC8Fj8x/xHjxwAAAABJRU5ErkJggg==) no-repeat center;background-size:24px;width:24px;height:24px}",
                   0))
@@ -688,7 +669,7 @@ if (!self.__WB_pmw) {
               return "creator-endscreen-editor" === a
           },
           I2 = function(a, b) {
-              ytPlayer.kV(a.g, "creatorendscreen");
+              _yt_player.kV(a.g, "creatorendscreen");
               a.A && (a.A.dispose(), a.A = null, a.D.dispose(), a.D = null);
               for (var c in a.l) a.l[c].dispose();
               a.l = {};
@@ -700,37 +681,37 @@ if (!self.__WB_pmw) {
               if ((a.o = b) && b.elements) {
                   cwa(a);
                   c = [];
-                  var d = new ytPlayer.eQ(b.startMs, 0x7ffffffffffff, {
+                  var d = new _yt_player.eQ(b.startMs, 0x7ffffffffffff, {
                       id: "ytp-ce-in-endscreen",
                       namespace: "creatorendscreen"
                   });
                   c.push(d);
-                  ytPlayer.Y(a.g).l || (a.A = new ytPlayer.W({
+                  _yt_player.Y(a.g).l || (a.A = new _yt_player.W({
                       G: "div",
                       L: "ytp-ce-shadow"
-                  }), ytPlayer.mV(a.g, a.A.element, 4), a.D = new ytPlayer.MV(a.A, 200));
+                  }), _yt_player.mV(a.g, a.A.element, 4), a.D = new _yt_player.MV(a.A, 200));
                   for (d = 0; d < b.elements.length;
                       ++d) {
                       var e = b.elements[d],
                           f = dwa(a, e);
                       a.l[e.id] = f;
                       a.F[e.id] = e;
-                      ytPlayer.mV(a.g, f.element, 4);
-                      var k = new ytPlayer.eQ(e.startMs, e.endMs, {
+                      _yt_player.mV(a.g, f.element, 4);
+                      var k = new _yt_player.eQ(e.startMs, e.endMs, {
                           id: "ytp-ce-element-" + e.id,
                           namespace: "creatorendscreen"
                       });
                       c.push(k);
                       ewa(a, f, e)
                   }
-                  ytPlayer.hV(a.g, c);
+                  _yt_player.hV(a.g, c);
                   a.XA()
               }
           },
           cwa = function(a) {
               var b =
                   Ova(),
-                  c = ytPlayer.MG();
+                  c = _yt_player.MG();
               c && b && bwa(c, b, [a.o.visualElement])
           },
           dwa = function(a, b) {
@@ -769,7 +750,7 @@ if (!self.__WB_pmw) {
                                           G: "div",
                                           da: ["ytp-ce-video-title", "yt-ui-ellipsis", "yt-ui-ellipsis-2"],
                                           P: {
-                                              dir: ytPlayer.dp(a.I, b.title || "")
+                                              dir: _yt_player.dp(a.I, b.title || "")
                                           },
                                           aa: b.title
                                       },
@@ -782,7 +763,7 @@ if (!self.__WB_pmw) {
                               }
                           ]
                       };
-                      c = new ytPlayer.W(c);
+                      c = new _yt_player.W(c);
                       break;
                   case "PLAYLIST":
                       c = {
@@ -817,7 +798,7 @@ if (!self.__WB_pmw) {
                                           G: "div",
                                           da: ["ytp-ce-playlist-title", "yt-ui-ellipsis", "yt-ui-ellipsis-2"],
                                           P: {
-                                              dir: ytPlayer.dp(a.I, b.title || "")
+                                              dir: _yt_player.dp(a.I, b.title || "")
                                           },
                                           aa: b.title
                                       },
@@ -839,7 +820,7 @@ if (!self.__WB_pmw) {
                               }
                           ]
                       };
-                      c = new ytPlayer.W(c);
+                      c = new _yt_player.W(c);
                       break;
                   case "CHANNEL":
                       c = {
@@ -881,7 +862,7 @@ if (!self.__WB_pmw) {
                                                               href: b.targetUrl,
                                                               target: "_blank",
                                                               tabindex: "-1",
-                                                              dir: ytPlayer.dp(a.I, b.title || "")
+                                                              dir: _yt_player.dp(a.I, b.title || "")
                                                           },
                                                           aa: b.title
                                                       },
@@ -916,15 +897,15 @@ if (!self.__WB_pmw) {
                               }
                           ]
                       };
-                      c = new ytPlayer.W(c);
-                      var d = ytPlayer.qd(window.document, "div", "ytp-ce-channel-subscribe", c.element)[0];
+                      c = new _yt_player.W(c);
+                      var d = _yt_player.qd(window.document, "div", "ytp-ce-channel-subscribe", c.element)[0];
                       if (b.subscribeButton) {
-                          ytPlayer.S(d, "ytp-ce-subscribe-button");
-                          if (ytPlayer.Y(a.g).l) {
+                          _yt_player.S(d, "ytp-ce-subscribe-button");
+                          if (_yt_player.Y(a.g).l) {
                               var e = null;
                               var f = b.Rd.itct
                           } else e = "endscreen", f = null;
-                          e = new ytPlayer.y_(b.subscribeButton.subscribeText, b.subscribeButton.subscribeCount, b.subscribeButton.unsubscribeText, b.subscribeButton.unsubscribeCount, b.subscribeButton.enabled, b.subscribeButton.classic, b.channelId,
+                          e = new _yt_player.y_(b.subscribeButton.subscribeText, b.subscribeButton.subscribeCount, b.subscribeButton.unsubscribeText, b.subscribeButton.unsubscribeCount, b.subscribeButton.enabled, b.subscribeButton.classic, b.channelId,
                               !!b.subscribeButton.subscribed, e, f, b.subscribeButton.signinUrl, a.g);
                           d.appendChild(e.element);
                           a.K.push(e)
@@ -967,7 +948,7 @@ if (!self.__WB_pmw) {
                                                               G: "div",
                                                               L: "ytp-ce-website-title",
                                                               P: {
-                                                                  dir: ytPlayer.dp(a.I, b.title || "")
+                                                                  dir: _yt_player.dp(a.I, b.title || "")
                                                               },
                                                               aa: b.title
                                                           },
@@ -1004,9 +985,9 @@ if (!self.__WB_pmw) {
                                   }
                               ]
                           },
-                          c = new ytPlayer.W(c)
+                          c = new _yt_player.W(c)
               }
-              b.g && ytPlayer.S(c.element, "ytp-ce-placeholder");
+              b.g && _yt_player.S(c.element, "ytp-ce-placeholder");
               return c
           },
           J2 = function(a) {
@@ -1027,76 +1008,76 @@ if (!self.__WB_pmw) {
               function e() {
                   k(-1)
               }
-              b.U("mouseenter", (0, ytPlayer.z)(a.Ut, a, b, c));
-              b.U("mouseleave", (0, ytPlayer.z)(a.Ru, a, b, c));
-              ytPlayer.Y(a.g).l || b.U("click", (0, ytPlayer.z)(function(a) {
-                      ytPlayer.S(a.element, "ytp-ce-element-hover")
+              b.U("mouseenter", (0, _yt_player.z)(a.Ut, a, b, c));
+              b.U("mouseleave", (0, _yt_player.z)(a.Ru, a, b, c));
+              _yt_player.Y(a.g).l || b.U("click", (0, _yt_player.z)(function(a) {
+                      _yt_player.S(a.element, "ytp-ce-element-hover")
                   },
                   a, b));
-              b.U("click", (0, ytPlayer.z)(a.HC, a, c));
-              b.U("keypress", (0, ytPlayer.z)(a.HC, a, c));
-              b.U("focus", (0, ytPlayer.z)(function(a, b) {
+              b.U("click", (0, _yt_player.z)(a.HC, a, c));
+              b.U("keypress", (0, _yt_player.z)(a.HC, a, c));
+              b.U("focus", (0, _yt_player.z)(function(a, b) {
                       this.Ut(a, b)
                   },
                   a, b, c));
-              b.U("blur", (0, ytPlayer.z)(function(a, b) {
+              b.U("blur", (0, _yt_player.z)(function(a, b) {
                       this.Ru(a, b)
                   },
                   a, b, c));
-              b.U("touchstart", (0, ytPlayer.z)(a.Ut, a, b, c));
-              var f = ytPlayer.J("ytp-ce-expanding-overlay-hider", b.element);
+              b.U("touchstart", (0, _yt_player.z)(a.Ut, a, b, c));
+              var f = _yt_player.J("ytp-ce-expanding-overlay-hider", b.element);
               f && b.O(f, "touchstart", function(a) {
                   a = a || window.event;
                   a.cancelBubble = !0;
                   a.stopPropagation && a.stopPropagation();
-                  ytPlayer.mq(b.element, "ytp-ce-element-hover");
-                  ytPlayer.mq(b.element, "ytp-ce-force-expand")
+                  _yt_player.mq(b.element, "ytp-ce-element-hover");
+                  _yt_player.mq(b.element, "ytp-ce-force-expand")
               });
-              b.U("keydown", (0, ytPlayer.z)(function(a, b) {
+              b.U("keydown", (0, _yt_player.z)(function(a, b) {
                       this.LE = 9 == b.keyCode && !b.shiftKey
                   },
                   a, b));
-              var k = (0, ytPlayer.z)(function(a, b, c) {
+              var k = (0, _yt_player.z)(function(a, b, c) {
                       this.H += c;
-                      0 < this.H ? (ytPlayer.S(a.element, "ytp-ce-force-expand"), K2(this, b.id, !0)) : (ytPlayer.mq(a.element, "ytp-ce-force-expand"), ytPlayer.mq(a.element, "ytp-ce-element-hover"), K2(this, b.id, !1))
+                      0 < this.H ? (_yt_player.S(a.element, "ytp-ce-force-expand"), K2(this, b.id, !0)) : (_yt_player.mq(a.element, "ytp-ce-force-expand"), _yt_player.mq(a.element, "ytp-ce-element-hover"), K2(this, b.id, !1))
                   },
                   a, b, c);
-              a = (0, ytPlayer.z)(function(a, b) {
+              a = (0, _yt_player.z)(function(a, b) {
                       b && (a.U("blur", function() {
-                          ytPlayer.Nh(b) && this.LE && b.focus()
+                          _yt_player.Nh(b) && this.LE && b.focus()
                       }), a.O(b, "focus", d), a.O(b, "blur", e))
                   },
                   a, b);
-              a(ytPlayer.J("ytp-sb-subscribe", b.element));
-              a(ytPlayer.J("ytp-sb-unsubscribe", b.element));
+              a(_yt_player.J("ytp-sb-subscribe", b.element));
+              a(_yt_player.J("ytp-sb-unsubscribe", b.element));
               b.U("focus", d);
               b.U("blur", e)
           },
           K2 = function(a, b, c) {
               a.A && (c ? a.D.show() : a.D.hide());
-              for (var d in a.l) d != b && ytPlayer.U(a.l[d].element, "ytp-ce-element-shadow-show", c)
+              for (var d in a.l) d != b && _yt_player.U(a.l[d].element, "ytp-ce-element-shadow-show", c)
           },
           L2 = function(a, b, c) {
               function d() {
                   f || (e++, e == b.length && (k.stop(), c && c()))
               }
-              if (!b || H2(ytPlayer.Y(a.g).playerStyle)) c && c();
+              if (!b || H2(_yt_player.Y(a.g).playerStyle)) c && c();
               else {
                   b = gwa(a, b);
                   var e = 0,
                       f = !1,
-                      k = new ytPlayer.Yt(function() {
+                      k = new _yt_player.Yt(function() {
                               f = !0;
                               c && c()
                           },
                           1E3, a);
                   k.start();
-                  for (a = 0; a < b.length; a++) ytPlayer.FE(b[a], d)
+                  for (a = 0; a < b.length; a++) _yt_player.FE(b[a], d)
               }
           },
           M2 = function(a, b, c) {
               L2(a, b.clickUrls, c);
-              (a = ytPlayer.MG()) && b.Oo && E2(a, b.visualElement)
+              (a = _yt_player.MG()) && b.Oo && E2(a, b.visualElement)
           },
           gwa = function(a, b) {
               var c = a.g.getVideoData().clientPlaybackNonce,
@@ -1118,11 +1099,11 @@ if (!self.__WB_pmw) {
               })
           },
           N2 = function(a) {
-              return ytPlayer.Aa(a) && a.length ? a[0] : a
+              return _yt_player.Aa(a) && a.length ? a[0] : a
           },
           O2 = function(a) {
               var b = /.+/;
-              return ytPlayer.u(a) && null != b && null != a && a.match(b) ? a : ""
+              return _yt_player.u(a) && null != b && null != a && a.match(b) ? a : ""
           },
           P2 = function(a, b) {
               if (null == a) return b;
@@ -1132,7 +1113,7 @@ if (!self.__WB_pmw) {
               return "#" + "000000".substring(0, 6 - c.length) + c
           },
           Q2 = function(a) {
-              return ytPlayer.u(a) ? a : ""
+              return _yt_player.u(a) ? a : ""
           },
           R2 = function(a, b, c) {
               for (var d in b)
@@ -1143,12 +1124,12 @@ if (!self.__WB_pmw) {
               return "true" == a || "false" == a ? "true" == a : b
           },
           T2 = function(a, b) {
-              return ytPlayer.u(a) ? (0, window.parseFloat)(a) : b
+              return _yt_player.u(a) ? (0, window.parseFloat)(a) : b
           },
           U2 = function(a, b, c, d, e) {
               a = (0, window.parseFloat)(a);
               if (null != a && !(0, window.isNaN)(a)) {
-                  if (d) return ytPlayer.dd(a, b, c);
+                  if (d) return _yt_player.dd(a, b, c);
                   if (a >= b && a <= c) return a
               }
               return e
@@ -1160,7 +1141,7 @@ if (!self.__WB_pmw) {
               if (3 < a.length) return 0;
               var b = 0,
                   c = 1;
-              (0, ytPlayer.B)(a, function(a) {
+              (0, _yt_player.B)(a, function(a) {
                   a = (0, window.parseFloat)(a);
                   0 > a && (c = -c);
                   b = 60 * b + Math.abs(a)
@@ -1169,9 +1150,9 @@ if (!self.__WB_pmw) {
           },
           V2 = function(a, b) {
               if (null == a) return null;
-              if (ytPlayer.Ba(a)) {
+              if (_yt_player.Ba(a)) {
                   var c = [];
-                  (0, ytPlayer.B)(a, function(a) {
+                  (0, _yt_player.B)(a, function(a) {
                       (a = b(a)) && c.push(a)
                   });
                   return c
@@ -1183,11 +1164,11 @@ if (!self.__WB_pmw) {
               function b(a) {
                   return null != a && !(0, window.isNaN)(a)
               }
-              return (a = a ? new ytPlayer.Zg((0, window.parseFloat)(a.top), (0, window.parseFloat)(a.right), (0, window.parseFloat)(a.bottom), (0, window.parseFloat)(a.left)) : null) && b(a.top) && b(a.right) && b(a.bottom) && b(a.left) ? a : null
+              return (a = a ? new _yt_player.Zg((0, window.parseFloat)(a.top), (0, window.parseFloat)(a.right), (0, window.parseFloat)(a.bottom), (0, window.parseFloat)(a.left)) : null) && b(a.top) && b(a.right) && b(a.bottom) && b(a.left) ? a : null
           },
           kwa = function(a) {
               function b(a) {
-                  return (0, ytPlayer.Ld)(a.split(/ +/), function(a) {
+                  return (0, _yt_player.Ld)(a.split(/ +/), function(a) {
                       return "" != a
                   })
               }
@@ -1201,8 +1182,8 @@ if (!self.__WB_pmw) {
           },
           W2 = function(a) {
               if (!a) return null;
-              var b = ytPlayer.Mc(Q2(a.value));
-              b = ytPlayer.Jc(b);
+              var b = _yt_player.Mc(Q2(a.value));
+              b = _yt_player.Jc(b);
               if (!b) return null;
               var c = R2(a.target, mwa, "current");
               return null == c ? null : new lwa(b, c, S2(a.show_link_icon, !0), null != a.pause_on_navigation ? a.pause_on_navigation : !0)
@@ -1262,10 +1243,10 @@ if (!self.__WB_pmw) {
               return b(c, d, e, f, k, l, m, n, r, p, v)
           },
           $2 = function(a, b) {
-              var c = uwa(b, vwa(a, new ytPlayer.bh(a.x, a.y, a.Qk, a.o), b.g)),
+              var c = uwa(b, vwa(a, new _yt_player.bh(a.x, a.y, a.Qk, a.o), b.g)),
                   d = b.g,
                   e = c.clone();
-              d && !d.contains(c) && (c.width < d.width ? e.left = ytPlayer.dd(c.left, d.left, d.left + d.width - c.width) : (e.left = d.left, e.width = d.width), c.height < d.height ? e.top = ytPlayer.dd(c.top, d.top, d.top + d.height - c.height) : (e.top = d.top, e.height = d.height));
+              d && !d.contains(c) && (c.width < d.width ? e.left = _yt_player.dd(c.left, d.left, d.left + d.width - c.width) : (e.left = d.left, e.width = d.width), c.height < d.height ? e.top = _yt_player.dd(c.top, d.top, d.top + d.height - c.height) : (e.top = d.top, e.height = d.height));
               return e
           },
           vwa = function(a, b, c) {
@@ -1276,7 +1257,7 @@ if (!self.__WB_pmw) {
               a = Y2(c, a.l, f);
               f = 640 * b.width * k / 100;
               var l = 360 * b.height * a / 100;
-              return new ytPlayer.bh(0 == d ? 640 * b.left * k / 100 : 0 < d ? d : c.width + d - f, 0 == e ? 360 * b.top * a / 100 : 0 < e ? e : c.height + e - l, f, l)
+              return new _yt_player.bh(0 == d ? 640 * b.left * k / 100 : 0 < d ? d : c.width + d - f, 0 == e ? 360 * b.top * a / 100 : 0 < e ? e : c.height + e - l, f, l)
           },
           wwa = function(a) {
               return a ? twa(a, function(a, c, d, e, f, k, l, m, n, p, r) {
@@ -1292,7 +1273,7 @@ if (!self.__WB_pmw) {
               var d = b.clone(),
                   e = c.left;
               c = c.top;
-              e instanceof ytPlayer.hd ? (d.left += e.x, d.top += e.y) : (d.left += e, ytPlayer.ua(c) && (d.top += c));
+              e instanceof _yt_player.hd ? (d.left += e.x, d.top += e.y) : (d.left += e, _yt_player.ua(c) && (d.top += c));
               return d
           },
           ywa = function(a, b, c, d, e, f, k, l, m, n, p, r, v) {
@@ -1409,8 +1390,8 @@ if (!self.__WB_pmw) {
               return b || c ? new Lwa(b, c, d, a) : null
           },
           Nwa = function(a, b, c) {
-              (0, ytPlayer.B)(a.g, ytPlayer.Ga(b, !1), c);
-              (0, ytPlayer.B)(a.o, ytPlayer.Ga(b, !0), c)
+              (0, _yt_player.B)(a.g, _yt_player.Ga(b, !1), c);
+              (0, _yt_player.B)(a.o, _yt_player.Ga(b, !0), c)
           },
           a3 = function(a, b, c, d, e, f, k, l, m, n, p, r, v, D) {
               this.id = a;
@@ -1457,19 +1438,19 @@ if (!self.__WB_pmw) {
               })
           },
           c3 = function(a, b) {
-              return (0, ytPlayer.Bj)(a.o, b, void 0)
+              return (0, _yt_player.Bj)(a.o, b, void 0)
           },
           Rwa = function(a, b, c) {
-              (0, ytPlayer.B)(a.o, b, c)
+              (0, _yt_player.B)(a.o, b, c)
           },
           Swa = function(a, b) {
-              return ytPlayer.Ma(a.o, b, void 0)
+              return _yt_player.Ma(a.o, b, void 0)
           },
           Twa = function(a, b, c) {
-              (0, ytPlayer.B)(a.D, b, c)
+              (0, _yt_player.B)(a.D, b, c)
           },
           Uwa = function(a, b) {
-              (0, ytPlayer.G)(a.D, b, void 0)
+              (0, _yt_player.G)(a.D, b, void 0)
           },
           e3 = function(a) {
               return (a = Vwa(a)) ? Gwa(a) : null
@@ -1489,7 +1470,7 @@ if (!self.__WB_pmw) {
               this.l = c;
               Nwa(b, function(a, b) {
                       var c = Xwa(b.state, b.ref);
-                      this.l.subscribe(c, (0, ytPlayer.z)(this.A, this, c, a));
+                      this.l.subscribe(c, (0, _yt_player.z)(this.A, this, c, a));
                       this.g[c] = a
                   },
                   this)
@@ -1503,19 +1484,19 @@ if (!self.__WB_pmw) {
               this.B = this.l = null
           },
           g3 = function(a, b, c) {
-              a.l ? (a.l.setSize(b, c), a.l.clear()) : (b = new A2(b, c, void 0, void 0, void 0), a.l = b, a.l.zo(), a.B = ytPlayer.K("DIV"), b = a.l.la(), a.B.appendChild(b));
+              a.l ? (a.l.setSize(b, c), a.l.clear()) : (b = new A2(b, c, void 0, void 0, void 0), a.l = b, a.l.zo(), a.B = _yt_player.K("DIV"), b = a.l.la(), a.B.appendChild(b));
               return a.l
           },
           h3 = function(a, b, c) {
               var d = window.document.createElementNS("http://www.w3.org/2000/svg", a);
-              b && ytPlayer.Lb(b, function(a, b) {
+              b && _yt_player.Lb(b, function(a, b) {
                   d.setAttribute(b, a)
               });
               for (var e = 2; e < arguments.length; e++) d.appendChild(arguments[e]);
               return d
           },
           i3 = function(a, b) {
-              var c = ":" + (ytPlayer.Su.getInstance().g++).toString(36);
+              var c = ":" + (_yt_player.Su.getInstance().g++).toString(36);
               b.setAttribute("result", c);
               a.appendChild(b);
               return c
@@ -1593,7 +1574,7 @@ if (!self.__WB_pmw) {
                       filterUnits: "userSpaceOnUse"
                   }),
                   c = "SourceGraphic";
-              (0, ytPlayer.B)(a, function(a) {
+              (0, _yt_player.B)(a, function(a) {
                   a: {
                       switch (a) {
                           case "bevel":
@@ -1610,18 +1591,18 @@ if (!self.__WB_pmw) {
               return b
           },
           cxa = function(a) {
-              a = (0, ytPlayer.Ld)(a, function(a) {
+              a = (0, _yt_player.Ld)(a, function(a) {
                   return a in j3
               });
-              ytPlayer.ib(a, function(a, c) {
+              _yt_player.ib(a, function(a, c) {
                   return j3[a] - j3[c]
               });
               return a
           },
           dxa = function(a) {
-              return ytPlayer.Ma(a, function(a) {
+              return _yt_player.Ma(a, function(a) {
                   return "dropshadow" == a
-              }) ? new ytPlayer.Zg(0, 7, 7, 0) : new ytPlayer.Zg(0, 0, 0, 0)
+              }) ? new _yt_player.Zg(0, 7, 7, 0) : new _yt_player.Zg(0, 0, 0, 0)
           },
           exa = function(a, b, c) {
               var d = new v2;
@@ -1643,12 +1624,12 @@ if (!self.__WB_pmw) {
               return a
           },
           k3 = function(a, b) {
-              var c = ytPlayer.ch(a);
+              var c = _yt_player.ch(a);
               c.expand(dxa(b));
               return wva(c)
           },
           gxa = function(a, b, c) {
-              if (c.length && (b = ytPlayer.qd(window.document, "g", void 0, b), b.length)) {
+              if (c.length && (b = _yt_player.qd(window.document, "g", void 0, b), b.length)) {
                   var d = cxa(c);
                   if (d) {
                       c = "effects:" + (d ? d.join("|") : "");
@@ -1691,27 +1672,27 @@ if (!self.__WB_pmw) {
               l3.apply(this, arguments)
           },
           p3 = function(a, b, c, d, e) {
-              ytPlayer.M.call(this);
+              _yt_player.M.call(this);
               this.g = a;
               this.X = b;
               this.C = c;
               this.ea = d;
               this.ca = e;
               this.H = !1;
-              this.W = new ytPlayer.CF(this);
-              ytPlayer.N(this, this.W);
+              this.W = new _yt_player.CF(this);
+              _yt_player.N(this, this.W);
               this.M = this.B = this.D = this.K = this.l = null;
               this.Z = !1;
               this.Y = this.I = this.J = null;
-              this.wp = new ytPlayer.Uk(this.JO, 100, this);
-              ytPlayer.N(this, this.wp);
-              this.F = new ytPlayer.Yt(this.Kz, 500, this);
-              ytPlayer.N(this, this.F);
+              this.wp = new _yt_player.Uk(this.JO, 100, this);
+              _yt_player.N(this, this.wp);
+              this.F = new _yt_player.Yt(this.Kz, 500, this);
+              _yt_player.N(this, this.F);
               this.T = this.o = this.A = null
           },
           ixa = function(a, b) {
-              var c = (0, ytPlayer.z)(function(a, c, f) {
-                      c = f ? q3(this, c, (0, ytPlayer.z)(f, this)) : q3(this, c);
+              var c = (0, _yt_player.z)(function(a, c, f) {
+                      c = f ? q3(this, c, (0, _yt_player.z)(f, this)) : q3(this, c);
                       this.W.U(b, a, c)
                   },
                   a);
@@ -1725,7 +1706,7 @@ if (!self.__WB_pmw) {
                   if (c3(a.g, function(a) {
                           return "close" == a.type
                       })) var b = a.l;
-                  else a.A = ytPlayer.K("DIV", "annotation-close-button"), ytPlayer.O(a.A, !1), ytPlayer.aF(a.A, "annotation_id", a.g.id), a.l.appendChild(a.A), b = a.A;
+                  else a.A = _yt_player.K("DIV", "annotation-close-button"), _yt_player.O(a.A, !1), _yt_player.aF(a.A, "annotation_id", a.g.id), a.l.appendChild(a.A), b = a.A;
                   var c = function(a) {
                       a.stopPropagation()
                   };
@@ -1734,25 +1715,25 @@ if (!self.__WB_pmw) {
               }
           },
           q3 = function(a, b, c) {
-              return (0, ytPlayer.z)(function(a) {
+              return (0, _yt_player.z)(function(a) {
                       if (this.ca) c && c(a);
                       else if (a.event.target instanceof window.Element) {
                           var d = a.event.target;
-                          ytPlayer.O(d, !1);
+                          _yt_player.O(d, !1);
                           try {
                               var f = window.document.elementFromPoint(a.event.clientX, a.event.clientY);
-                              if (ytPlayer.$d(f, "annotation")) {
+                              if (_yt_player.$d(f, "annotation")) {
                                   var k = window.document.createEvent("MouseEvent");
                                   k.initMouseEvent(a.event.type, a.event.bubbles, a.event.cancelable, a.event.view, a.event.detail, a.event.screenX, a.event.screenY, a.event.clientX, a.event.clientY, a.event.ctrlKey, a.event.altKey, a.event.shiftKey, a.event.metaKey, a.event.button, a.event.relatedTarget);
                                   f.dispatchEvent(k)
                               }
                           } finally {
-                              ytPlayer.O(d,
+                              _yt_player.O(d,
                                   !0)
                           }
                       }
-                      d = ytPlayer.Lh(a.target);
-                      a = new ytPlayer.hd(a.clientX, a.clientY);
+                      d = _yt_player.Lh(a.target);
+                      a = new _yt_player.hd(a.clientX, a.clientY);
                       "D" == b && d.contains(a) || this.ea.R(b, this.g)
                   },
                   a)
@@ -1764,15 +1745,15 @@ if (!self.__WB_pmw) {
                       var c = r3(a);
                       if (a.l) {
                           b = $2(b, c);
-                          var d = ytPlayer.W_(ytPlayer.VU(a.C));
-                          ytPlayer.Jh(a.l, b.width, b.height);
-                          ytPlayer.wh(a.l, b.left, b.top);
-                          a.K = new ytPlayer.bh(d.left + b.left, d.top + b.top, b.width, b.height);
+                          var d = _yt_player.W_(_yt_player.VU(a.C));
+                          _yt_player.Jh(a.l, b.width, b.height);
+                          _yt_player.wh(a.l, b.left, b.top);
+                          a.K = new _yt_player.bh(d.left + b.left, d.top + b.top, b.width, b.height);
                           var e = (e = e3(a.g)) && d ? rwa(d, e.A, e.g ? e.g : "xy") : 1;
                           var f = Wwa(a.g, d);
                           d = a.g.l;
-                          d.padding ? d = d.padding : (d = "speech" == a.g.style ? 1.6 : .8, d = new ytPlayer.Zg(d, d, d, d));
-                          d = new ytPlayer.Zg(360 * d.top * f / 100, 640 * d.right * e / 100, 360 * d.bottom * f / 100, 640 * d.left * e / 100);
+                          d.padding ? d = d.padding : (d = "speech" == a.g.style ? 1.6 : .8, d = new _yt_player.Zg(d, d, d, d));
+                          d = new _yt_player.Zg(360 * d.top * f / 100, 640 * d.right * e / 100, 360 * d.bottom * f / 100, 640 * d.left * e / 100);
                           a.B && (d.right += 1.5 * c.g.height / 100);
                           a.l.style.padding = d.top + "px " + d.right + "px " + d.bottom + "px " + d.left + "px";
                           "label" ==
@@ -1781,9 +1762,9 @@ if (!self.__WB_pmw) {
                           var k = !1,
                               l = 0,
                               m = 0;
-                          var n = ytPlayer.W_(ytPlayer.VU(a.C));
-                          var p = ytPlayer.eV(a.C);
-                          ytPlayer.dh(n, p) ? n = null : (p.top += 20, p.height -= 40, "player_relative" != a.g.C && (p.left -= n.left, p.top -= n.top), n = p);
+                          var n = _yt_player.W_(_yt_player.VU(a.C));
+                          var p = _yt_player.eV(a.C);
+                          _yt_player.dh(n, p) ? n = null : (p.top += 20, p.height -= 40, "player_relative" != a.g.C && (p.left -= n.left, p.top -= n.top), n = p);
                           n && (l = n.top - (b.top + b.height), m = b.top - (n.top + n.height), k = 0 < l || 0 < m);
                           if (k && n) {
                               d = l;
@@ -1795,34 +1776,34 @@ if (!self.__WB_pmw) {
                                       0 < r && (b.left + f.left - r > n.left && (f.left -= r), f.width += r)
                                   }
                                   r = f;
-                                  ytPlayer.Jh(a.B, f.width, f.height);
-                                  ytPlayer.wh(a.B, f.left, f.top)
+                                  _yt_player.Jh(a.B, f.width, f.height);
+                                  _yt_player.wh(a.B, f.left, f.top)
                               }
-                              a.A && (r ? b = new ytPlayer.hd(r.left + r.width - 23 - 18, a.Z ?
-                                  r.top + 2 : r.top + r.height - 18 - 2) : (r = kxa(a, 18, b, d, e), b = new ytPlayer.hd(r.left, r.top), ytPlayer.Jh(a.A, r.width, r.height)), ytPlayer.wh(a.A, b));
-                              a.M = new ytPlayer.bh(a.K.left + r.left, a.K.top + r.top, r.width, r.height);
-                              a.J = a.W.U(ytPlayer.VU(a.C), "mousemove", a.KO, a)
-                          } else a.B && (r = e / f * d.height * 4.2 / 100, r = new ytPlayer.I(r, r), "highlight" == a.g.type || "label" == a.g.style ? (e = 1.5 * d.height / 100, r = new ytPlayer.bh(b.width - r.width - e, b.height - r.height - e, r.width, r.height)) : r = new ytPlayer.bh(b.width - r.width - 3 * d.height / 100, (b.height - r.height) / 2, r.width, r.height), ytPlayer.Jh(a.B, r.width, r.height),
-                              ytPlayer.wh(a.B, r.left, r.top)), a.A && (r = 9 <= d.left + d.width - (b.left + b.width), e = 9 <= b.top - d.top, ytPlayer.wh(a.A, r && e ? new ytPlayer.hd(b.width - 9, -9) : r ? new ytPlayer.hd(b.width - 9, 45 < b.height ? 9 : b.height - 9) : e ? new ytPlayer.hd(45 < b.width ? b.width - 9 - 18 : -9, -9) : b.width / d.width > b.height / d.height ? new ytPlayer.hd(45 < b.width ? b.width - 9 - 18 : -9, b.height - 9) : new ytPlayer.hd(-9, 45 < b.height ? 9 : b.height - 9)))
+                              a.A && (r ? b = new _yt_player.hd(r.left + r.width - 23 - 18, a.Z ?
+                                  r.top + 2 : r.top + r.height - 18 - 2) : (r = kxa(a, 18, b, d, e), b = new _yt_player.hd(r.left, r.top), _yt_player.Jh(a.A, r.width, r.height)), _yt_player.wh(a.A, b));
+                              a.M = new _yt_player.bh(a.K.left + r.left, a.K.top + r.top, r.width, r.height);
+                              a.J = a.W.U(_yt_player.VU(a.C), "mousemove", a.KO, a)
+                          } else a.B && (r = e / f * d.height * 4.2 / 100, r = new _yt_player.I(r, r), "highlight" == a.g.type || "label" == a.g.style ? (e = 1.5 * d.height / 100, r = new _yt_player.bh(b.width - r.width - e, b.height - r.height - e, r.width, r.height)) : r = new _yt_player.bh(b.width - r.width - 3 * d.height / 100, (b.height - r.height) / 2, r.width, r.height), _yt_player.Jh(a.B, r.width, r.height),
+                              _yt_player.wh(a.B, r.left, r.top)), a.A && (r = 9 <= d.left + d.width - (b.left + b.width), e = 9 <= b.top - d.top, _yt_player.wh(a.A, r && e ? new _yt_player.hd(b.width - 9, -9) : r ? new _yt_player.hd(b.width - 9, 45 < b.height ? 9 : b.height - 9) : e ? new _yt_player.hd(45 < b.width ? b.width - 9 - 18 : -9, -9) : b.width / d.width > b.height / d.height ? new _yt_player.hd(45 < b.width ? b.width - 9 - 18 : -9, b.height - 9) : new _yt_player.hd(-9, 45 < b.height ? 9 : b.height - 9)))
                       }
                       a.o && a.o.o(a.g, c);
                       if (a.l) {
                           c = a.l;
                           b = a.g.l;
                           c.style.color = "highlightText" == a.g.style ? b.C : b.l;
-                          r = ytPlayer.W_(ytPlayer.VU(a.C));
+                          r = _yt_player.W_(_yt_player.VU(a.C));
                           c.style.fontSize = 360 * b.textSize * Wwa(a.g, r) / 100 + "px";
                           r = a.g.style;
                           c.style.textAlign = b.textAlign ? b.textAlign : "title" == r || "highlightText" == r ? "center" : "left";
                           b.A && (c.style.fontWeight = b.A);
                           a = a.l;
                           c = a.style.overflow;
-                          r = (b = ytPlayer.J("annotation-link-icon", a)) ? ytPlayer.Nh(b) : !1;
-                          e = (d = ytPlayer.J("annotation-close-button", a)) ? ytPlayer.Nh(d) : !1;
-                          r && ytPlayer.O(b, !1);
-                          e && ytPlayer.O(d, !1);
+                          r = (b = _yt_player.J("annotation-link-icon", a)) ? _yt_player.Nh(b) : !1;
+                          e = (d = _yt_player.J("annotation-close-button", a)) ? _yt_player.Nh(d) : !1;
+                          r && _yt_player.O(b, !1);
+                          e && _yt_player.O(d, !1);
                           m = f = "";
-                          if (n = ytPlayer.J("inner-text", a)) f = n.style.overflow, m = n.style.position, n.style.overflow = "visible", n.style.position = "static";
+                          if (n = _yt_player.J("inner-text", a)) f = n.style.overflow, m = n.style.position, n.style.overflow = "visible", n.style.position = "static";
                           a.style.overflow = "scroll";
                           if (a.scrollHeight > a.offsetHeight || a.scrollWidth > a.offsetWidth) {
                               l = k = Ava(a);
@@ -1833,35 +1814,35 @@ if (!self.__WB_pmw) {
                           }
                           a.style.overflow = c;
                           n && (n.style.overflow = f, n.style.position = m);
-                          e && ytPlayer.O(d, !0);
-                          r && ytPlayer.O(b, !0)
+                          e && _yt_player.O(d, !0);
+                          r && _yt_player.O(b, !0)
                       }
                   }
               }
           },
           kxa = function(a, b, c, d, e) {
               var f = 0 < e;
-              b = new ytPlayer.bh(0, c.height - b, Math.max(c.width, b), b);
-              0 < d && (b.top = c.height, 20 < d && (b.height += d - 20), ytPlayer.S(a.l, "annotation-extend-down"));
-              f && (b.top = -b.height, 20 < e && (c = e - 20, b.top -= c, b.height += c), ytPlayer.S(a.l, "annotation-extend-up"), a.Z = !0);
+              b = new _yt_player.bh(0, c.height - b, Math.max(c.width, b), b);
+              0 < d && (b.top = c.height, 20 < d && (b.height += d - 20), _yt_player.S(a.l, "annotation-extend-down"));
+              f && (b.top = -b.height, 20 < e && (c = e - 20, b.top -= c, b.height += c), _yt_player.S(a.l, "annotation-extend-up"), a.Z = !0);
               return b
           },
           t3 = function(a) {
               return "label" != a.g.style || a.o.g
           },
           r3 = function(a) {
-              var b = ytPlayer.W_(ytPlayer.VU(a.C));
+              var b = _yt_player.W_(_yt_player.VU(a.C));
               if ("player_relative" == a.g.C) {
-                  var c = ytPlayer.VU(a.C).Oa();
-                  b = new ytPlayer.bh(-b.left, -b.top, c.width, c.height)
-              } else b = new ytPlayer.bh(0, 0, b.width, b.height);
+                  var c = _yt_player.VU(a.C).Oa();
+                  b = new _yt_player.bh(-b.left, -b.top, c.width, c.height)
+              } else b = new _yt_player.bh(0, 0, b.width, b.height);
               return new xwa(b, a.T ? e3(a.T) : null)
           },
           lxa = function(a, b) {
-              return b ? new ytPlayer.bh(a.x + b.left, a.y + b.top, b.width, b.height) : null
+              return b ? new _yt_player.bh(a.x + b.left, a.y + b.top, b.width, b.height) : null
           },
           u3 = function(a, b, c) {
-              ytPlayer.M.call(this);
+              _yt_player.M.call(this);
               this.l = a;
               this.annotation = b;
               this.view = c;
@@ -1953,8 +1934,8 @@ if (!self.__WB_pmw) {
               for (b = 0; b < a.length; b++) this.offers.push(new sxa(a[b]))
           },
           sxa = function(a) {
-              this.merchant = ytPlayer.E(a.merchant);
-              this.price = ytPlayer.E(a.price)
+              this.merchant = _yt_player.E(a.merchant);
+              this.price = _yt_player.E(a.price)
           },
           uxa = function(a, b, c) {
               w3.call(this, a, b, c);
@@ -1997,7 +1978,7 @@ if (!self.__WB_pmw) {
           xxa = function(a) {
               var b = {};
               b = (b["iv-event"] = 1, b);
-              ytPlayer.bV(a.g, "iv", b, void 0)
+              _yt_player.bV(a.g, "iv", b, void 0)
           },
           B3 = function(a, b, c, d) {
               if (b) {
@@ -2013,7 +1994,7 @@ if (!self.__WB_pmw) {
                   var k = y3(a, b);
                   k["iv-event"] = 3;
                   k["i-time"] = a.l[b] || "";
-                  d && ytPlayer.fc(k, d);
+                  d && _yt_player.fc(k, d);
                   b = z3(a, "cta_annotation_clicked", k, e);
                   A3(a, k, b, c, f)
               }
@@ -2028,25 +2009,25 @@ if (!self.__WB_pmw) {
               }
           },
           yxa = function(a, b) {
-              return b ? (0, ytPlayer.G)(a, ytPlayer.Ga(function(a, b) {
-                      return ytPlayer.Um(b, a)
+              return b ? (0, _yt_player.G)(a, _yt_player.Ga(function(a, b) {
+                      return _yt_player.Um(b, a)
                   },
                   b)) : a
           },
           z3 = function(a, b, c, d) {
-              d = d ? ytPlayer.Ya(d) : [];
+              d = d ? _yt_player.Ya(d) : [];
               if (30 == c["a-type"]) {
                   a: {
                       c = c["a-id"];
                       a = a.g.getVideoData();
                       if (a.Ax) {
-                          if ((b = a.Ax[b]) && ytPlayer.hH(b)) {
-                              a = ytPlayer.pb("[ANNOTATION_ID]");
+                          if ((b = a.Ax[b]) && _yt_player.hH(b)) {
+                              a = _yt_player.pb("[ANNOTATION_ID]");
                               0 <= b.indexOf("[ANNOTATION_ID]") ? b = b.replace("[ANNOTATION_ID]", c) : 0 <= b.indexOf(a) && (b = b.replace(a, c));
                               break a
                           }
                       } else if (a.Lp) {
-                          b = ytPlayer.fE(a.Lp, {
+                          b = _yt_player.fE(a.Lp, {
                               label: b,
                               value: "a_id=" + c
                           });
@@ -2072,23 +2053,23 @@ if (!self.__WB_pmw) {
                           d()
                       },
                       1E3)
-              }(0, ytPlayer.B)(c || [], function(a) {
+              }(0, _yt_player.B)(c || [], function(a) {
                   f++;
-                  ytPlayer.FE(a, m)
+                  _yt_player.FE(a, m)
               });
               e && (f++, 0 != e && a.g.Ni(e, m));
-              ytPlayer.bV(a.g, "iv", b, m)
+              _yt_player.bV(a.g, "iv", b, m)
           },
           y3 = function(a, b) {
               var c = {};
               if (b) {
-                  var d = new ytPlayer.Cm(b);
-                  (0, ytPlayer.B)(d.Bb(), function(a) {
+                  var d = new _yt_player.Cm(b);
+                  (0, _yt_player.B)(d.Bb(), function(a) {
                       c[a] = (0, window.escape)(d.get(a, ""))
                   })
               }
               c["p-time"] = a.g.getCurrentTime().toFixed(2);
-              c.ps = ytPlayer.Y(a.g).playerStyle;
+              c.ps = _yt_player.Y(a.g).playerStyle;
               return c
           },
           E3 = function(a, b, c, d, e) {
@@ -2115,11 +2096,11 @@ if (!self.__WB_pmw) {
               this.g = a;
               this.A = b;
               this.B = c;
-              this.l = new ytPlayer.cp(null)
+              this.l = new _yt_player.cp(null)
           },
           Bxa = function(a, b) {
               var c = [];
-              (0, ytPlayer.B)(b.choices, function(a) {
+              (0, _yt_player.B)(b.choices, function(a) {
                       c.push({
                           G: "li",
                           L: b.B + "-" + a.index.toString(),
@@ -2168,7 +2149,7 @@ if (!self.__WB_pmw) {
                       N: c
                   },
                   e = {};
-              b.A && (e["aria-label"] = ytPlayer.O0("$POLL_TITLE - Sign in to vote.", {
+              b.A && (e["aria-label"] = _yt_player.O0("$POLL_TITLE - Sign in to vote.", {
                   POLL_TITLE: b.title
               }));
               var f = ["iv-card", "iv-card-poll"];
@@ -2204,20 +2185,20 @@ if (!self.__WB_pmw) {
                       }
                   ]
               }));
-              f = new ytPlayer.W({
+              f = new _yt_player.W({
                   G: "div",
                   da: f,
                   N: d
               });
               d = f.element;
               Axa(b, d);
-              pva(a.g.g, d, ytPlayer.Ga(a.D, b), a);
-              (0, ytPlayer.B)(ytPlayer.rd("iv-card-poll-choice-input", d), function(a) {
-                      this.g.g.U(a, "focus", ytPlayer.Ga(this.o, !0));
-                      this.g.g.U(a, "blur", ytPlayer.Ga(this.o, !1))
+              pva(a.g.g, d, _yt_player.Ga(a.D, b), a);
+              (0, _yt_player.B)(_yt_player.rd("iv-card-poll-choice-input", d), function(a) {
+                      this.g.g.U(a, "focus", _yt_player.Ga(this.o, !0));
+                      this.g.g.U(a, "blur", _yt_player.Ga(this.o, !1))
                   },
                   a);
-              b.A && (d = ytPlayer.J("iv-card-sign-in-button", d), a.A(d, b.A, b.id, b.Rd, b.o, b.l.click, 5));
+              b.A && (d = _yt_player.J("iv-card-sign-in-button", d), a.A(d, b.A, b.id, b.Rd, b.o, b.l.click, 5));
               return f
           },
           L3 = function(a, b, c, d) {
@@ -2258,7 +2239,7 @@ if (!self.__WB_pmw) {
                       }
                   ]
               });
-              k = new ytPlayer.W({
+              k = new _yt_player.W({
                   G: "div",
                   da: k,
                   N: e
@@ -2304,7 +2285,7 @@ if (!self.__WB_pmw) {
                       }]
                   }]
               };
-              c = new ytPlayer.W(c);
+              c = new _yt_player.W(c);
               K3(a, c, b);
               return c
           },
@@ -2328,7 +2309,7 @@ if (!self.__WB_pmw) {
           M3 = function(a, b) {
               if (!b.metaInfo || 0 == b.metaInfo.length) return "";
               var c = [];
-              (0, ytPlayer.B)(b.metaInfo, function(a) {
+              (0, _yt_player.B)(b.metaInfo, function(a) {
                       c.push(H3(this, "li", "", a))
                   },
                   a);
@@ -2339,12 +2320,12 @@ if (!self.__WB_pmw) {
               }
           },
           H3 = function(a, b, c, d) {
-              c ? ytPlayer.u(c) ? c = {
+              c ? _yt_player.u(c) ? c = {
                   "class": c
-              } : ytPlayer.Aa(c) && (c = {
+              } : _yt_player.Aa(c) && (c = {
                   "class": c.join(" ")
               }) : c = {};
-              c.dir = ytPlayer.dp(a.l, d);
+              c.dir = _yt_player.dp(a.l, d);
               return {
                   G: b,
                   P: c,
@@ -2356,7 +2337,7 @@ if (!self.__WB_pmw) {
               var c = ["iv-card-action", "iv-card-primary-link"],
                   d = {};
               b.A && (c.push("iv-card-action-icon"), d.style = "background-image: url(" + b.A + ");");
-              d.dir = ytPlayer.dp(a.l, b.customMessage);
+              d.dir = _yt_player.dp(a.l, b.customMessage);
               var e = [{
                   G: "span",
                   aa: b.customMessage
@@ -2374,40 +2355,40 @@ if (!self.__WB_pmw) {
           },
           Axa = function(a, b) {
               var c = 0;
-              (0, ytPlayer.B)(a.choices, function(a) {
+              (0, _yt_player.B)(a.choices, function(a) {
                   c += a.count
               });
               c = c || 1;
               for (var d = 0; d < a.choices.length; d++) {
                   var e = a.choices[d],
-                      f = ytPlayer.J(a.B + "-" + e.index.toString(), b);
+                      f = _yt_player.J(a.B + "-" + e.index.toString(), b);
                   e = e.count / c;
                   null == a.g && (e = 0);
-                  ytPlayer.U(f.getElementsByTagName("label")[0], "iv-card-poll-choice-checked", a.g == d);
+                  _yt_player.U(f.getElementsByTagName("label")[0], "iv-card-poll-choice-checked", a.g == d);
                   f.getElementsByTagName("input")[0].checked = a.g == d;
                   var k = Math.floor(100 * e).toFixed(0),
-                      l = ytPlayer.J("iv-card-poll-choice-percent", f);
-                  ytPlayer.Sd(l, ytPlayer.O0("$PERCENT%", {
+                      l = _yt_player.J("iv-card-poll-choice-percent", f);
+                  _yt_player.Sd(l, _yt_player.O0("$PERCENT%", {
                       PERCENT: k
                   }));
-                  f = ytPlayer.J("iv-card-poll-result-bar", f);
-                  ytPlayer.ph(f, "transform", "scaleX(" + e.toFixed(2) + ")")
+                  f = _yt_player.J("iv-card-poll-result-bar", f);
+                  _yt_player.ph(f, "transform", "scaleX(" + e.toFixed(2) + ")")
               }
-              ytPlayer.U(b, "iv-card-poll-voted", null != a.g);
-              ytPlayer.U(b, "iv-card-poll-expanded",
+              _yt_player.U(b, "iv-card-poll-voted", null != a.g);
+              _yt_player.U(b, "iv-card-poll-expanded",
                   null != a.g && 1 < a.choices.length)
           },
           Exa = function(a, b, c, d) {
-              d ? (c && a.g.videoData.za || a.g.l.hd(), a.g.l.isFullscreen() && ytPlayer.YU(a.g.l), C3(a.g.logger, b.o, d, void 0, b.l.click, 5)) : b.url && a.B(b.url, b.id, b.Rd, b.o, b.l.click || [], 5)
+              d ? (c && a.g.videoData.za || a.g.l.hd(), a.g.l.isFullscreen() && _yt_player.YU(a.g.l), C3(a.g.logger, b.o, d, void 0, b.l.click, 5)) : b.url && a.B(b.url, b.id, b.Rd, b.o, b.l.click || [], 5)
           },
           K3 = function(a, b, c, d, e) {
-              c.g && Fxa(a, ytPlayer.rd("iv-card-sign-in-button", b.element), c, c.g, e);
-              c.url && Fxa(a, ytPlayer.rd("iv-click-target", b.element), c, c.url, d)
+              c.g && Fxa(a, _yt_player.rd("iv-card-sign-in-button", b.element), c, c.g, e);
+              c.url && Fxa(a, _yt_player.rd("iv-click-target", b.element), c, c.url, d)
           },
           Fxa = function(a, b, c, d, e) {
-              (0, ytPlayer.B)(b, function(a) {
+              (0, _yt_player.B)(b, function(a) {
                       if (e) {
-                          var b = (0, ytPlayer.z)(function(a) {
+                          var b = (0, _yt_player.z)(function(a) {
                                   a.stopPropagation();
                                   a.preventDefault();
                                   e();
@@ -2441,18 +2422,18 @@ if (!self.__WB_pmw) {
               if (!a) return null;
               a = a.replace(/https?:\/\//g, "");
               var b;
-              (b = !O3(a)) || (b = ytPlayer.Gg(ytPlayer.Fg(a)[5] || null) || "", b = b.split("/"), b = "/" + (1 < b.length ? b[1] : ""), b = "/watch" != b);
+              (b = !O3(a)) || (b = _yt_player.Gg(_yt_player.Fg(a)[5] || null) || "", b = b.split("/"), b = "/" + (1 < b.length ? b[1] : ""), b = "/watch" != b);
               if (b) return null;
-              b = ytPlayer.dE(a);
+              b = _yt_player.dE(a);
               if (!b || !b.v) return null;
               if (b = b.t) return Gxa(b);
               a = a.split("#", 2);
-              return !a || 2 > a.length ? null : (a = ytPlayer.bE(a[1])) && a.t ? Gxa(a.t) : -1
+              return !a || 2 > a.length ? null : (a = _yt_player.bE(a[1])) && a.t ? Gxa(a.t) : -1
           },
           Jxa = function(a) {
               a = X2(a);
               a = a.replace(/https?:\/\//g, "");
-              return O3(a) ? (a = ytPlayer.dE(a)) && a.v ? a.v : null : null
+              return O3(a) ? (a = _yt_player.dE(a)) && a.v ? a.v : null : null
           },
           Kxa = function(a, b, c) {
               c = c.replace(/\/(u|b)\/[0-9]+/g, "");
@@ -2465,39 +2446,39 @@ if (!self.__WB_pmw) {
               return b ? b : O3(a) ? "current" : "new"
           },
           Q3 = function(a, b) {
-              ytPlayer.M.call(this);
+              _yt_player.M.call(this);
               this.Ga = a;
               this.context = b;
               this.Yv = !1;
               this.Y = 0
           },
           R3 = function(a, b, c, d, e, f) {
-              b = new ytPlayer.eQ(b, c, {
+              b = new _yt_player.eQ(b, c, {
                   id: d
               });
-              ytPlayer.N(a, b);
+              _yt_player.N(a, b);
               b.namespace = "annotations_module";
               e && qva(b).subscribe("onEnter", e, a);
               f && qva(b).subscribe("onExit", f, a);
-              ytPlayer.hV(a.context.l, [b])
+              _yt_player.hV(a.context.l, [b])
           },
           Lxa = function(a) {
-              return (0, ytPlayer.F)() - a.Y
+              return (0, _yt_player.F)() - a.Y
           },
           Mxa = function(a, b, c, d, e, f) {
               var k = X2(b);
               if (k) {
                   var l = P3(k, b.target),
-                      m = (0, ytPlayer.z)(function() {
+                      m = (0, _yt_player.z)(function() {
                               b.g && this.context.l.hd();
-                              ytPlayer.vV(k || "", "current" == l ? "_top" : void 0, c)
+                              _yt_player.vV(k || "", "current" == l ? "_top" : void 0, c)
                           },
                           a);
                   "new" == l && (m(), m = null);
                   var n = {};
                   n.interval = Lxa(a);
                   C3(a.context.logger, d, m, n, e, f);
-                  O3(k) || (a = ytPlayer.MG(), d = c.itct, a && d && E2(a, l2(d)))
+                  O3(k) || (a = _yt_player.MG(), d = c.itct, a && d && E2(a, l2(d)))
               }
           },
           U3 = function(a, b, c) {
@@ -2507,12 +2488,12 @@ if (!self.__WB_pmw) {
               this.M = null;
               this.T = this.ya = this.B = this.sa = !1;
               this.X = null;
-              this.J = new ytPlayer.Yt(ytPlayer.y, c.B.useTabletControls ? 4E3 : 3E3);
-              ytPlayer.N(this, this.J);
-              this.na = new ytPlayer.Yt(ytPlayer.y);
-              ytPlayer.N(this, this.na);
-              this.C = new G3(c, (0, ytPlayer.z)(this.Zi, this), (0, ytPlayer.z)(this.Uo, this));
-              this.H = new ytPlayer.W({
+              this.J = new _yt_player.Yt(_yt_player.y, c.B.useTabletControls ? 4E3 : 3E3);
+              _yt_player.N(this, this.J);
+              this.na = new _yt_player.Yt(_yt_player.y);
+              _yt_player.N(this, this.na);
+              this.C = new G3(c, (0, _yt_player.z)(this.Zi, this), (0, _yt_player.z)(this.Uo, this));
+              this.H = new _yt_player.W({
                   G: "div",
                   L: "iv-drawer",
                   P: {
@@ -2544,12 +2525,12 @@ if (!self.__WB_pmw) {
                       }
                   ]
               });
-              ytPlayer.N(this, this.H);
+              _yt_player.N(this, this.H);
               this.D = this.H.element;
-              this.ca = new ytPlayer.MV(this.H, 330);
-              ytPlayer.N(this, this.ca);
-              this.Da = ytPlayer.J("iv-drawer-header-text", this.D);
-              this.A = ytPlayer.J("iv-drawer-content", this.D);
+              this.ca = new _yt_player.MV(this.H, 330);
+              _yt_player.N(this, this.ca);
+              this.Da = _yt_player.J("iv-drawer-header-text", this.D);
+              this.A = _yt_player.J("iv-drawer-content", this.D);
               this.o = [];
               this.ra = this.K = this.F = this.Z = this.l = null;
               this.ha = [];
@@ -2566,11 +2547,11 @@ if (!self.__WB_pmw) {
               if (c && Nxa[c]) {
                   c = new Nxa[c](b.id, b.data, b.g);
                   if (!a.sa) {
-                      ytPlayer.lq(a.la(), ["html5-stop-propagation", "iv-drawer-manager"]);
-                      ytPlayer.mV(a.g, a.D, 5);
+                      _yt_player.lq(a.la(), ["html5-stop-propagation", "iv-drawer-manager"]);
+                      _yt_player.mV(a.g, a.D, 5);
                       Oxa(a);
-                      a.K = ytPlayer.J("ytp-cards-button", a.g.getRootNode());
-                      var d = ytPlayer.J("iv-drawer-close-button", a.D);
+                      a.K = _yt_player.J("ytp-cards-button", a.g.getRootNode());
+                      var d = _yt_player.J("iv-drawer-close-button", a.D);
                       a.ra = d;
                       a.sa = !0
                   }
@@ -2583,11 +2564,11 @@ if (!self.__WB_pmw) {
                           BA: !1
                       };
                       var f = Rxa(a, d);
-                      ytPlayer.ab(a.o, f, 0, d);
+                      _yt_player.ab(a.o, f, 0, d);
                       e.ua(a.A, f);
                       a.Fn();
-                      c.autoOpen ? R3(a, c.startMs, 0x8000000000000, c.id, ytPlayer.Ga(a.MV, d)) : (e = 1E3 * a.context.l.getCurrentTime(), 5E3 > e && e > c.startMs && a.kE(d), R3(a, c.startMs, c.startMs + 1,
-                          c.id, ytPlayer.Ga(a.kE, d)), V3(a))
+                      c.autoOpen ? R3(a, c.startMs, 0x8000000000000, c.id, _yt_player.Ga(a.MV, d)) : (e = 1E3 * a.context.l.getCurrentTime(), 5E3 > e && e > c.startMs && a.kE(d), R3(a, c.startMs, c.startMs + 1,
+                          c.id, _yt_player.Ga(a.kE, d)), V3(a))
                   }
               }
           },
@@ -2599,7 +2580,7 @@ if (!self.__WB_pmw) {
                   T3(a)
               });
               var c = b.data.headerText;
-              ytPlayer.Sd(a.Da, c);
+              _yt_player.Sd(a.Da, c);
               a.K && a.K.setAttribute("title", c);
               b.data.eventId && (a.M = b.data.eventId);
               a.ea = l2(b.data.trackingParams);
@@ -2608,31 +2589,31 @@ if (!self.__WB_pmw) {
           },
           Pxa = function(a, b) {
               var c = Uxa(a, b);
-              c && (c == a.l && (a.l = null), a.g.kB(c.hc.id), ytPlayer.Kd(c.ur), ytPlayer.Va(a.o, c), a.Fn(), V3(a))
+              c && (c == a.l && (a.l = null), a.g.kB(c.hc.id), _yt_player.Kd(c.ur), _yt_player.Va(a.o, c), a.Fn(), V3(a))
           },
           S3 = function(a, b, c, d) {
               if (!a.B) {
                   a.ca.show();
-                  a.Z = new ytPlayer.Yt(function() {
-                          ytPlayer.S(a.context.l.getRootNode(), "ytp-iv-drawer-open")
+                  a.Z = new _yt_player.Yt(function() {
+                          _yt_player.S(a.context.l.getRootNode(), "ytp-iv-drawer-open")
                       },
                       0);
                   a.Z.start();
-                  a.X = ytPlayer.rF(a.A, "mousewheel", (0, ytPlayer.z)(a.ZM, a));
+                  a.X = _yt_player.rF(a.A, "mousewheel", (0, _yt_player.z)(a.ZM, a));
                   a.B = !0;
-                  a.Y = (0, ytPlayer.F)();
+                  a.Y = (0, _yt_player.F)();
                   E3(a.context.logger, a.M, 7, void 0, d && d.hc ? d.hc.o : void 0);
-                  var e = ytPlayer.MG();
+                  var e = _yt_player.MG();
                   e && a.ea && a.I && (D2(e, a.ea), D2(e, a.I));
                   var f = {
                       TRIGGER_TYPE: b
                   };
-                  (0, ytPlayer.B)(a.o, function(b) {
+                  (0, _yt_player.B)(a.o, function(b) {
                       b.BA || (b.BA = !0, B3(a.context.logger, b.hc.o, b.hc.l.BL, f));
                       e && D2(e, b.hc.C)
                   });
                   U1(a.g);
-                  c && (a.F = new ytPlayer.Yt(function() {
+                  c && (a.F = new _yt_player.Yt(function() {
                           a.fa = a.K;
                           a.ra.focus()
                       },
@@ -2640,13 +2621,13 @@ if (!self.__WB_pmw) {
               }
           },
           T3 = function(a) {
-              a.B && (a.ca.hide(), ytPlayer.sF(a.X), a.X = null, ytPlayer.mq(a.context.l.getRootNode(), "ytp-iv-drawer-open"), a.B = !1, U1(a.g), a.F && a.F.stop(), a.F = new ytPlayer.Yt(function() {
+              a.B && (a.ca.hide(), _yt_player.sF(a.X), a.X = null, _yt_player.mq(a.context.l.getRootNode(), "ytp-iv-drawer-open"), a.B = !1, U1(a.g), a.F && a.F.stop(), a.F = new _yt_player.Yt(function() {
                       a.fa && (a.fa.focus(), a.fa = null)
                   },
                   330), a.F.start())
           },
           Oxa = function(a) {
-              var b = ytPlayer.J("iv-drawer-close-button", a.D);
+              var b = _yt_player.J("iv-drawer-close-button", a.D);
               a.context.g.U(b, "click", a.fJ, a);
               a.context.g.U(a.A, "touchend", function() {
                   a.J.start()
@@ -2659,10 +2640,10 @@ if (!self.__WB_pmw) {
                   a.T = !1
               });
               a.context.o.subscribe("onVideoAreaChange", function() {
-                  a.T = ytPlayer.kq(a.g.getRootNode(), "ytp-autohide")
+                  a.T = _yt_player.kq(a.g.getRootNode(), "ytp-autohide")
               });
-              a.ha.push(ytPlayer.UF("iv-teaser-shown", a.YL, a));
-              a.ha.push(ytPlayer.UF("iv-teaser-clicked", a.XL, a))
+              a.ha.push(_yt_player.UF("iv-teaser-shown", a.YL, a));
+              a.ha.push(_yt_player.UF("iv-teaser-clicked", a.XL, a))
           },
           Qxa = function(a, b) {
               switch (b.type) {
@@ -2693,11 +2674,11 @@ if (!self.__WB_pmw) {
                                   }]
                               }]
                           };
-                      d = new ytPlayer.W(d);
+                      d = new _yt_player.W(d);
                       K3(c, d, b);
                       return d;
                   case "donation":
-                      return c = a.C, d = (0, ytPlayer.z)(c.C, c, b), L3(c, b, d, d);
+                      return c = a.C, d = (0, _yt_player.z)(c.C, c, b), L3(c, b, d, d);
                   case "episode":
                       return Dxa(a.C, b, "iv-card-episode");
                   case "movie":
@@ -2727,12 +2708,12 @@ if (!self.__WB_pmw) {
                                   }]
                               }]
                           },
-                          d = new ytPlayer.W(d), K3(c, d, b), d;
+                          d = new _yt_player.W(d), K3(c, d, b), d;
                   case "poll":
                       return Bxa(a.C, b);
                   case "productListing":
                       c = a.C;
-                      var e = !ytPlayer.Ra(b.offers);
+                      var e = !_yt_player.Ra(b.offers);
                       d = ["iv-card"];
                       var f = "",
                           k = Cxa(c, b);
@@ -2805,14 +2786,14 @@ if (!self.__WB_pmw) {
                               }
                           ]
                       };
-                      d = new ytPlayer.W(d);
-                      f = ytPlayer.Ed("span");
-                      ytPlayer.Sd(f, "You are seeing this product because we think it is relevant to the video. Google may be compensated by the merchant.");
+                      d = new _yt_player.W(d);
+                      f = _yt_player.Ed("span");
+                      _yt_player.Sd(f, "You are seeing this product because we think it is relevant to the video. Google may be compensated by the merchant.");
                       d.Mb(f, "adInfo");
                       K3(c, d, b);
                       return d;
                   case "tip":
-                      return c = a.C, d = (0, ytPlayer.z)(c.F, c, b), L3(c, b, d, d);
+                      return c = a.C, d = (0, _yt_player.z)(c.F, c, b), L3(c, b, d, d);
                   case "video":
                       return c = a.C, d = b.isLiveNow ? {
                               G: "span",
@@ -2838,24 +2819,24 @@ if (!self.__WB_pmw) {
                                   }]
                               }]
                           },
-                          d = new ytPlayer.W(d), K3(c, d, b), d
+                          d = new _yt_player.W(d), K3(c, d, b), d
               }
               return null
           },
           Rxa = function(a, b) {
               if (0 == a.o.length) return 0;
-              var c = ytPlayer.Na(a.o, function(a) {
+              var c = _yt_player.Na(a.o, function(a) {
                   return b.hc.startMs > a.hc.startMs || b.hc.startMs == a.hc.startMs && b.hc.timestamp >= a.hc.timestamp ? !0 : !1
               });
               return -1 == c ? 0 : c + 1
           },
           Vxa = function(a) {
-              return a.l ? "productListing" == a.l.hc.type : (0, ytPlayer.dm)(a.o, function(a) {
+              return a.l ? "productListing" == a.l.hc.type : (0, _yt_player.dm)(a.o, function(a) {
                   return "productListing" == a.hc.type
               })
           },
           V3 = function(a) {
-              ytPlayer.U(a.g.getRootNode(), "ytp-cards-shopping-active", Vxa(a))
+              _yt_player.U(a.g.getRootNode(), "ytp-cards-shopping-active", Vxa(a))
           },
           Wxa = function(a, b) {
               if (a.H.o) {
@@ -2869,13 +2850,13 @@ if (!self.__WB_pmw) {
                       a.A.scrollTop = b.y
                   });
                   c.play()
-              } else ytPlayer.sH(a.H, !0), a.A.scrollTop = b.ur.offsetTop, ytPlayer.sH(a.H, !1)
+              } else _yt_player.sH(a.H, !0), a.A.scrollTop = b.ur.offsetTop, _yt_player.sH(a.H, !1)
           },
           W3 = function(a) {
               return a.l && a.l.hc ? a.l.hc : a.o[0] && a.o[0].hc ? a.o[0].hc : null
           },
           Uxa = function(a, b) {
-              return ytPlayer.Ma(a.o, function(a) {
+              return _yt_player.Ma(a.o, function(a) {
                   return a.hc.id == b
               })
           },
@@ -2908,15 +2889,15 @@ if (!self.__WB_pmw) {
               this.H = this.B = this.I = !1;
               this.F = 5E3;
               this.A = null;
-              this.D = ytPlayer.K("DIV", "iv-promo-contents");
+              this.D = _yt_player.K("DIV", "iv-promo-contents");
               this.l = this.o = this.g = null;
-              this.C = new ytPlayer.Yt(function() {
+              this.C = new _yt_player.Yt(function() {
                       this.g.setAttribute("aria-hidden", !0);
-                      ytPlayer.O(this.o, !1);
-                      ytPlayer.O(this.l, !0)
+                      _yt_player.O(this.o, !1);
+                      _yt_player.O(this.l, !0)
                   },
                   700, this);
-              ytPlayer.N(this, this.C)
+              _yt_player.N(this, this.C)
           },
           Yxa = function(a) {
               var b = a.annotation.data;
@@ -2930,60 +2911,60 @@ if (!self.__WB_pmw) {
               var e = a.annotation.Ta(),
                   f = b.image_url;
               if (f) {
-                  var k = ytPlayer.K("DIV", ["iv-promo-img", "iv-click-target"]);
-                  f = ytPlayer.K("IMG", {
+                  var k = _yt_player.K("DIV", ["iv-promo-img", "iv-click-target"]);
+                  f = _yt_player.K("IMG", {
                       src: f,
                       "aria-hidden": "true"
                   });
                   k.appendChild(f);
-                  b.video_duration && !b.is_live ? (f = ytPlayer.K("SPAN", "iv-promo-video-duration",
-                      b.video_duration), k.appendChild(f)) : b.playlist_length && (f = ytPlayer.K("SPAN", "iv-promo-playlist-length", b.playlist_length.toString()), k.appendChild(f));
+                  b.video_duration && !b.is_live ? (f = _yt_player.K("SPAN", "iv-promo-video-duration",
+                      b.video_duration), k.appendChild(f)) : b.playlist_length && (f = _yt_player.K("SPAN", "iv-promo-playlist-length", b.playlist_length.toString()), k.appendChild(f));
                   e && a.Zi(k, e, a.annotation.id, b.session_data, a.annotation.g, void 0, c)
               }
-              e ? (f = ytPlayer.K("A", "iv-promo-txt"), ytPlayer.ad(f, X2(e)), a.g = f) : a.g = ytPlayer.K("DIV", "iv-promo-txt");
+              e ? (f = _yt_player.K("A", "iv-promo-txt"), _yt_player.ad(f, X2(e)), a.g = f) : a.g = _yt_player.K("DIV", "iv-promo-txt");
               switch (a.annotation.style) {
                   case "cta":
                   case "website":
-                      var l = ytPlayer.K("P", null, ytPlayer.K("STRONG", null, b.text_line_1));
-                      var m = ytPlayer.K("P", null, ytPlayer.K("SPAN", "iv-promo-link", b.text_line_2));
+                      var l = _yt_player.K("P", null, _yt_player.K("STRONG", null, b.text_line_1));
+                      var m = _yt_player.K("P", null, _yt_player.K("SPAN", "iv-promo-link", b.text_line_2));
                       if (f = b.text_line_3) {
                           d.push("iv-promo-website-card-cta-redesign");
-                          var n = ytPlayer.K("BUTTON", ["iv-promo-round-expand-icon", "ytp-button"]);
-                          f = ytPlayer.K("BUTTON", ["iv-button", "iv-promo-button"], ytPlayer.K("SPAN", "iv-button-content", f));
-                          var p = ytPlayer.K("DIV", "iv-promo-button-container");
+                          var n = _yt_player.K("BUTTON", ["iv-promo-round-expand-icon", "ytp-button"]);
+                          f = _yt_player.K("BUTTON", ["iv-button", "iv-promo-button"], _yt_player.K("SPAN", "iv-button-content", f));
+                          var p = _yt_player.K("DIV", "iv-promo-button-container");
                           p.appendChild(f);
                           e && a.Zi(a.la(), e, a.annotation.id, b.session_data, a.annotation.g, void 0, c)
                       }
-                      ytPlayer.S(a.g, "iv-click-target");
+                      _yt_player.S(a.g, "iv-click-target");
                       e && a.Zi(a.g, e, a.annotation.id, b.session_data, a.annotation.g, void 0, c);
                       break;
                   case "playlist":
                   case "video":
-                      l = ytPlayer.K("P", null, ytPlayer.K("SPAN", null, b.text_line_1));
-                      m = ytPlayer.K("P", null, ytPlayer.K("STRONG", null, b.text_line_2));
-                      b.is_live && (l = m, m = ytPlayer.K("SPAN", ["yt-badge", "iv-promo-badge-live"], "LIVE NOW"));
-                      ytPlayer.S(a.g, "iv-click-target");
+                      l = _yt_player.K("P", null, _yt_player.K("SPAN", null, b.text_line_1));
+                      m = _yt_player.K("P", null, _yt_player.K("STRONG", null, b.text_line_2));
+                      b.is_live && (l = m, m = _yt_player.K("SPAN", ["yt-badge", "iv-promo-badge-live"], "LIVE NOW"));
+                      _yt_player.S(a.g, "iv-click-target");
                       e && a.Zi(a.g, e, a.annotation.id, b.session_data, a.annotation.g, void 0, c);
                       d.push("iv-promo-video");
                       break;
                   case "vote":
-                      l = ytPlayer.K("P", null, ytPlayer.K("STRONG", null, b.text_line_1)), m = ytPlayer.K("P", null, ytPlayer.K("SPAN", null, b.text_line_2)), p = ytPlayer.K("DIV", "iv-promo-button-container"), c = ytPlayer.K("BUTTON", ["iv-button", "iv-promo-button"], ytPlayer.K("SPAN", "iv-button-content", b.button_text)), a.context.g.U(c, "click", function(a) {
+                      l = _yt_player.K("P", null, _yt_player.K("STRONG", null, b.text_line_1)), m = _yt_player.K("P", null, _yt_player.K("SPAN", null, b.text_line_2)), p = _yt_player.K("DIV", "iv-promo-button-container"), c = _yt_player.K("BUTTON", ["iv-button", "iv-promo-button"], _yt_player.K("SPAN", "iv-button-content", b.button_text)), a.context.g.U(c, "click", function(a) {
                               a.stopPropagation();
                               C3(this.context.logger, this.annotation.g, null, {
                                       contest_vote: "1"
                                   },
                                   (b.tracking || {}).vote);
                               a = this.annotation.data;
-                              this.g = ytPlayer.J("iv-promo-txt", this.D);
-                              var c = ytPlayer.J("iv-promo-button-container", this.D),
-                                  d = ytPlayer.K("DIV", ["iv-promo-txt", "iv-click-target"]),
-                                  e = ytPlayer.K("P", null, ytPlayer.K("STRONG", null, a.text_line_3)),
-                                  f = ytPlayer.K("P", null, a.text_line_4);
-                              ytPlayer.Hd(d, e, f);
-                              ytPlayer.Kd(c);
+                              this.g = _yt_player.J("iv-promo-txt", this.D);
+                              var c = _yt_player.J("iv-promo-button-container", this.D),
+                                  d = _yt_player.K("DIV", ["iv-promo-txt", "iv-click-target"]),
+                                  e = _yt_player.K("P", null, _yt_player.K("STRONG", null, a.text_line_3)),
+                                  f = _yt_player.K("P", null, a.text_line_4);
+                              _yt_player.Hd(d, e, f);
+                              _yt_player.Kd(c);
                               c = this.g;
                               (e = c.parentNode) && e.replaceChild(d, c);
-                              ytPlayer.mq(this.la(), "iv-promo-with-button");
+                              _yt_player.mq(this.la(), "iv-promo-with-button");
                               (c = this.annotation.Ta()) && this.Zi(d, c, this.annotation.id, a.session_data, this.annotation.g)
                           },
                           a), p.appendChild(c), d.push("iv-promo-with-button")
@@ -2992,57 +2973,57 @@ if (!self.__WB_pmw) {
               m && a.g.appendChild(m);
               a.D.appendChild(a.g);
               p && a.D.appendChild(p);
-              l = ytPlayer.K("DIV", "iv-promo-actions");
-              a.l = ytPlayer.K("BUTTON", ["iv-promo-expand", "ytp-button"]);
+              l = _yt_player.K("DIV", "iv-promo-actions");
+              a.l = _yt_player.K("BUTTON", ["iv-promo-expand", "ytp-button"]);
               a.l.title = "Expand";
-              a.context.g.U(a.l, "click", ytPlayer.Ga(a.ys, 5E3), a);
+              a.context.g.U(a.l, "click", _yt_player.Ga(a.ys, 5E3), a);
               l.appendChild(a.l);
-              ytPlayer.O(a.l, !1);
+              _yt_player.O(a.l, !1);
               a.context.g.U(a.la(), "mouseover", a.fK, a);
               a.context.g.U(a.la(), "mouseout", a.eK, a);
-              a.context.g.U(a.la(), "touchend", ytPlayer.Ga(a.ys, 5E3), a);
-              a.o = ytPlayer.K("BUTTON", ["iv-promo-close", "ytp-button"]);
+              a.context.g.U(a.la(), "touchend", _yt_player.Ga(a.ys, 5E3), a);
+              a.o = _yt_player.K("BUTTON", ["iv-promo-close", "ytp-button"]);
               a.o.title = I3.CLOSE;
               a.context.g.U(a.o, "click", "cta" == a.annotation.style && b.text_line_3 ?
                   a.UJ : a.LO, a);
               l.appendChild(a.o);
-              ytPlayer.lq(a.la(), d);
-              k && (ytPlayer.Gd(a.la(), k), n && k.appendChild(n));
-              ytPlayer.Gd(a.la(), a.D);
-              ytPlayer.Gd(a.la(), l)
+              _yt_player.lq(a.la(), d);
+              k && (_yt_player.Gd(a.la(), k), n && k.appendChild(n));
+              _yt_player.Gd(a.la(), a.D);
+              _yt_player.Gd(a.la(), l)
           },
           Zxa = function(a) {
-              a.B || a.H || a.A || (ytPlayer.S(a.la(), "iv-promo-collapsed"), a.B = !0, a.C.start())
+              a.B || a.H || a.A || (_yt_player.S(a.la(), "iv-promo-collapsed"), a.B = !0, a.C.start())
           },
           $xa = function(a) {
               a.C.stop();
-              a.B && (ytPlayer.nq(a.la(), ["iv-promo-collapsed", "iv-promo-collapsed-no-delay"]), a.B = !1, a.g && a.g.removeAttribute("aria-hidden"), ytPlayer.O(a.l, !1), ytPlayer.O(a.o, !0))
+              a.B && (_yt_player.nq(a.la(), ["iv-promo-collapsed", "iv-promo-collapsed-no-delay"]), a.B = !1, a.g && a.g.removeAttribute("aria-hidden"), _yt_player.O(a.l, !1), _yt_player.O(a.o, !0))
           },
           aya = function(a, b) {
-              a.A || (a.A = ytPlayer.tg(function() {
+              a.A || (a.A = _yt_player.tg(function() {
                       $3(this);
                       Zxa(this)
                   },
                   b, a))
           },
           $3 = function(a) {
-              a.A && (ytPlayer.ug(a.A), a.A = null)
+              a.A && (_yt_player.ug(a.A), a.A = null)
           },
           a4 = function(a) {
-              ytPlayer.sV.call(this, a);
+              _yt_player.sV.call(this, a);
               this.J = !1;
               this.I = 0;
               this.o = {};
               this.K = {};
               this.Ya = new wxa(a);
-              this.F = new ytPlayer.FF(this);
-              ytPlayer.N(this, this.F);
+              this.F = new _yt_player.FF(this);
+              _yt_player.N(this, this.F);
               this.D = this.B = null;
-              this.F.O(this.g, "onVideoAreaChange", (0, ytPlayer.z)(this.R, this, "onVideoAreaChange"));
-              this.F.O(this.g, "onHideControls", (0, ytPlayer.z)(this.R, this, "onHideControls"));
-              this.F.O(this.g, "onShowControls", (0, ytPlayer.z)(this.R, this, "onShowControls"));
-              this.F.O(this.g, "resize", (0, ytPlayer.z)(this.R, this, "resize"));
-              this.F.O(this.g, "presentingplayerstatechange", (0, ytPlayer.z)(this.R, this, "presentingplayerstatechange"));
+              this.F.O(this.g, "onVideoAreaChange", (0, _yt_player.z)(this.R, this, "onVideoAreaChange"));
+              this.F.O(this.g, "onHideControls", (0, _yt_player.z)(this.R, this, "onHideControls"));
+              this.F.O(this.g, "onShowControls", (0, _yt_player.z)(this.R, this, "onShowControls"));
+              this.F.O(this.g, "resize", (0, _yt_player.z)(this.R, this, "resize"));
+              this.F.O(this.g, "presentingplayerstatechange", (0, _yt_player.z)(this.R, this, "presentingplayerstatechange"));
               this.subscribe("onHideControls",
                   this.SR, this);
               this.subscribe("onShowControls", this.bU, this);
@@ -3052,34 +3033,34 @@ if (!self.__WB_pmw) {
               this.subscribe("D", this.Ih, this);
               this.subscribe("B", this.vQ, this);
               this.subscribe("C", this.bR, this);
-              ytPlayer.Y(this.g).C.subscribe("vast_info_card_add", this.lD, this);
-              this.X = new ytPlayer.FF(this);
-              ytPlayer.N(this, this.X);
+              _yt_player.Y(this.g).C.subscribe("vast_info_card_add", this.lD, this);
+              this.X = new _yt_player.FF(this);
+              _yt_player.N(this, this.X);
               this.X.O(this.g, "crn_annotations_module", this.yM);
               this.X.O(this.g, "crx_annotations_module", this.zM);
-              this.T = ytPlayer.K("DIV",
+              this.T = _yt_player.K("DIV",
                   ["video-legacy-annotations", "html5-stop-propagation"]);
-              this.Z = ytPlayer.K("DIV", "video-custom-annotations");
-              this.A = new ytPlayer.W({
+              this.Z = _yt_player.K("DIV", "video-custom-annotations");
+              this.A = new _yt_player.W({
                   G: "div",
                   da: ["ytp-player-content", "ytp-iv-player-content"]
               });
-              ytPlayer.N(this, this.A);
-              ytPlayer.mV(this.g, this.A.element, 4);
+              _yt_player.N(this, this.A);
+              _yt_player.mV(this.g, this.A.element, 4);
               this.A.hide();
-              this.C = new ytPlayer.W({
+              this.C = new _yt_player.W({
                   G: "div",
                   da: ["ytp-iv-video-content"]
               });
-              ytPlayer.N(this, this.C);
-              ytPlayer.Gd(this.C.element, ytPlayer.K("DIV", "video-annotations", this.T, this.Z));
+              _yt_player.N(this, this.C);
+              _yt_player.Gd(this.C.element, _yt_player.K("DIV", "video-annotations", this.T, this.Z));
               this.H = this.l = null;
               this.M = [];
               bya(this) && this.load();
-              var b = ytPlayer.Ed("STYLE");
+              var b = _yt_player.Ed("STYLE");
               (window.document.getElementsByTagName("HEAD")[0] || window.document.body).appendChild(b);
-              ytPlayer.Ze(this, function() {
-                  ytPlayer.Kd(b)
+              _yt_player.Ze(this, function() {
+                  _yt_player.Kd(b)
               });
               if (a = b.sheet) a.insertRule(".iv-promo .iv-promo-contents .iv-promo-txt .iv-promo-link:after {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEVMaXH////////////////////////////////////Z6AnKAAAACXRSTlMA+/A2IuI1mJIldm0CAAAAAWJLR0QB/wIt3gAAAEVJREFUCNdjYGCYCQUMBJlACOIzIDElIcyZkwxgojOVWWDMSQauMKYySySUOSnBdSaUOZ0lEsac2YqwYiZ+JhwgM7E5HACgzVCI/YJ59AAAAABJRU5ErkJggg==) no-repeat center;background-size:10px;width:10px;height:10px}",
                   0), a.insertRule(".iv-promo .iv-promo-actions .iv-promo-close:after {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJBAMAAAASvxsjAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJFBMVEVMaXH///////////////////////////////////////////9tKdXLAAAAC3RSTlMAVaQDpaimqQbl5rjXUFUAAAABYktHRAH/Ai3eAAAAPUlEQVQI12MQMmAwEmDwDmaOTmAw39663YCBuXp2MQMDQ+fOBgYG5ujVwQwMptvbgeLaxczVCQwiBgxmAgBkXg1FN5iwiAAAAABJRU5ErkJggg==) no-repeat center;background-size:9px;width:9px;height:9px}",
@@ -3098,13 +3079,13 @@ if (!self.__WB_pmw) {
               return !1
           },
           bya = function(a) {
-              var b = ytPlayer.Y(a.g);
+              var b = _yt_player.Y(a.g);
               a = a.g.getVideoData();
               return 1 == (b.Xg || a.Xg) && !a.Rk || null !== b.C.get(a.videoId)
           },
           dya = function(a, b, c) {
               a.J = !0;
-              a.D = ytPlayer.nE(b, c)
+              a.D = _yt_player.nE(b, c)
           },
           eya = function(a, b) {
               for (var c = {},
@@ -3130,28 +3111,28 @@ if (!self.__WB_pmw) {
               var c = gya(a, b);
               if (!c && "marker" != b.type) return null;
               Twa(b, function(a) {
-                      a = (0, ytPlayer.z)(this.wU, this, b.id, a);
+                      a = (0, _yt_player.z)(this.wU, this, b.id, a);
                       this.subscribe("ivTrigger:" + b.id, a)
                   },
                   a);
               var d = new u3(a.ea, b, c);
-              ytPlayer.N(d, c);
+              _yt_player.N(d, c);
               return d
           },
           iya = function(a, b) {
-              var c = ytPlayer.K("DIV", ["annotation",
+              var c = _yt_player.K("DIV", ["annotation",
                   "annotation-type-custom"
               ]);
-              ytPlayer.O(c, !1);
+              _yt_player.O(c, !1);
               var d = null;
               switch (b.type) {
                   case "branding":
-                      if (ytPlayer.Y(a.g).Bd) break;
+                      if (_yt_player.Y(a.g).Bd) break;
                       a.A.element.appendChild(c);
                       d = new Y3(c, b4(a), b);
                       break;
                   case "promotion":
-                      ytPlayer.mV(a.g, c, 4), d = new Z3(c, b4(a), b)
+                      _yt_player.mV(a.g, c, 4), d = new Z3(c, b4(a), b)
               }
               d && d.gq();
               return d
@@ -3159,7 +3140,7 @@ if (!self.__WB_pmw) {
           lya = function(a) {
               var b = a.g.getVideoData();
               if (b.Of) {
-                  var c = ytPlayer.Y(a.g),
+                  var c = _yt_player.Y(a.g),
                       d = c.C.get(b.videoId);
                   if (d) {
                       var e = {
@@ -3169,17 +3150,17 @@ if (!self.__WB_pmw) {
                           withCredentials: !0
                       };
                       "gaming" == c.playerStyle && (e.ad.gaming = "1");
-                      e.wd = (0, ytPlayer.z)(function(a, b, c) {
-                              fya(this, a, b) || (a = ytPlayer.WD(c) && c.responseXML ? c.responseXML : null) && c4(this, a)
+                      e.wd = (0, _yt_player.z)(function(a, b, c) {
+                              fya(this, a, b) || (a = _yt_player.WD(c) && c.responseXML ? c.responseXML : null) && c4(this, a)
                           },
                           a, a.I, b.videoId);
-                      ytPlayer.nG() && (e.wd = jya(a, e.wd));
+                      _yt_player.nG() && (e.wd = jya(a, e.wd));
                       e.Ob = {
                           ic_only: "1"
                       };
                       kya(e, d);
                       a.J = !0;
-                      ytPlayer.nE(b.Of, e)
+                      _yt_player.nE(b.Of, e)
                   }
               }
           },
@@ -3191,23 +3172,23 @@ if (!self.__WB_pmw) {
               b.Lk && (a.Ob.ic_track = b.Lk)
           },
           mya = function(a) {
-              var b = new ytPlayer.W({
+              var b = new _yt_player.W({
                   G: "div"
               });
-              ytPlayer.O(b.element, !1);
+              _yt_player.O(b.element, !1);
               var c = new U3(a.g, b.element, b4(a));
-              ytPlayer.N(c, b);
+              _yt_player.N(c, b);
               b.ua(a.A.element);
               c.gq();
               return c
           },
           b4 = function(a) {
               if (!a.H) {
-                  var b = new ytPlayer.CF(a);
-                  ytPlayer.N(a, b);
-                  var c = new ytPlayer.Lm(a);
-                  ytPlayer.N(a, c);
-                  a.H = new zxa(b, c, ytPlayer.Y(a.g), a.g.getVideoData(), a.Ya, a.g, a.ea)
+                  var b = new _yt_player.CF(a);
+                  _yt_player.N(a, b);
+                  var c = new _yt_player.Lm(a);
+                  _yt_player.N(a, c);
+                  a.H = new zxa(b, c, _yt_player.Y(a.g), a.g.getVideoData(), a.Ya, a.g, a.ea)
               }
               return a.H
           },
@@ -3231,16 +3212,16 @@ if (!self.__WB_pmw) {
                           f = !1
                       }
                       if (f) {
-                          if (f = iya(a, k)) ytPlayer.N(a, f), a.K[k.id] = f
-                      } else if ("card" == k.type || "drawer" == k.type) a.l || (a.l = mya(a), ytPlayer.N(a, a.l)),
+                          if (f = iya(a, k)) _yt_player.N(a, f), a.K[k.id] = f
+                      } else if ("card" == k.type || "drawer" == k.type) a.l || (a.l = mya(a), _yt_player.N(a, a.l)),
                       "card" == k.type ? Sxa(a.l, k) : Txa(a.l, k),
                       c = !0;
-                      else if (f = hya(a, k)) ytPlayer.N(a, f),
+                      else if (f = hya(a, k)) _yt_player.N(a, f),
                       a.o[k.id] = f
                   }
               }
               c && (U1(a.g), a.Tu());
-              ytPlayer.Lb(a.o, function(a) {
+              _yt_player.Lb(a.o, function(a) {
                       if (a.view) {
                           var b = a.annotation;
                           (a = a.view) && b.segment && b.segment.l && (b =
@@ -3251,7 +3232,7 @@ if (!self.__WB_pmw) {
           },
           nya = function(a) {
               if ((a = a.getElementsByTagName("annotations")) && !(1 > a.length) && (a = a[0].getAttribute("itct"))) {
-                  var b = ytPlayer.MG();
+                  var b = _yt_player.MG();
                   if (b) {
                       var c = Ova();
                       c && bwa(b, c, [l2(a)])
@@ -3262,10 +3243,10 @@ if (!self.__WB_pmw) {
               d ? oya(a, b, c) : d4(a, b, c)
           },
           d4 = function(a, b, c) {
-              if (b = a.o[b]) v3(b), c && c.l ? (a = (0, ytPlayer.z)(a.Iz, a, b), b.g = new ytPlayer.Yt(a, 2E3), b.g.start()) : a.Iz(b)
+              if (b = a.o[b]) v3(b), c && c.l ? (a = (0, _yt_player.z)(a.Iz, a, b), b.g = new _yt_player.Yt(a, 2E3), b.g.start()) : a.Iz(b)
           },
           oya = function(a, b, c) {
-              if (b = a.o[b]) v3(b), c && c.A ? (a = (0, ytPlayer.z)(a.CE, a, b), b.g = new ytPlayer.Yt(a, 2E3), b.g.start()) : a.CE(b)
+              if (b = a.o[b]) v3(b), c && c.A ? (a = (0, _yt_player.z)(a.CE, a, b), b.g = new _yt_player.Yt(a, 2E3), b.g.start()) : a.CE(b)
           },
           qya = function(a, b) {
               if ("new" == b.target) return !1;
@@ -3273,19 +3254,19 @@ if (!self.__WB_pmw) {
               if (!c) return !1;
               c = c.replace(/https?:\/\//g, "");
               if (!O3(c)) return !1;
-              c = ytPlayer.dE(c);
+              c = _yt_player.dE(c);
               if (c.list || c.p) return !1;
               c = Jxa(b);
               if (!c) return !1;
               var d = a.g.getVideoData();
-              return d.videoId == c ? !0 : ytPlayer.Y(a.g).g && d.yn ? !0 : !1
+              return d.videoId == c ? !0 : _yt_player.Y(a.g).g && d.yn ? !0 : !1
           },
           gya = function(a, b) {
               if (rya(b)) {
                   var c = b.B || c3(b, function(a) {
                       return "click" == a || "rollOut" == a || "rollOut" == a
                   });
-                  return new p3(b, (0, ytPlayer.z)(a.T.appendChild, a.T), a.g, a.ea, c)
+                  return new p3(b, (0, _yt_player.z)(a.T.appendChild, a.T), a.g, a.ea, c)
               }
               return null
           },
@@ -3300,12 +3281,12 @@ if (!self.__WB_pmw) {
               a.R(Xwa(b, d), c, d)
           },
           jya = function(a, b) {
-              return (0, ytPlayer.z)(function() {
+              return (0, _yt_player.z)(function() {
                       if (!this.ka()) {
                           var a = Array.prototype.slice.call(arguments, 0);
                           a.unshift(b);
-                          b = ytPlayer.Ga.apply(window, a);
-                          this.M.push(ytPlayer.lG(b))
+                          b = _yt_player.Ga.apply(window, a);
+                          this.M.push(_yt_player.lG(b))
                       }
                   },
                   a)
@@ -3320,8 +3301,8 @@ if (!self.__WB_pmw) {
                   case "mouseleave":
                       d = 9
               }
-              return ytPlayer.Yd(c, function(a) {
-                      return ytPlayer.kq(a, b)
+              return _yt_player.Yd(c, function(a) {
+                      return _yt_player.kq(a, b)
                   },
                   !0, d)
           },
@@ -3334,7 +3315,7 @@ if (!self.__WB_pmw) {
                       c = g4[b];
                       for (var d in c.l) {
                           var e = f4(b, d, a.target);
-                          e && !ytPlayer.Yd(a.relatedTarget, function(a) {
+                          e && !_yt_player.Yd(a.relatedTarget, function(a) {
                                   return a == e
                               },
                               !0) && c.R(d, e, b, a)
@@ -3354,10 +3335,10 @@ if (!self.__WB_pmw) {
               return "yt-uix" + (a.B ? "-" + a.B : "") + (b ? "-" + b : "")
           },
           j4 = function(a, b, c) {
-              a.H.push(ytPlayer.UF(b, c, a))
+              a.H.push(_yt_player.UF(b, c, a))
           },
           k4 = function(a, b, c) {
-              a.F.push(ytPlayer.FN(b, c, a))
+              a.F.push(_yt_player.FN(b, c, a))
           },
           l4 = function() {
               i4.call(this, "button");
@@ -3368,23 +3349,23 @@ if (!self.__WB_pmw) {
           sya = function(a, b, c, d, e) {
               var f = m2(c),
                   k = 9 == d.keyCode;
-              k || 32 == d.keyCode || 13 == d.keyCode ? (d = m4(a, c)) ? (b = ytPlayer.Od(d), "a" == b.tagName.toLowerCase() ? ytPlayer.tV(b.href) : Mva(b)) : k && n4(a, b) : f ? 27 == d.keyCode ? (m4(a, c), n4(a, b)) : e(b, c, d) : (a = ytPlayer.kq(b, Z(a, "reverse")) ? 38 : 40, d.keyCode == a && (Mva(b), d.preventDefault()))
+              k || 32 == d.keyCode || 13 == d.keyCode ? (d = m4(a, c)) ? (b = _yt_player.Od(d), "a" == b.tagName.toLowerCase() ? _yt_player.tV(b.href) : Mva(b)) : k && n4(a, b) : f ? 27 == d.keyCode ? (m4(a, c), n4(a, b)) : e(b, c, d) : (a = _yt_player.kq(b, Z(a, "reverse")) ? 38 : 40, d.keyCode == a && (Mva(b), d.preventDefault()))
           },
           m4 = function(a, b) {
               var c = Z(a, "menu-item-highlight"),
-                  d = ytPlayer.J(c, b);
-              d && ytPlayer.mq(d, c);
+                  d = _yt_player.J(c, b);
+              d && _yt_player.mq(d, c);
               return d
           },
           tya = function(a, b, c) {
-              ytPlayer.S(c, Z(a, "menu-item-highlight"));
+              _yt_player.S(c, Z(a, "menu-item-highlight"));
               var d = c.getAttribute("id");
-              d || (d = Z(a, "item-id-" + ytPlayer.Fa(c)), c.setAttribute("id", d));
+              d || (d = Z(a, "item-id-" + _yt_player.Fa(c)), c.setAttribute("id", d));
               b.setAttribute("aria-activedescendant", d)
           },
           uya = function(a, b, c, d) {
               var e = b.length;
-              a = (0, ytPlayer.Pa)(b, a);
+              a = (0, _yt_player.Pa)(b, a);
               if (-1 == a)
                   if (38 == d.keyCode) a = e - c;
                   else {
@@ -3395,17 +3376,17 @@ if (!self.__WB_pmw) {
           },
           o4 = function(a, b) {
               var c = b.iframeMask;
-              c || (c = ytPlayer.Ed("IFRAME"), c.src = 'javascript:""', c.className = Z(a, "menu-mask"), o2(c), b.iframeMask = c);
+              c || (c = _yt_player.Ed("IFRAME"), c.src = 'javascript:""', c.className = Z(a, "menu-mask"), o2(c), b.iframeMask = c);
               return c
           },
           p4 = function(a, b, c, d) {
-              var e = ytPlayer.$d(b, Z(a, "group")),
+              var e = _yt_player.$d(b, Z(a, "group")),
                   f = !!a.Ba(b, "button-menu-ignore-group");
               e = e && !f ? e : b;
               f = 9;
               var k = 8,
-                  l = ytPlayer.Lh(b);
-              if (ytPlayer.kq(b, Z(a, "reverse"))) {
+                  l = _yt_player.Lh(b);
+              if (_yt_player.kq(b, Z(a, "reverse"))) {
                   f = 8;
                   k = 9;
                   l = l.top + "px";
@@ -3413,25 +3394,25 @@ if (!self.__WB_pmw) {
                       c.style.maxHeight = l
                   } catch (p) {}
               }
-              ytPlayer.kq(b, "flip") && (ytPlayer.kq(b, Z(a, "reverse")) ? (f = 12, k = 13) : (f = 13, k = 12));
+              _yt_player.kq(b, "flip") && (_yt_player.kq(b, Z(a, "reverse")) ? (f = 12, k = 13) : (f = 13, k = 12));
               var m;
-              a.Ba(b, "button-has-sibling-menu") ? m = ytPlayer.Bh(e) : a.Ba(b, "button-menu-root-container") && (m = vya(a, b));
-              ytPlayer.yd && !ytPlayer.rc("8") && (m = null);
+              a.Ba(b, "button-has-sibling-menu") ? m = _yt_player.Bh(e) : a.Ba(b, "button-menu-root-container") && (m = vya(a, b));
+              _yt_player.yd && !_yt_player.rc("8") && (m = null);
               if (m) {
-                  var n = ytPlayer.Lh(m);
-                  n = new ytPlayer.Zg(-n.top, n.left, n.top, -n.left)
+                  var n = _yt_player.Lh(m);
+                  n = new _yt_player.Zg(-n.top, n.left, n.top, -n.left)
               }
-              m = new ytPlayer.hd(0, 1);
-              ytPlayer.kq(b, Z(a, "center-menu")) && (m.x -= Math.round((ytPlayer.Kh(c).width - ytPlayer.Kh(b).width) / 2));
-              d && (m.y += ytPlayer.zd(window.document).y);
+              m = new _yt_player.hd(0, 1);
+              _yt_player.kq(b, Z(a, "center-menu")) && (m.x -= Math.round((_yt_player.Kh(c).width - _yt_player.Kh(b).width) / 2));
+              d && (m.y += _yt_player.zd(window.document).y);
               if (a =
-                  o4(a, b)) b = ytPlayer.Kh(c), a.style.width = b.width + "px", a.style.height = b.height + "px", g2(e, f, a, k, m, n, 197), d && ytPlayer.ph(a, "position", "fixed");
+                  o4(a, b)) b = _yt_player.Kh(c), a.style.width = b.width + "px", a.style.height = b.height + "px", g2(e, f, a, k, m, n, 197), d && _yt_player.ph(a, "position", "fixed");
               g2(e, f, c, k, m, n, 197)
           },
           vya = function(a, b) {
               if (a.Ba(b, "button-menu-root-container")) {
                   var c = a.Ba(b, "button-menu-root-container");
-                  return ytPlayer.$d(b, c)
+                  return _yt_player.$d(b, c)
               }
               return window.document.body
           },
@@ -3448,35 +3429,35 @@ if (!self.__WB_pmw) {
                       var d = o4(a, b),
                           e = i2(c).toString();
                       delete a.l[e];
-                      ytPlayer.XD(function() {
+                      _yt_player.XD(function() {
                               d && d.parentNode && (o2(d), d.parentNode.removeChild(d));
                               c.originalParentNode && (c.parentNode.removeChild(c), c.originalParentNode.appendChild(c), c.originalParentNode = null, c.activeButtonNode = null)
                           },
                           1)
                   }
-                  e = ytPlayer.$d(b, Z(a, "group"));
+                  e = _yt_player.$d(b, Z(a, "group"));
                   var f = [Z(a, "active")];
                   e && f.push(Z(a, "group-active"));
-                  ytPlayer.nq(b, f);
-                  ytPlayer.XF("yt-uix-button-menu-hide", b);
-                  ytPlayer.sF(a.o);
+                  _yt_player.nq(b, f);
+                  _yt_player.XF("yt-uix-button-menu-hide", b);
+                  _yt_player.sF(a.o);
                   a.o.length = 0
               }
           },
           wya = function(a, b, c) {
               var d = Z(a, "menu-item-selected");
-              a = ytPlayer.rd(d, b);
-              (0, ytPlayer.B)(a, function(a) {
-                  ytPlayer.mq(a, d)
+              a = _yt_player.rd(d, b);
+              (0, _yt_player.B)(a, function(a) {
+                  _yt_player.mq(a, d)
               });
-              ytPlayer.S(c.parentNode, d)
+              _yt_player.S(c.parentNode, d)
           },
           q4 = function(a, b) {
               if (!b.widgetMenu) {
                   var c = a.Ba(b, "button-menu-id");
-                  c = c && ytPlayer.pd(c);
+                  c = c && _yt_player.pd(c);
                   var d = Z(a, "menu");
-                  c ? ytPlayer.lq(c, [d, Z(a, "menu-external")]) : c = ytPlayer.J(d, b);
+                  c ? _yt_player.lq(c, [d, Z(a, "menu-external")]) : c = _yt_player.J(d, b);
                   b.widgetMenu = c
               }
               return b.widgetMenu
@@ -3492,12 +3473,12 @@ if (!self.__WB_pmw) {
               var d = c || b,
                   e = Z(a, "card");
               c = a.Cc(d);
-              var f = ytPlayer.pd(Z(a, "card") + i2(d));
-              if (f) return a = ytPlayer.J(Z(a, "card-body"), f), ytPlayer.Qd(a, c) || (ytPlayer.Kd(c), a.appendChild(c)), f;
+              var f = _yt_player.pd(Z(a, "card") + i2(d));
+              if (f) return a = _yt_player.J(Z(a, "card-body"), f), _yt_player.Qd(a, c) || (_yt_player.Kd(c), a.appendChild(c)), f;
               f = window.document.createElement("div");
               f.id = Z(a, "card") + i2(d);
               f.className = e;
-              (d = a.Ba(d, "card-class")) && ytPlayer.lq(f, d.split(/\s+/));
+              (d = a.Ba(d, "card-class")) && _yt_player.lq(f, d.split(/\s+/));
               d = window.document.createElement("div");
               d.className = Z(a, "card-border");
               b = a.Ba(b, "orientation") || "horizontal";
@@ -3508,7 +3489,7 @@ if (!self.__WB_pmw) {
                   Z(a, "card-body");
               a = window.document.createElement("div");
               a.className = "yt-uix-card-body-arrow yt-uix-card-body-arrow-" + b;
-              ytPlayer.Kd(c);
+              _yt_player.Kd(c);
               k.appendChild(c);
               d.appendChild(a);
               d.appendChild(k);
@@ -3519,7 +3500,7 @@ if (!self.__WB_pmw) {
           },
           yya = function(a, b, c) {
               var d = a.Ba(b, "orientation") || "horizontal";
-              var e = ytPlayer.J(Z(a, "anchor"), b) || b;
+              var e = _yt_player.J(Z(a, "anchor"), b) || b;
               var f = a.Ba(b, "position"),
                   k = !!a.Ba(b, "force-position"),
                   l = a.Ba(b, "position-fixed");
@@ -3535,9 +3516,9 @@ if (!self.__WB_pmw) {
               v != f && (p ^= 4);
               if (d) {
                   f = b.offsetHeight / 2 - 12;
-                  var D = new ytPlayer.hd(-12, b.offsetHeight + 6)
-              } else f = b.offsetWidth / 2 - 6, D = new ytPlayer.hd(b.offsetWidth + 6, -12);
-              var H = ytPlayer.Kh(c);
+                  var D = new _yt_player.hd(-12, b.offsetHeight + 6)
+              } else f = b.offsetWidth / 2 - 6, D = new _yt_player.hd(b.offsetWidth + 6, -12);
+              var H = _yt_player.Kh(c);
               f = Math.min(f, (d ? H.height : H.width) -
                   24 - 6);
               6 > f && (f = 6, d ? D.y += 12 - b.offsetHeight / 2 : D.x += 12 - b.offsetWidth / 2);
@@ -3545,23 +3526,23 @@ if (!self.__WB_pmw) {
               k || (H = 10);
               b = Z(a, "card-flip");
               a = Z(a, "card-reverse");
-              ytPlayer.U(c, b, n);
-              ytPlayer.U(c, a, m);
+              _yt_player.U(c, b, n);
+              _yt_player.U(c, a, m);
               H = g2(e, p, c, r, D, null, H);
-              !k && H && (H & 48 && (n = !n, p ^= 4, r ^= 4), H & 192 && (m = !m, p ^= 1, r ^= 1), ytPlayer.U(c, b, n), ytPlayer.U(c, a, m), g2(e, p, c, r, D));
-              l && (e = (0, window.parseInt)(c.style.top, 10), k = ytPlayer.zd(window.document).y, ytPlayer.ph(c, "position", "fixed"), ytPlayer.ph(c, "top", e - k + "px"));
-              v && (c.style.right = "", e = ytPlayer.Lh(c), e.left = e.left || (0, window.parseInt)(c.style.left, 10), k = ytPlayer.wd(window), c.style.left = "", c.style.right =
+              !k && H && (H & 48 && (n = !n, p ^= 4, r ^= 4), H & 192 && (m = !m, p ^= 1, r ^= 1), _yt_player.U(c, b, n), _yt_player.U(c, a, m), g2(e, p, c, r, D));
+              l && (e = (0, window.parseInt)(c.style.top, 10), k = _yt_player.zd(window.document).y, _yt_player.ph(c, "position", "fixed"), _yt_player.ph(c, "top", e - k + "px"));
+              v && (c.style.right = "", e = _yt_player.Lh(c), e.left = e.left || (0, window.parseInt)(c.style.left, 10), k = _yt_player.wd(window), c.style.left = "", c.style.right =
                   k.width - e.left - e.width + "px");
-              e = ytPlayer.J("yt-uix-card-body-arrow", c);
-              k = ytPlayer.J("yt-uix-card-border-arrow", c);
+              e = _yt_player.J("yt-uix-card-body-arrow", c);
+              k = _yt_player.J("yt-uix-card-border-arrow", c);
               d = d ? m ? "top" : "bottom" : !v && n || v && !n ? "left" : "right";
               e.setAttribute("style", "");
               k.setAttribute("style", "");
               e.style[d] = f + "px";
               k.style[d] = f + "px";
-              m = ytPlayer.J("yt-uix-card-arrow", c);
-              n = ytPlayer.J("yt-uix-card-arrow-background", c);
-              m && n && (c = "right" == d ? ytPlayer.Kh(c).width - f - 13 : f + 11, f = c / Math.sqrt(2), m.style.left = c + "px", m.style.marginLeft = "1px", n.style.marginLeft = -f + "px", n.style.marginTop = f + "px")
+              m = _yt_player.J("yt-uix-card-arrow", c);
+              n = _yt_player.J("yt-uix-card-arrow-background", c);
+              m && n && (c = "right" == d ? _yt_player.Kh(c).width - f - 13 : f + 11, f = c / Math.sqrt(2), m.style.left = c + "px", m.style.marginLeft = "1px", n.style.marginLeft = -f + "px", n.style.marginTop = f + "px")
           },
           t4 = function(a) {
               a.o && a.hide(a.o)
@@ -3569,7 +3550,7 @@ if (!self.__WB_pmw) {
           zya =
           function(a) {
               var b = a.cardMask;
-              b || (b = ytPlayer.Ed("IFRAME"), b.src = 'javascript:""', ytPlayer.lq(b, ["yt-uix-card-iframe-mask"]), a.cardMask = b);
+              b || (b = _yt_player.Ed("IFRAME"), b.src = 'javascript:""', _yt_player.lq(b, ["yt-uix-card-iframe-mask"]), a.cardMask = b);
               b.style.position = a.style.position;
               b.style.top = a.style.top;
               b.style.left = a.offsetLeft + "px";
@@ -3582,30 +3563,30 @@ if (!self.__WB_pmw) {
           },
           Aya = function(a, b, c) {
               if (b && c)
-                  if (ytPlayer.S(c, Z(a)), a = b.id, a || (a = "kbd-nav-" + Math.floor(1E6 * Math.random() + 1), b.id = a), b = a, ytPlayer.ek && c.dataset) c.dataset.kbdNavMoveOut = b;
+                  if (_yt_player.S(c, Z(a)), a = b.id, a || (a = "kbd-nav-" + Math.floor(1E6 * Math.random() + 1), b.id = a), b = a, _yt_player.ek && c.dataset) c.dataset.kbdNavMoveOut = b;
                   else {
                       if (/-[a-z]/.test("kbdNavMoveOut")) throw Error("");
-                      c.setAttribute("data-" + ytPlayer.Hb("kbdNavMoveOut"), b)
+                      c.setAttribute("data-" + _yt_player.Hb("kbdNavMoveOut"), b)
                   }
           },
           Bya = function(a, b) {
               if (b) {
-                  var c = ytPlayer.Zd(b, "LI");
-                  c && (ytPlayer.S(c, Z(a, "highlight")), v4 = ytPlayer.rF(b, "blur", (0, ytPlayer.z)(function(a) {
-                          ytPlayer.mq(a, Z(this, "highlight"));
-                          ytPlayer.sF(v4)
+                  var c = _yt_player.Zd(b, "LI");
+                  c && (_yt_player.S(c, Z(a, "highlight")), v4 = _yt_player.rF(b, "blur", (0, _yt_player.z)(function(a) {
+                          _yt_player.mq(a, Z(this, "highlight"));
+                          _yt_player.sF(v4)
                       },
                       a, c)))
               }
           },
           Cya = function(a) {
               if ("UL" != a.tagName.toUpperCase()) return [];
-              a = (0, ytPlayer.Ld)(ytPlayer.Md(a), function(a) {
+              a = (0, _yt_player.Ld)(_yt_player.Md(a), function(a) {
                   return "LI" == a.tagName.toUpperCase()
               });
-              return (0, ytPlayer.Ld)((0, ytPlayer.G)(a, function(a) {
+              return (0, _yt_player.Ld)((0, _yt_player.G)(a, function(a) {
                   return m2(a) ? V1(a, function(a) {
-                      return ytPlayer.Da(a) && 1 == a.nodeType ? ytPlayer.Xd(a) : !1
+                      return _yt_player.Da(a) && 1 == a.nodeType ? _yt_player.Xd(a) : !1
                   }) : !1
               }), function(a) {
                   return !!a
@@ -3620,30 +3601,30 @@ if (!self.__WB_pmw) {
           },
           x4 = function(a) {
               var b = w4.getInstance();
-              if (ytPlayer.kq(a, Z(b))) return a;
+              if (_yt_player.kq(a, Z(b))) return a;
               var c = b.pe(a);
-              return c ? c : ytPlayer.$d(a, Z(b, "content")) == b.g ? b.l : null
+              return c ? c : _yt_player.$d(a, Z(b, "content")) == b.g ? b.l : null
           },
           Dya = function(a, b, c) {
               var d = y4(a, b);
-              d && ytPlayer.Jh(d, ytPlayer.Kh(c));
+              d && _yt_player.Jh(d, _yt_player.Kh(c));
               if (c == a.g) {
                   var e = 9,
                       f = 8;
-                  ytPlayer.kq(b, Z(a, "reversed")) && (e ^= 1, f ^= 1);
-                  ytPlayer.kq(b, Z(a, "flipped")) && (e ^= 4, f ^= 4);
-                  a = new ytPlayer.hd(0, 1);
+                  _yt_player.kq(b, Z(a, "reversed")) && (e ^= 1, f ^= 1);
+                  _yt_player.kq(b, Z(a, "flipped")) && (e ^= 4, f ^= 4);
+                  a = new _yt_player.hd(0, 1);
                   d && g2(b, e, d, f, a, null, 197);
                   g2(b, e, c, f, a, null, 197)
               }
           },
           Fya = function(a, b, c) {
-              z4(a, b) && !c ? A4(a, b) : (Eya(a, b), !a.g || j2(b, a.g) ? a.fG(b) : ova(a.A, (0, ytPlayer.z)(a.fG, a, b)))
+              z4(a, b) && !c ? A4(a, b) : (Eya(a, b), !a.g || j2(b, a.g) ? a.fG(b) : ova(a.A, (0, _yt_player.z)(a.fG, a, b)))
           },
           Eya = function(a, b) {
               if (b) {
-                  var c = ytPlayer.$d(b, Z(a, "content"));
-                  c && (c = ytPlayer.rd(Z(a), c), (0, ytPlayer.B)(c, function(a) {
+                  var c = _yt_player.$d(b, Z(a, "content"));
+                  c && (c = _yt_player.rd(Z(a), c), (0, _yt_player.B)(c, function(a) {
                           !j2(a, b) && z4(this, a) && B4(this, a)
                       },
                       a))
@@ -3654,7 +3635,7 @@ if (!self.__WB_pmw) {
                   var c = [];
                   c.push(b);
                   var d = C4(a, b);
-                  d && (d = ytPlayer.rd(Z(a), d), d = ytPlayer.Ya(d), c = c.concat(d), (0, ytPlayer.B)(c, function(a) {
+                  d && (d = _yt_player.rd(Z(a), d), d = _yt_player.Ya(d), c = c.concat(d), (0, _yt_player.B)(c, function(a) {
                           z4(this, a) && B4(this, a)
                       },
                       a))
@@ -3663,77 +3644,77 @@ if (!self.__WB_pmw) {
           B4 = function(a, b) {
               if (b) {
                   var c = C4(a, b);
-                  ytPlayer.nq(D4(a, b), [Z(a, "trigger-selected"), "yt-uix-button-toggled"]);
-                  ytPlayer.S(c, Z(a, "content-hidden"));
+                  _yt_player.nq(D4(a, b), [Z(a, "trigger-selected"), "yt-uix-button-toggled"]);
+                  _yt_player.S(c, Z(a, "content-hidden"));
                   var d = C4(a, b);
-                  d && ytPlayer.ud(d, {
+                  d && _yt_player.ud(d, {
                       "aria-expanded": "false"
                   });
-                  (d = y4(a, b)) && d.parentNode && ytPlayer.Kd(d);
+                  (d = y4(a, b)) && d.parentNode && _yt_player.Kd(d);
                   c && c == a.g && (a.l.appendChild(c), a.g = null, a.l = null, a.A && a.A.R("ROOT_MENU_REMOVED"));
-                  ytPlayer.XF("yt-uix-menu-hide", b);
-                  c = ytPlayer.Fa(b).toString();
-                  ytPlayer.sF(a.o[c]);
+                  _yt_player.XF("yt-uix-menu-hide", b);
+                  c = _yt_player.Fa(b).toString();
+                  _yt_player.sF(a.o[c]);
                   delete a.o[c]
               }
           },
           Gya = function(a, b) {
               var c = C4(a, b);
               if (c) {
-                  (0, ytPlayer.B)(c.children, function(a) {
-                      "LI" == a.tagName && ytPlayer.ud(a, {
+                  (0, _yt_player.B)(c.children, function(a) {
+                      "LI" == a.tagName && _yt_player.ud(a, {
                           role: "menuitem"
                       })
                   });
-                  ytPlayer.ud(c, {
+                  _yt_player.ud(c, {
                       "aria-expanded": "true"
                   });
                   var d = c.id;
-                  d || (d = "aria-menu-id-" + ytPlayer.Fa(c), c.id = d);
-                  (c = D4(a, b)) && ytPlayer.ud(c, {
+                  d || (d = "aria-menu-id-" + _yt_player.Fa(c), c.id = d);
+                  (c = D4(a, b)) && _yt_player.ud(c, {
                       "aria-controls": d
                   })
               }
           },
           Hya = function(a, b, c) {
               var d = C4(a, b);
-              d && ytPlayer.kq(b, Z(a, "checked")) && (a = ytPlayer.Zd(c, "LI")) && (a = ytPlayer.J("yt-ui-menu-item-checked-hid", a)) && (d = ytPlayer.rd("yt-ui-menu-item-checked", d), (0, ytPlayer.B)(d, function(a) {
-                  ytPlayer.oq(a, "yt-ui-menu-item-checked", "yt-ui-menu-item-checked-hid")
-              }), ytPlayer.oq(a, "yt-ui-menu-item-checked-hid", "yt-ui-menu-item-checked"))
+              d && _yt_player.kq(b, Z(a, "checked")) && (a = _yt_player.Zd(c, "LI")) && (a = _yt_player.J("yt-ui-menu-item-checked-hid", a)) && (d = _yt_player.rd("yt-ui-menu-item-checked", d), (0, _yt_player.B)(d, function(a) {
+                  _yt_player.oq(a, "yt-ui-menu-item-checked", "yt-ui-menu-item-checked-hid")
+              }), _yt_player.oq(a, "yt-ui-menu-item-checked-hid", "yt-ui-menu-item-checked"))
           },
           z4 = function(a, b) {
               var c = C4(a, b);
-              return c ? !ytPlayer.kq(c, Z(a, "content-hidden")) : !1
+              return c ? !_yt_player.kq(c, Z(a, "content-hidden")) : !1
           },
           Iya = function(a) {
-              a = ytPlayer.qd(window.document, "UL", null, a);
-              (0, ytPlayer.B)(a, function(a) {
+              a = _yt_player.qd(window.document, "UL", null, a);
+              (0, _yt_player.B)(a, function(a) {
                   a.tabIndex = 0;
                   var b = u4.getInstance();
-                  ytPlayer.lq(a, [Z(b), Z(b, "list")])
+                  _yt_player.lq(a, [Z(b), Z(b, "list")])
               })
           },
           C4 = function(a, b) {
-              var c = ytPlayer.bF(b, "menu-content-id");
-              return c && (c = ytPlayer.pd(c)) ? (ytPlayer.lq(c, [Z(a, "content"), Z(a, "content-external")]), c) : b == a.l ? a.g : ytPlayer.J(Z(a, "content"), b)
+              var c = _yt_player.bF(b, "menu-content-id");
+              return c && (c = _yt_player.pd(c)) ? (_yt_player.lq(c, [Z(a, "content"), Z(a, "content-external")]), c) : b == a.l ? a.g : _yt_player.J(Z(a, "content"), b)
           },
           y4 = function(a, b) {
-              var c = ytPlayer.Fa(b).toString(),
+              var c = _yt_player.Fa(b).toString(),
                   d = a.C[c];
               if (!d) {
-                  d = ytPlayer.Ed("IFRAME");
+                  d = _yt_player.Ed("IFRAME");
                   d.src = 'javascript:""';
                   var e = [Z(a, "mask")];
-                  (0, ytPlayer.B)(ytPlayer.jq(b), function(a) {
+                  (0, _yt_player.B)(_yt_player.jq(b), function(a) {
                       e.push(a + "-mask")
                   });
-                  ytPlayer.lq(d, e);
+                  _yt_player.lq(d, e);
                   a.C[c] = d
               }
               return d || null
           },
           D4 = function(a, b) {
-              return ytPlayer.J(Z(a, "trigger"), b)
+              return _yt_player.J(Z(a, "trigger"), b)
           },
           Jya = function(a, b) {
               return j2(b, a.g) || j2(b, a.l)
@@ -3749,19 +3730,19 @@ if (!self.__WB_pmw) {
           G4 = function(a, b, c, d, e, f) {
               this.g = a;
               this.D = null;
-              this.o = ytPlayer.J("yt-dialog-fg", this.g) || this.g;
-              if (a = ytPlayer.J("yt-dialog-title", this.o)) {
-                  var k = "yt-dialog-title-" + ytPlayer.Fa(this.o);
+              this.o = _yt_player.J("yt-dialog-fg", this.g) || this.g;
+              if (a = _yt_player.J("yt-dialog-title", this.o)) {
+                  var k = "yt-dialog-title-" + _yt_player.Fa(this.o);
                   a.setAttribute("id", k);
                   this.o.setAttribute("aria-labelledby", k)
               }
               this.o.setAttribute("tabindex", "-1");
-              this.I = ytPlayer.J("yt-dialog-focus-trap", this.g);
+              this.I = _yt_player.J("yt-dialog-focus-trap", this.g);
               this.J = !1;
-              this.A = new ytPlayer.XC;
+              this.A = new _yt_player.XC;
               this.F = [];
-              this.F.push(ytPlayer.AF(this.g, "click", (0, ytPlayer.z)(this.YQ, this), "yt-dialog-dismiss"));
-              this.F.push(ytPlayer.rF(this.I, "focus", (0, ytPlayer.z)(this.CJ, this), !0));
+              this.F.push(_yt_player.AF(this.g, "click", (0, _yt_player.z)(this.YQ, this), "yt-dialog-dismiss"));
+              this.F.push(_yt_player.rF(this.I, "focus", (0, _yt_player.z)(this.CJ, this), !0));
               Kya(this);
               this.K = b;
               this.T = c;
@@ -3775,43 +3756,43 @@ if (!self.__WB_pmw) {
               a.ka() || a.A.subscribe("post-all", b)
           },
           Kya = function(a) {
-              a = ytPlayer.J("yt-dialog-fg-content", a.g);
+              a = _yt_player.J("yt-dialog-fg-content", a.g);
               var b = [];
-              ytPlayer.Lb(Mya, function(a) {
+              _yt_player.Lb(Mya, function(a) {
                   b.push("yt-dialog-show-" + a)
               });
-              ytPlayer.nq(a, b);
-              ytPlayer.S(a, "yt-dialog-show-content")
+              _yt_player.nq(a, b);
+              _yt_player.S(a, "yt-dialog-show-content")
           },
           Nya = function() {
-              var a = ytPlayer.rd("yt-dialog");
-              return (0, ytPlayer.Bj)(a, function(a) {
+              var a = _yt_player.rd("yt-dialog");
+              return (0, _yt_player.Bj)(a, function(a) {
                   return m2(a)
               })
           },
           Oya = function(a) {
-              var b = ytPlayer.qd(window.document, "iframe", null, a.g);
-              (0, ytPlayer.B)(b, function(a) {
-                      var b = ytPlayer.bF(a, "onload");
-                      b && (b = ytPlayer.x(b)) && ytPlayer.rF(a, "load", b);
-                      if (b = ytPlayer.bF(a, "src")) a.src = b
+              var b = _yt_player.qd(window.document, "iframe", null, a.g);
+              (0, _yt_player.B)(b, function(a) {
+                      var b = _yt_player.bF(a, "onload");
+                      b && (b = _yt_player.x(b)) && _yt_player.rF(a, "load", b);
+                      if (b = _yt_player.bF(a, "src")) a.src = b
                   },
                   a);
-              return ytPlayer.Ya(b)
+              return _yt_player.Ya(b)
           },
           Pya = function(a) {
-              (0, ytPlayer.B)(window.document.getElementsByTagName("iframe"), function(b) {
-                  -1 == (0, ytPlayer.Pa)(a, b) && ytPlayer.S(b, "iframe-hid")
+              (0, _yt_player.B)(window.document.getElementsByTagName("iframe"), function(b) {
+                  -1 == (0, _yt_player.Pa)(a, b) && _yt_player.S(b, "iframe-hid")
               })
           },
           Qya = function() {
-              var a = ytPlayer.rd("iframe-hid");
-              (0, ytPlayer.B)(a, function(a) {
-                  ytPlayer.mq(a, "iframe-hid")
+              var a = _yt_player.rd("iframe-hid");
+              (0, _yt_player.B)(a, function(a) {
+                  _yt_player.mq(a, "iframe-hid")
               })
           },
           Rya = function(a) {
-              ytPlayer.XD((0, ytPlayer.z)(function() {
+              _yt_player.XD((0, _yt_player.z)(function() {
                       this.o && this.o.focus()
                   },
                   a), 0)
@@ -3821,7 +3802,7 @@ if (!self.__WB_pmw) {
               this.A = this.l = this.o = this.g = null
           },
           Tya = function(a) {
-              a.A || (a.A = ytPlayer.UF("yt-uix-overlay-hide", Sya));
+              a.A || (a.A = _yt_player.UF("yt-uix-overlay-hide", Sya));
               a.g && Lya(a.g, function() {
                   var a = H4.getInstance();
                   a.o = null;
@@ -3835,27 +3816,27 @@ if (!self.__WB_pmw) {
                   a.g.dismiss("overlayhide");
                   b && a.qj(b, "overlay-hidden");
                   a.o = null;
-                  a.l && (ytPlayer.sF(a.l), a.l = null);
+                  a.l && (_yt_player.sF(a.l), a.l = null);
                   a.g = null
               }
           },
           Vya = function(a, b) {
               var c;
               if (a)
-                  if (c = ytPlayer.J("yt-dialog", a)) {
-                      var d = ytPlayer.pd("body-container");
+                  if (c = _yt_player.J("yt-dialog", a)) {
+                      var d = _yt_player.pd("body-container");
                       d && (d.appendChild(c), a.overlayContentNode = c, c.overlayParentNode = a)
                   } else c = a.overlayContentNode;
-              else b && (c = ytPlayer.$d(b, "yt-dialog"));
+              else b && (c = _yt_player.$d(b, "yt-dialog"));
               return c
           },
           Wya = function() {
               var a = H4.getInstance();
-              if (a.o) a = ytPlayer.J("yt-dialog-fg-content", a.o.overlayContentNode);
+              if (a.o) a = _yt_player.J("yt-dialog-fg-content", a.o.overlayContentNode);
               else a: {
-                  if (a = ytPlayer.rd("yt-dialog-fg-content"))
+                  if (a = _yt_player.rd("yt-dialog-fg-content"))
                       for (var b = 0; b < a.length; b++) {
-                          var c = ytPlayer.$d(a[b], "yt-dialog");
+                          var c = _yt_player.$d(a[b], "yt-dialog");
                           if (m2(c)) {
                               a = a[b];
                               break a
@@ -3876,7 +3857,7 @@ if (!self.__WB_pmw) {
           Xya = function(a, b, c) {
               a.setData(b, "tooltip-text", c);
               a = a.Ba(b, "content-id");
-              (a = ytPlayer.pd(a)) && ytPlayer.Sd(a, c)
+              (a = _yt_player.pd(a)) && _yt_player.Sd(a, c)
           },
           Yya = function(a, b) {
               return a.Ba(b, "tooltip-text") || b.title
@@ -3885,7 +3866,7 @@ if (!self.__WB_pmw) {
               if (b) {
                   var c = Yya(a, b);
                   if (c) {
-                      var d = ytPlayer.pd(J4(a, b));
+                      var d = _yt_player.pd(J4(a, b));
                       if (!d) {
                           d = window.document.createElement("div");
                           d.id = J4(a, b);
@@ -3908,22 +3889,22 @@ if (!self.__WB_pmw) {
                           var n = W1(b);
                           m = J4(a, b, "arialabel");
                           f = window.document.createElement("div");
-                          ytPlayer.S(f, Z(a, "arialabel"));
+                          _yt_player.S(f, Z(a, "arialabel"));
                           f.id = m;
                           n = b.hasAttribute("aria-label") ? b.getAttribute("aria-label") : "rtl" == window.document.body.getAttribute("dir") ? c + " " + n : n + " " + c;
-                          ytPlayer.Sd(f, n);
+                          _yt_player.Sd(f, n);
                           b.setAttribute("aria-labelledby", m);
-                          m = ytPlayer.hF() || window.document.body;
+                          m = _yt_player.hF() || window.document.body;
                           m.appendChild(f);
                           m.appendChild(d);
                           Xya(a, b, c);
-                          (c = (0, window.parseInt)(a.Ba(b, "tooltip-max-width"), 10)) && e.offsetWidth > c && (e.style.width = c + "px", ytPlayer.S(k, Z(a, "normal-wrap")));
-                          k = ytPlayer.kq(b, Z(a, "reverse"));
+                          (c = (0, window.parseInt)(a.Ba(b, "tooltip-max-width"), 10)) && e.offsetWidth > c && (e.style.width = c + "px", _yt_player.S(k, Z(a, "normal-wrap")));
+                          k = _yt_player.kq(b, Z(a, "reverse"));
                           $ya(a,
                               b, d, e, l, k) || $ya(a, b, d, e, l, !k);
                           var p = Z(a, "tip-visible");
-                          ytPlayer.XD(function() {
-                                  ytPlayer.S(d, p)
+                          _yt_player.XD(function() {
+                                  _yt_player.S(d, p)
                               },
                               0)
                       }
@@ -3931,16 +3912,16 @@ if (!self.__WB_pmw) {
               }
           },
           $ya = function(a, b, c, d, e, f) {
-              ytPlayer.U(c, Z(a, "tip-reverse"), f);
+              _yt_player.U(c, Z(a, "tip-reverse"), f);
               var k = 0;
               f && (k = 1);
-              var l = ytPlayer.Kh(b);
-              f = new ytPlayer.hd((l.width - 10) / 2, f ? l.height : 0);
-              var m = ytPlayer.Ch(b);
-              Jva(new ytPlayer.hd(m.x + f.x, m.y + f.y), c, k);
-              m = ytPlayer.wd(window);
-              var n = ytPlayer.Gh(c);
-              c = ytPlayer.Kh(d);
+              var l = _yt_player.Kh(b);
+              f = new _yt_player.hd((l.width - 10) / 2, f ? l.height : 0);
+              var m = _yt_player.Ch(b);
+              Jva(new _yt_player.hd(m.x + f.x, m.y + f.y), c, k);
+              m = _yt_player.wd(window);
+              var n = _yt_player.Gh(c);
+              c = _yt_player.Kh(d);
               var p = Math.floor(c.width / 2);
               k = !!(m.height < n.y + l.height);
               l = !!(n.y < l.height);
@@ -3963,48 +3944,48 @@ if (!self.__WB_pmw) {
           },
           Zya = function(a, b) {
               var c = null;
-              ytPlayer.K0 && ytPlayer.kq(b, Z(a, "masked")) && ((c = ytPlayer.pd("yt-uix-tooltip-shared-mask")) ? (c.parentNode.removeChild(c), n2(c)) : (c = ytPlayer.Ed("IFRAME"), c.src = 'javascript:""', c.id = "yt-uix-tooltip-shared-mask", c.className = Z(a, "tip-mask")));
+              _yt_player.K0 && _yt_player.kq(b, Z(a, "masked")) && ((c = _yt_player.pd("yt-uix-tooltip-shared-mask")) ? (c.parentNode.removeChild(c), n2(c)) : (c = _yt_player.Ed("IFRAME"), c.src = 'javascript:""', c.id = "yt-uix-tooltip-shared-mask", c.className = Z(a, "tip-mask")));
               return c
           },
           bza = function(a) {
-              var b = ytPlayer.pd("yt-uix-tooltip-shared-mask"),
-                  c = b && ytPlayer.Yd(b, function(b) {
+              var b = _yt_player.pd("yt-uix-tooltip-shared-mask"),
+                  c = b && _yt_player.Yd(b, function(b) {
                           return b == a
                       },
                       !1, 2);
               b && c && (b.parentNode.removeChild(b), o2(b), window.document.body.appendChild(b))
           },
           K4 = function(a) {
-              ytPlayer.yN.call(this, 1, arguments);
+              _yt_player.yN.call(this, 1, arguments);
               this.g = a
           },
           L4 = function(a, b, c, d, e) {
-              ytPlayer.yN.call(this, 2, arguments);
+              _yt_player.yN.call(this, 2, arguments);
               this.source = e || null
           },
           cza = function(a, b, c) {
-              ytPlayer.yN.call(this, 1, arguments);
+              _yt_player.yN.call(this, 1, arguments);
               this.g = a;
               this.l = b
           },
           M4 = function(a, b, c, d, e, f, k) {
-              ytPlayer.yN.call(this, 1, arguments);
+              _yt_player.yN.call(this, 1, arguments);
               this.g = d || null;
               this.source = k || null
           },
           dza = function(a) {
-              a = ytPlayer.$d(a, "yt-uix-button-subscription-container");
-              a = ytPlayer.J("unsubscribe-confirmation-overlay-container", a);
-              return ytPlayer.J("yt-dialog", a)
+              a = _yt_player.$d(a, "yt-uix-button-subscription-container");
+              a = _yt_player.J("unsubscribe-confirmation-overlay-container", a);
+              return _yt_player.J("yt-dialog", a)
           },
           eza = function(a, b) {
-              ytPlayer.sF(N4);
+              _yt_player.sF(N4);
               N4.length = 0;
               O4[b] || (O4[b] = dza(a));
               H4.getInstance().show(O4[b]);
               var c = Wya();
-              return new ytPlayer.Yf(function(a) {
-                  N4.push(ytPlayer.AF(c, "click", function() {
+              return new _yt_player.Yf(function(a) {
+                  N4.push(_yt_player.AF(c, "click", function() {
                           a()
                       },
                       "overlay-confirmation-unsubscribe-button"))
@@ -4028,28 +4009,28 @@ if (!self.__WB_pmw) {
                   d = !!a.Ba(b, "is-subscribed");
               c = "-" + c;
               var e = R4.wG + c;
-              ytPlayer.U(b, R4.vG + c, !d);
-              ytPlayer.U(b, e, d);
-              a.Ba(b, Q4.IG) && !a.Ba(b, Q4.HG) && (c = Z(I4.getInstance()), ytPlayer.U(b, c, !d), b.title = d ? "" : a.Ba(b, Q4.JG));
-              d ? ytPlayer.XD(function() {
-                      ytPlayer.S(b, R4.pw)
+              _yt_player.U(b, R4.vG + c, !d);
+              _yt_player.U(b, e, d);
+              a.Ba(b, Q4.IG) && !a.Ba(b, Q4.HG) && (c = Z(I4.getInstance()), _yt_player.U(b, c, !d), b.title = d ? "" : a.Ba(b, Q4.JG));
+              d ? _yt_player.XD(function() {
+                      _yt_player.S(b, R4.pw)
                   },
-                  1E3) : ytPlayer.mq(b, R4.pw)
+                  1E3) : _yt_player.mq(b, R4.pw)
           },
           hza = function(a, b) {
-              var c = ytPlayer.rd(Z(a));
-              return (0, ytPlayer.Ld)(c, function(a) {
+              var c = _yt_player.rd(Z(a));
+              return (0, _yt_player.Ld)(c, function(a) {
                       return b == this.Ba(a, "channel-external-id")
                   },
                   a)
           },
           iza = function(a, b) {
-              var c = (0, ytPlayer.z)(function(a) {
-                      a.discoverable_subscriptions && ytPlayer.QD("SUBSCRIBE_EMBED_DISCOVERABLE_SUBSCRIPTIONS", a.discoverable_subscriptions);
+              var c = (0, _yt_player.z)(function(a) {
+                      a.discoverable_subscriptions && _yt_player.QD("SUBSCRIBE_EMBED_DISCOVERABLE_SUBSCRIPTIONS", a.discoverable_subscriptions);
                       this.kw(b)
                   },
                   a);
-              ytPlayer.Osa(c, "subscribe", "sub_button")
+              _yt_player.Osa(c, "subscribe", "sub_button")
           },
           jza = function(a, b) {
               if (!a.Ba(b, "show-unsub-confirm-dialog")) return !1;
@@ -4085,40 +4066,40 @@ if (!self.__WB_pmw) {
       Y1.prototype.getLength = function() {
           return this.end - this.start
       };
-      ytPlayer.A($1, ytPlayer.ko);
-      ytPlayer.h = $1.prototype;
-      ytPlayer.h.getHours = function() {
+      _yt_player.A($1, _yt_player.ko);
+      _yt_player.h = $1.prototype;
+      _yt_player.h.getHours = function() {
           return this.date.getHours()
       };
-      ytPlayer.h.getMinutes = function() {
+      _yt_player.h.getMinutes = function() {
           return this.date.getMinutes()
       };
-      ytPlayer.h.getSeconds = function() {
+      _yt_player.h.getSeconds = function() {
           return this.date.getSeconds()
       };
-      ytPlayer.h.getMilliseconds = function() {
+      _yt_player.h.getMilliseconds = function() {
           return this.date.getMilliseconds()
       };
-      ytPlayer.h.getUTCHours = function() {
+      _yt_player.h.getUTCHours = function() {
           return this.date.getUTCHours()
       };
-      ytPlayer.h.getUTCMinutes = function() {
+      _yt_player.h.getUTCMinutes = function() {
           return this.date.getUTCMinutes()
       };
-      ytPlayer.h.add = function(a) {
-          ytPlayer.ko.prototype.add.call(this, a);
+      _yt_player.h.add = function(a) {
+          _yt_player.ko.prototype.add.call(this, a);
           a.hours && this.date.setUTCHours(this.date.getUTCHours() + a.hours);
           a.minutes && this.date.setUTCMinutes(this.date.getUTCMinutes() + a.minutes);
           a.seconds && this.date.setUTCSeconds(this.date.getUTCSeconds() + a.seconds)
       };
-      ytPlayer.h.xo = function(a) {
-          var b = ytPlayer.ko.prototype.xo.call(this, a);
-          return a ? b + " " + ytPlayer.yb(this.getHours(), 2) + ":" + ytPlayer.yb(this.getMinutes(), 2) + ":" + ytPlayer.yb(this.getSeconds(), 2) : b + "T" + ytPlayer.yb(this.getHours(), 2) + ytPlayer.yb(this.getMinutes(), 2) + ytPlayer.yb(this.getSeconds(), 2)
+      _yt_player.h.xo = function(a) {
+          var b = _yt_player.ko.prototype.xo.call(this, a);
+          return a ? b + " " + _yt_player.yb(this.getHours(), 2) + ":" + _yt_player.yb(this.getMinutes(), 2) + ":" + _yt_player.yb(this.getSeconds(), 2) : b + "T" + _yt_player.yb(this.getHours(), 2) + _yt_player.yb(this.getMinutes(), 2) + _yt_player.yb(this.getSeconds(), 2)
       };
-      ytPlayer.h.toString = function() {
+      _yt_player.h.toString = function() {
           return this.xo()
       };
-      ytPlayer.h.clone = function() {
+      _yt_player.h.clone = function() {
           var a = new $1(this.date);
           a.eo = this.eo;
           a.ho = this.ho;
@@ -4126,17 +4107,17 @@ if (!self.__WB_pmw) {
       };
       var a2 = {},
           b2 = null;
-      ytPlayer.A(Eva, ytPlayer.bf);
-      ytPlayer.A(d2, ytPlayer.ut);
-      ytPlayer.h = d2.prototype;
-      ytPlayer.h.getDuration = function() {
+      _yt_player.A(Eva, _yt_player.bf);
+      _yt_player.A(d2, _yt_player.ut);
+      _yt_player.h = d2.prototype;
+      _yt_player.h.getDuration = function() {
           return this.duration
       };
-      ytPlayer.h.play = function(a) {
+      _yt_player.h.play = function(a) {
           if (a || 0 == this.g) this.progress = 0, this.coords = this.l;
           else if (this.kb()) return !1;
           c2(this);
-          this.startTime = a = (0, ytPlayer.F)(); -
+          this.startTime = a = (0, _yt_player.F)(); -
           1 == this.g && (this.startTime -= this.duration * this.progress);
           this.endTime = this.startTime + this.duration;
           this.A = this.startTime;
@@ -4144,13 +4125,13 @@ if (!self.__WB_pmw) {
           this.Ge("play"); -
           1 == this.g && this.Ge("resume");
           this.g = 1;
-          var b = ytPlayer.Fa(this);
+          var b = _yt_player.Fa(this);
           b in a2 || (a2[b] = this);
           Cva();
           Dva(this, a);
           return !0
       };
-      ytPlayer.h.stop = function(a) {
+      _yt_player.h.stop = function(a) {
           c2(this);
           this.g = 0;
           a && (this.progress = 1);
@@ -4158,25 +4139,25 @@ if (!self.__WB_pmw) {
           this.Ge("stop");
           this.xm()
       };
-      ytPlayer.h.pause = function() {
+      _yt_player.h.pause = function() {
           this.kb() && (c2(this), this.g = -1, this.Ge("pause"))
       };
-      ytPlayer.h.V = function() {
+      _yt_player.h.V = function() {
           0 == this.g || this.stop(!1);
           this.Ge("destroy");
           d2.ba.V.call(this)
       };
-      ytPlayer.h.destroy = function() {
+      _yt_player.h.destroy = function() {
           this.dispose()
       };
-      ytPlayer.h.Iu = function() {
+      _yt_player.h.Iu = function() {
           this.Ge("animate")
       };
-      ytPlayer.h.Ge = function(a) {
+      _yt_player.h.Ge = function(a) {
           this.dispatchEvent(new Eva(a, this))
       };
-      ytPlayer.A(e2, d2);
-      e2.prototype.o = ytPlayer.y;
+      _yt_player.A(e2, d2);
+      e2.prototype.o = _yt_player.y;
       e2.prototype.Iu = function() {
           this.o();
           e2.ba.Iu.call(this)
@@ -4189,47 +4170,47 @@ if (!self.__WB_pmw) {
           this.o();
           e2.ba.Ap.call(this)
       };
-      ytPlayer.A(f2, e2);
+      _yt_player.A(f2, e2);
       f2.prototype.o = function() {
           this.element.style.left = Math.round(this.coords[0]) + "px";
           this.element.style.top = Math.round(this.coords[1]) + "px"
       };
       var I3 = {};
-      ytPlayer.A(q2, ytPlayer.Df);
-      ytPlayer.h = q2.prototype;
-      ytPlayer.h.rs = null;
-      ytPlayer.h.El = null;
-      ytPlayer.h.la = function() {
+      _yt_player.A(q2, _yt_player.Df);
+      _yt_player.h = q2.prototype;
+      _yt_player.h.rs = null;
+      _yt_player.h.El = null;
+      _yt_player.h.la = function() {
           return this.El
       };
-      ytPlayer.h.addEventListener = function(a, b, c, d) {
-          ytPlayer.pf(this.El, a, b, c, d)
+      _yt_player.h.addEventListener = function(a, b, c, d) {
+          _yt_player.pf(this.El, a, b, c, d)
       };
-      ytPlayer.h.removeEventListener = function(a, b, c, d) {
-          ytPlayer.xf(this.El, a, b, c, d)
+      _yt_player.h.removeEventListener = function(a, b, c, d) {
+          _yt_player.xf(this.El, a, b, c, d)
       };
-      ytPlayer.h.V = function() {
+      _yt_player.h.V = function() {
           q2.ba.V.call(this);
           var a = this.El;
           if (a)
-              if (ytPlayer.hf(a)) a.He && ytPlayer.mf(a.He);
-              else if (a = ytPlayer.sf(a)) {
+              if (_yt_player.hf(a)) a.He && _yt_player.mf(a.He);
+              else if (a = _yt_player.sf(a)) {
               var b = 0,
                   c;
               for (c in a.listeners)
                   for (var d = a.listeners[c].concat(), e = 0; e < d.length;
-                      ++e) ytPlayer.yf(d[e]) && ++b
+                      ++e) _yt_player.yf(d[e]) && ++b
           }
       };
-      ytPlayer.A(u2, q2);
+      _yt_player.A(u2, q2);
       u2.prototype.fill = null;
-      ytPlayer.A(Tva, q2);
+      _yt_player.A(Tva, q2);
       v2.prototype.Rf = null;
       v2.prototype.Zd = null;
       v2.prototype.Jm = !0;
       var Uva = [2, 2, 6, 6, 0];
-      ytPlayer.h = v2.prototype;
-      ytPlayer.h.clear = function() {
+      _yt_player.h = v2.prototype;
+      _yt_player.h.clear = function() {
           this.rb.length = 0;
           this.Ka.length = 0;
           this.Ce.length = 0;
@@ -4238,14 +4219,14 @@ if (!self.__WB_pmw) {
           delete this.Jm;
           return this
       };
-      ytPlayer.h.moveTo = function(a, b) {
-          0 == ytPlayer.Ka(this.rb) ? this.Ce.length -= 2 : (this.rb.push(0), this.Ka.push(1));
+      _yt_player.h.moveTo = function(a, b) {
+          0 == _yt_player.Ka(this.rb) ? this.Ce.length -= 2 : (this.rb.push(0), this.Ka.push(1));
           this.Ce.push(a, b);
           this.Zd = this.Rf = [a, b];
           return this
       };
-      ytPlayer.h.Ec = function(a) {
-          var b = ytPlayer.Ka(this.rb);
+      _yt_player.h.Ec = function(a) {
+          var b = _yt_player.Ka(this.rb);
           if (null == b) throw Error("Path cannot start with lineTo");
           1 != b && (this.rb.push(1), this.Ka.push(0));
           for (b = 0; b < arguments.length; b += 2) {
@@ -4256,13 +4237,13 @@ if (!self.__WB_pmw) {
           this.Ka[this.Ka.length - 1] += b / 2;
           this.Zd = [c, d]
       };
-      ytPlayer.h.close = function() {
-          var a = ytPlayer.Ka(this.rb);
+      _yt_player.h.close = function() {
+          var a = _yt_player.Ka(this.rb);
           if (null == a) throw Error("Path cannot start with close");
           4 != a && (this.rb.push(4), this.Ka.push(1), this.Zd = this.Rf);
           return this
       };
-      ytPlayer.h.clone = function() {
+      _yt_player.h.clone = function() {
           var a = new this.constructor;
           a.rb = this.rb.concat();
           a.Ka = this.Ka.concat();
@@ -4272,31 +4253,31 @@ if (!self.__WB_pmw) {
           a.Jm = this.Jm;
           return a
       };
-      ytPlayer.h.transform = function(a) {
+      _yt_player.h.transform = function(a) {
           if (!this.Jm) throw Error("Non-simple path");
           a.transform(this.Ce, 0, this.Ce, 0, this.Ce.length / 2);
           this.Rf && a.transform(this.Rf, 0, this.Rf, 0, 1);
           this.Zd && this.Rf != this.Zd && a.transform(this.Zd, 0, this.Zd, 0, 1);
           return this
       };
-      ytPlayer.h.isEmpty = function() {
+      _yt_player.h.isEmpty = function() {
           return 0 == this.rb.length
       };
-      ytPlayer.A(Wva, u2);
+      _yt_player.A(Wva, u2);
       x2.prototype.Cb = function() {
           return this.l
       };
-      ytPlayer.A(y2, ytPlayer.Tu);
+      _yt_player.A(y2, _yt_player.Tu);
       y2.prototype.B = null;
       y2.prototype.Hj = function() {
-          return this.Re ? ytPlayer.Kh(this.la()) : ytPlayer.ua(this.width) && ytPlayer.ua(this.height) ? new ytPlayer.I(this.width, this.height) : null
+          return this.Re ? _yt_player.Kh(this.la()) : _yt_player.ua(this.width) && _yt_player.ua(this.height) ? new _yt_player.I(this.width, this.height) : null
       };
       y2.prototype.resume = function() {};
-      ytPlayer.A(s2, Sva);
-      ytPlayer.A(r2, Sva);
-      ytPlayer.A(z2, Tva);
+      _yt_player.A(s2, Sva);
+      _yt_player.A(r2, Sva);
+      _yt_player.A(z2, Tva);
       z2.prototype.clear = function() {
-          ytPlayer.Id(this.la())
+          _yt_player.Id(this.la())
       };
       z2.prototype.setSize = function(a, b) {
           var c = this.la(),
@@ -4307,12 +4288,12 @@ if (!self.__WB_pmw) {
               e;
           for (e in d) c.setAttribute(e, d[e])
       };
-      ytPlayer.A(Xva, Wva);
+      _yt_player.A(Xva, Wva);
       var C2;
-      ytPlayer.A(A2, y2);
+      _yt_player.A(A2, y2);
       var Zva = 0;
-      ytPlayer.h = A2.prototype;
-      ytPlayer.h.zo = function() {
+      _yt_player.h = A2.prototype;
+      _yt_player.h.zo = function() {
           var a = t2(this, "svg", {
                   width: this.width,
                   height: this.height,
@@ -4326,7 +4307,7 @@ if (!self.__WB_pmw) {
           this.g = a;
           this.o && (this.la().setAttribute("preserveAspectRatio", "none"), this.M ? this.wq() : this.la().setAttribute("viewBox", "0 0 " + (this.o ? this.o + " " + this.K : "")))
       };
-      ytPlayer.h.wq = function() {
+      _yt_player.h.wq = function() {
           if (this.Re) {
               var a = this.Hj();
               if (0 == a.width) this.la().style.visibility = "hidden";
@@ -4338,30 +4319,30 @@ if (!self.__WB_pmw) {
               }
           }
       };
-      ytPlayer.h.setSize = function(a, b) {
-          ytPlayer.Jh(this.la(), a, b)
+      _yt_player.h.setSize = function(a, b) {
+          _yt_player.Jh(this.la(), a, b)
       };
-      ytPlayer.h.Hj = function() {
-          if (!ytPlayer.rh) return this.Re ? ytPlayer.Kh(this.la()) : A2.ba.Hj.call(this);
+      _yt_player.h.Hj = function() {
+          if (!_yt_player.rh) return this.Re ? _yt_player.Kh(this.la()) : A2.ba.Hj.call(this);
           var a = this.width,
               b = this.height,
-              c = ytPlayer.u(a) && -1 != a.indexOf("%"),
-              d = ytPlayer.u(b) && -1 != b.indexOf("%");
+              c = _yt_player.u(a) && -1 != a.indexOf("%"),
+              d = _yt_player.u(b) && -1 != b.indexOf("%");
           if (!this.Re && (c || d)) return null;
           if (c) {
               var e = this.la().parentNode;
-              var f = ytPlayer.Kh(e);
+              var f = _yt_player.Kh(e);
               a = (0, window.parseFloat)(a) * f.width / 100
           }
-          d && (e = e || this.la().parentNode, f = f || ytPlayer.Kh(e), b = (0, window.parseFloat)(b) * f.height / 100);
-          return new ytPlayer.I(a, b)
+          d && (e = e || this.la().parentNode, f = f || _yt_player.Kh(e), b = (0, window.parseFloat)(b) * f.height / 100);
+          return new _yt_player.I(a, b)
       };
-      ytPlayer.h.clear = function() {
+      _yt_player.h.clear = function() {
           this.B.clear();
-          ytPlayer.Id(this.F);
+          _yt_player.Id(this.F);
           this.l = {}
       };
-      ytPlayer.h.yj = function() {
+      _yt_player.h.yj = function() {
           var a = this.Hj();
           A2.ba.yj.call(this);
           a || this.dispatchEvent("resize");
@@ -4372,11 +4353,11 @@ if (!self.__WB_pmw) {
               this.wq()
           }
       };
-      ytPlayer.h.ql = function() {
+      _yt_player.h.ql = function() {
           A2.ba.ql.call(this);
           this.M && this.I.Ea($va(), "tick", this.wq)
       };
-      ytPlayer.h.V = function() {
+      _yt_player.h.V = function() {
           delete this.l;
           delete this.F;
           delete this.B;
@@ -4384,11 +4365,11 @@ if (!self.__WB_pmw) {
           delete this.I;
           A2.ba.V.call(this)
       };
-      ytPlayer.q(G2, ytPlayer.sV);
-      ytPlayer.h = G2.prototype;
-      ytPlayer.h.load = function() {
-          ytPlayer.sV.prototype.load.call(this);
-          if (!H2(ytPlayer.Y(this.g).playerStyle)) {
+      _yt_player.q(G2, _yt_player.sV);
+      _yt_player.h = G2.prototype;
+      _yt_player.h.load = function() {
+          _yt_player.sV.prototype.load.call(this);
+          if (!H2(_yt_player.Y(this.g).playerStyle)) {
               var a = this.g.getVideoData();
               if (a = a.cj ? null : a.qb && a.qb.endscreen && a.qb.endscreen.endscreenRenderer || null) a = F2(a, this.M ? "new" : "current"), I2(this, a);
               else {
@@ -4397,30 +4378,30 @@ if (!self.__WB_pmw) {
                   this.B && this.B.abort();
                   a = {
                       method: "POST",
-                      wd: (0, ytPlayer.z)(this.FR, this, a),
+                      wd: (0, _yt_player.z)(this.FR, this, a),
                       ad: {
                           v: a
                       },
                       withCredentials: !0
                   };
-                  "gaming" == ytPlayer.Y(this.g).playerStyle && (a.ad.gaming = "1");
+                  "gaming" == _yt_player.Y(this.g).playerStyle && (a.ad.gaming = "1");
                   this.M && (a.ad.ptype = "embedded");
                   var c = this.g.getVideoData().Jy;
                   c && (a.Ob = {
                       ad_tracking: c
                   });
-                  if (b = ytPlayer.LO(b))
-                      if (b = ytPlayer.Mc(b), b = ytPlayer.Jc(b)) this.B = ytPlayer.nE(b, a)
+                  if (b = _yt_player.LO(b))
+                      if (b = _yt_player.Mc(b), b = _yt_player.Jc(b)) this.B = _yt_player.nE(b, a)
               }
           }
       };
-      ytPlayer.h.unload = function() {
+      _yt_player.h.unload = function() {
           I2(this, null);
           this.B && (this.B.abort(), this.B = null);
-          ytPlayer.sV.prototype.unload.call(this)
+          _yt_player.sV.prototype.unload.call(this)
       };
-      ytPlayer.h.CM = function(a, b) {
-          if (!H2(ytPlayer.Y(this.g).playerStyle)) return null;
+      _yt_player.h.CM = function(a, b) {
+          if (!H2(_yt_player.Y(this.g).playerStyle)) return null;
           if ("loadCustomEndscreenRenderer" == a) {
               var c = F2(b, "new");
               I2(this, c);
@@ -4428,10 +4409,10 @@ if (!self.__WB_pmw) {
           }
           return null
       };
-      ytPlayer.h.DM = function() {
-          return H2(ytPlayer.Y(this.g).playerStyle) ? ["loadCustomEndscreenRenderer"] : []
+      _yt_player.h.DM = function() {
+          return H2(_yt_player.Y(this.g).playerStyle) ? ["loadCustomEndscreenRenderer"] : []
       };
-      ytPlayer.h.FR = function(a, b) {
+      _yt_player.h.FR = function(a, b) {
           var c = this.B = null;
           if (200 == b.status) {
               var d = b.responseText;
@@ -4439,7 +4420,7 @@ if (!self.__WB_pmw) {
           }
           I2(this, c)
       };
-      ytPlayer.h.XA = function() {
+      _yt_player.h.XA = function() {
           if (this.o && this.o.elements) {
               var a = this.g.nB();
               if (a && 0 != a.width && 0 != a.height) {
@@ -4452,7 +4433,7 @@ if (!self.__WB_pmw) {
                           if (-1 == e || d >= k) e = f, d = k
                       }
                       d = lza[e];
-                      this.A && ytPlayer.ph(this.A.element, "outline-width", Math.max(b.width, b.height) + "px");
+                      this.A && _yt_player.ph(this.A.element, "outline-width", Math.max(b.width, b.height) + "px");
                       for (b = 0; b < this.o.elements.length;
                           ++b)
                           if (f = this.o.elements[b].id, e = this.l[f], k = this.F[f], e && k) {
@@ -4461,83 +4442,83 @@ if (!self.__WB_pmw) {
                               var m =
                                   a.left + Math.round(k.left * a.width),
                                   n = a.top + Math.round(k.top * a.height);
-                              ytPlayer.Jh(e.element, Math.round(k.width * a.width), f);
-                              ytPlayer.wh(e.element, m, n);
-                              ytPlayer.nq(e.element, mza);
+                              _yt_player.Jh(e.element, Math.round(k.width * a.width), f);
+                              _yt_player.wh(e.element, m, n);
+                              _yt_player.nq(e.element, mza);
                               m = k.left + k.width / 2;
                               k = k.top + l / 2;
-                              ytPlayer.S(e.element, .5 >= m && .5 >= k ? "ytp-ce-top-left-quad" : .5 < m && .5 >= k ? "ytp-ce-top-right-quad" : .5 >= m && .5 < k ? "ytp-ce-bottom-left-quad" : "ytp-ce-bottom-right-quad");
-                              ytPlayer.nq(e.element, lza);
-                              ytPlayer.S(e.element, d);
-                              (e = ytPlayer.qd(window.document, "div", "ytp-ce-expanding-overlay-body", e.element)[0]) && ytPlayer.ph(e, "height", f + "px")
+                              _yt_player.S(e.element, .5 >= m && .5 >= k ? "ytp-ce-top-left-quad" : .5 < m && .5 >= k ? "ytp-ce-top-right-quad" : .5 >= m && .5 < k ? "ytp-ce-bottom-left-quad" : "ytp-ce-bottom-right-quad");
+                              _yt_player.nq(e.element, lza);
+                              _yt_player.S(e.element, d);
+                              (e = _yt_player.qd(window.document, "div", "ytp-ce-expanding-overlay-body", e.element)[0]) && _yt_player.ph(e, "height", f + "px")
                           }
                   }
               }
           }
       };
-      ytPlayer.h.EM = function(a) {
+      _yt_player.h.EM = function(a) {
           if (this.o)
-              if ("ytp-ce-in-endscreen" == a.getId()) this.J = !1, this.o.skip && 1 == this.g.Bh() ? (ytPlayer.XU(this.g, !0), this.g.ac(window.Infinity), this.J = !0) : (L2(this, this.o.impressionUrls), (a = ytPlayer.MG()) && D2(a, this.o.visualElement));
+              if ("ytp-ce-in-endscreen" == a.getId()) this.J = !1, this.o.skip && 1 == this.g.Bh() ? (_yt_player.XU(this.g, !0), this.g.ac(window.Infinity), this.J = !0) : (L2(this, this.o.impressionUrls), (a = _yt_player.MG()) && D2(a, this.o.visualElement));
               else if (!this.J) {
               a = a.getId().substring(15);
               var b = this.l[a],
                   c = this.F[a];
-              ytPlayer.S(b.element, "ytp-ce-element-show");
+              _yt_player.S(b.element, "ytp-ce-element-show");
               b.element.removeAttribute("aria-hidden");
               b = this.g.getRootNode();
-              ytPlayer.S(b, "ytp-ce-shown");
+              _yt_player.S(b, "ytp-ce-shown");
               L2(this, c.impressionUrls);
-              (b = ytPlayer.MG()) && D2(b, c.visualElement);
-              ytPlayer.Y(this.g).zb && this.g.va("endscreenelementshown",
+              (b = _yt_player.MG()) && D2(b, c.visualElement);
+              _yt_player.Y(this.g).zb && this.g.va("endscreenelementshown",
                   a)
           }
       };
-      ytPlayer.h.FM = function(a) {
+      _yt_player.h.FM = function(a) {
           if ("ytp-ce-in-endscreen" != a.getId() && !this.J) {
               a = a.getId().substring(15);
               var b = this.l[a];
-              ytPlayer.mq(b.element, "ytp-ce-element-show");
+              _yt_player.mq(b.element, "ytp-ce-element-show");
               b.element.setAttribute("aria-hidden", !0);
               b = this.g.getRootNode();
-              ytPlayer.mq(b, "ytp-ce-shown");
-              ytPlayer.Y(this.g).zb && this.g.va("endscreenelementhidden", a)
+              _yt_player.mq(b, "ytp-ce-shown");
+              _yt_player.Y(this.g).zb && this.g.va("endscreenelementhidden", a)
           }
       };
-      ytPlayer.h.RU = function(a) {
+      _yt_player.h.RU = function(a) {
           var b = this;
-          a.target === window && (new ytPlayer.Yt(function() {
-                  for (var a in b.l) ytPlayer.nq(b.l[a].element, ["ytp-ce-force-expand", "ytp-ce-element-hover", "ytp-ce-element-shadow-show"])
+          a.target === window && (new _yt_player.Yt(function() {
+                  for (var a in b.l) _yt_player.nq(b.l[a].element, ["ytp-ce-force-expand", "ytp-ce-element-hover", "ytp-ce-element-shadow-show"])
               },
               0)).start()
       };
-      ytPlayer.h.HC = function(a, b) {
+      _yt_player.h.HC = function(a, b) {
           if (a.targetUrl && (!b || "keypress" != b.type || 13 == b.keyCode)) {
-              for (var c = b.target; c && !ytPlayer.kq(c, "ytp-ce-element");) {
-                  ytPlayer.kq(c, "subscribe-label") && M2(this, a);
-                  if (ytPlayer.kq(c, "ytp-ce-channel-subscribe")) return;
-                  c = ytPlayer.Pd(c)
+              for (var c = b.target; c && !_yt_player.kq(c, "ytp-ce-element");) {
+                  _yt_player.kq(c, "subscribe-label") && M2(this, a);
+                  if (_yt_player.kq(c, "ytp-ce-channel-subscribe")) return;
+                  c = _yt_player.Pd(c)
               }
-              if (!c || ytPlayer.kq(c, "ytp-ce-element-hover")) {
+              if (!c || _yt_player.kq(c, "ytp-ce-element-hover")) {
                   b.preventDefault();
                   b.stopPropagation();
                   if (c = this.l[a.id]) this.Ru(c, a), c.element.blur();
-                  b.ctrlKey || b.metaKey || "new" == a.mq ? (M2(this, a), this.aE(), this.g.hd(), c = ytPlayer.Mc(a.targetUrl), c = ytPlayer.Jc(c), ytPlayer.vV(c, void 0, a.Rd)) : (c = (0, ytPlayer.z)(this.aE, this, ytPlayer.Ga(ytPlayer.uV, a.targetUrl,
+                  b.ctrlKey || b.metaKey || "new" == a.mq ? (M2(this, a), this.aE(), this.g.hd(), c = _yt_player.Mc(a.targetUrl), c = _yt_player.Jc(c), _yt_player.vV(c, void 0, a.Rd)) : (c = (0, _yt_player.z)(this.aE, this, _yt_player.Ga(_yt_player.uV, a.targetUrl,
                       a.Rd)), M2(this, a, c))
               }
           }
       };
-      ytPlayer.h.Ut = function(a, b) {
-          ytPlayer.kq(a.element, "ytp-ce-element-hover") || ("VIDEO" == b.type || "PLAYLIST" == b.type ? ytPlayer.S(a.element, "ytp-ce-element-hover") : ytPlayer.Y(this.g).l ? (new ytPlayer.Yt(function() {
-                  ytPlayer.S(a.element, "ytp-ce-element-hover")
+      _yt_player.h.Ut = function(a, b) {
+          _yt_player.kq(a.element, "ytp-ce-element-hover") || ("VIDEO" == b.type || "PLAYLIST" == b.type ? _yt_player.S(a.element, "ytp-ce-element-hover") : _yt_player.Y(this.g).l ? (new _yt_player.Yt(function() {
+                  _yt_player.S(a.element, "ytp-ce-element-hover")
               },
-              200)).start() : ytPlayer.S(a.element, "ytp-ce-element-hover"), L2(this, b.MK), K2(this, b.id, !0))
+              200)).start() : _yt_player.S(a.element, "ytp-ce-element-hover"), L2(this, b.MK), K2(this, b.id, !0))
       };
-      ytPlayer.h.Ru = function(a, b) {
-          ytPlayer.mq(a.element, "ytp-ce-element-hover");
-          ytPlayer.mq(a.element, "ytp-ce-force-expand");
+      _yt_player.h.Ru = function(a, b) {
+          _yt_player.mq(a.element, "ytp-ce-element-hover");
+          _yt_player.mq(a.element, "ytp-ce-force-expand");
           K2(this, b.id, !1)
       };
-      ytPlayer.h.aE = function(a) {
+      _yt_player.h.aE = function(a) {
           this.g.Ni(17, a)
       };
       var kza = [346, 426, 470, 506, 570, 640, 853, 1280, 1920],
@@ -4566,7 +4547,7 @@ if (!self.__WB_pmw) {
           P4: "yx",
           Q4: "yy"
       };
-      ytPlayer.q(ywa, Z2);
+      _yt_player.q(ywa, Z2);
       var Ewa = {
           rG: "anchored",
           c2: "rect",
@@ -4621,7 +4602,7 @@ if (!self.__WB_pmw) {
           };
       Ywa.prototype.A = function(a, b, c, d) {
           this.g[a] = b ? !c : c;
-          a = ytPlayer.Ob(this.g, function(a) {
+          a = _yt_player.Ob(this.g, function(a) {
               return a
           });
           this.o != a && (this.o = a, this.l.R(this.B, a, d))
@@ -4634,7 +4615,7 @@ if (!self.__WB_pmw) {
           bevel: 1,
           dropshadow: 2
       };
-      ytPlayer.q(l3, f3);
+      _yt_player.q(l3, f3);
       l3.prototype.o = function(a, b) {
           var c = e3(a);
           if (c) {
@@ -4642,9 +4623,9 @@ if (!self.__WB_pmw) {
               if (!(0 >= d.width || 0 >= d.height)) {
                   var e;
                   if (e = (c = (c = Vwa(a)) && c.g ? c.g : null) && c.length ? c[0] : null) {
-                      var f = ytPlayer.gh(uwa(b, vwa(e, new ytPlayer.bh(e.F, e.H, e.Qk, e.o), b.g))),
+                      var f = _yt_player.gh(uwa(b, vwa(e, new _yt_player.bh(e.F, e.H, e.Qk, e.o), b.g))),
                           k = d.clone();
-                      c = new ytPlayer.bh(f.x, f.y, 1, 1);
+                      c = new _yt_player.bh(f.x, f.y, 1, 1);
                       var l = Math.max(k.left + k.width, c.left + c.width),
                           m = Math.max(k.top + k.height, c.top + c.height);
                       k.left = Math.min(k.left, c.left);
@@ -4656,8 +4637,8 @@ if (!self.__WB_pmw) {
                       l = g3(this, k.width, k.height);
                       m = fxa(c, k.width, k.height,
                           this.g);
-                      d = new ytPlayer.bh(d.left - k.left, d.top - k.top, d.width, d.height);
-                      var n = new ytPlayer.hd(f.x - k.left, f.y - k.top);
+                      d = new _yt_player.bh(d.left - k.left, d.top - k.top, d.width, d.height);
+                      var n = new _yt_player.hd(f.x - k.left, f.y - k.top);
                       this.A = 17 * Y2(b.g, e.l, e.g ? e.g : "xy");
                       e = c.cornerRadius;
                       f = a.l;
@@ -4689,7 +4670,7 @@ if (!self.__WB_pmw) {
                       w2(ha, e, e, 180);
                       ha.close();
                       B2(l, ha, f, m);
-                      if (m = this.la()) ytPlayer.S(m, "annotation-shape"), ytPlayer.S(m, "annotation-speech-shape"), ytPlayer.wh(m, k.left, k.top), ytPlayer.Jh(m, k.width, k.height), gxa(l, m, c.effects)
+                      if (m = this.la()) _yt_player.S(m, "annotation-shape"), _yt_player.S(m, "annotation-speech-shape"), _yt_player.wh(m, k.left, k.top), _yt_player.Jh(m, k.width, k.height), gxa(l, m, c.effects)
                   }
               }
           }
@@ -4697,12 +4678,12 @@ if (!self.__WB_pmw) {
       l3.prototype.C = function(a, b, c, d) {
           function e(a, c, d, e) {
               a = Math.min(Math.max(e - 2 * b, 0), a);
-              c = ytPlayer.dd(c - a / 2, d + b, d + e - a - b);
+              c = _yt_player.dd(c - a / 2, d + b, d + e - a - b);
               return new Y1(c, c + a)
           }
           return "t" == d || "b" == d ? e(this.A, c.x, a.left, a.width) : "l" == d || "r" == d ? e(this.A, c.y, a.top, a.height) : new Y1(0, 0)
       };
-      ytPlayer.q(m3, f3);
+      _yt_player.q(m3, f3);
       m3.prototype.o = function(a, b) {
           var c = e3(a);
           if (c) {
@@ -4711,7 +4692,7 @@ if (!self.__WB_pmw) {
                   var e = a.l;
                   c = k3(d, e.effects);
                   var f = g3(this, c.width, c.height),
-                      k = new ytPlayer.bh(0, 0, d.width, d.height),
+                      k = new _yt_player.bh(0, 0, d.width, d.height),
                       l = e.cornerRadius;
                   d = new x2(!e.o && this.g ? 1 : e.o, e.bgColor);
                   var m = new r2("#000", 0),
@@ -4719,15 +4700,15 @@ if (!self.__WB_pmw) {
                   k = exa(k, l, n);
                   B2(f, k, d, m);
                   f = this.la();
-                  ytPlayer.S(f, "annotation-shape");
+                  _yt_player.S(f, "annotation-shape");
                   e = e.g;
-                  ytPlayer.Mh(f, this.g ? Math.max(e, .9) : e);
-                  ytPlayer.wh(f, c.left, c.top);
-                  ytPlayer.Jh(f, c.width, c.height)
+                  _yt_player.Mh(f, this.g ? Math.max(e, .9) : e);
+                  _yt_player.wh(f, c.left, c.top);
+                  _yt_player.Jh(f, c.width, c.height)
               }
           }
       };
-      ytPlayer.q(n3, f3);
+      _yt_player.q(n3, f3);
       n3.prototype.o = function(a, b) {
           var c = e3(a);
           if (c) {
@@ -4736,7 +4717,7 @@ if (!self.__WB_pmw) {
                   c = a.l;
                   var e = k3(d, c.effects),
                       f = g3(this, e.width, e.height),
-                      k = new ytPlayer.bh(0, 0, d.width, d.height);
+                      k = new _yt_player.bh(0, 0, d.width, d.height);
                   d = fxa(c, d.width, d.height, this.g);
                   var l = c.cornerRadius;
                   var m = a.l;
@@ -4745,12 +4726,12 @@ if (!self.__WB_pmw) {
                   n = (m = p ? new x2(p, n ? m.l : m.borderColor) : null) ? m.Cb() / 2 + 1 : 0;
                   k = exa(k, l, n);
                   B2(f, k, m, d);
-                  if (k = this.la()) ytPlayer.S(k, "annotation-shape"), ytPlayer.S(k, "annotation-popup-shape"), ytPlayer.wh(k, e.left, e.top), ytPlayer.Jh(k, e.width, e.height), gxa(f,
+                  if (k = this.la()) _yt_player.S(k, "annotation-shape"), _yt_player.S(k, "annotation-popup-shape"), _yt_player.wh(k, e.left, e.top), _yt_player.Jh(k, e.width, e.height), gxa(f,
                       k, c.effects)
               }
           }
       };
-      ytPlayer.q(o3, l3);
+      _yt_player.q(o3, l3);
       o3.prototype.C = function(a, b, c, d) {
           function e(a, c, d, e) {
               a = Math.min(Math.max(e - 2 * b, 0), a);
@@ -4759,34 +4740,34 @@ if (!self.__WB_pmw) {
           }
           return "t" == d || "b" == d ? e(this.A, c.x, a.left, a.width) : "l" == d || "r" == d ? e(this.A, c.y, a.top, a.height) : new Y1(0, 0)
       };
-      ytPlayer.q(p3, ytPlayer.M);
-      ytPlayer.h = p3.prototype;
-      ytPlayer.h.AB = function() {
-          this.H || (this.A && ytPlayer.O(this.A, !0), this.B && ytPlayer.O(this.B, !0), this.o && (this.o.g = !0, ytPlayer.Mh(this.l, t3(this) ? 1 : 0), this.o.o(this.g, r3(this))), this.F.isActive() && this.F.stop(), this.H = !0, this.I = this.W.xh(ytPlayer.VU(this.C), "mouseleave", function(a) {
+      _yt_player.q(p3, _yt_player.M);
+      _yt_player.h = p3.prototype;
+      _yt_player.h.AB = function() {
+          this.H || (this.A && _yt_player.O(this.A, !0), this.B && _yt_player.O(this.B, !0), this.o && (this.o.g = !0, _yt_player.Mh(this.l, t3(this) ? 1 : 0), this.o.o(this.g, r3(this))), this.F.isActive() && this.F.stop(), this.H = !0, this.I = this.W.xh(_yt_player.VU(this.C), "mouseleave", function(a) {
               this.wp.stop();
               this.Ih(a)
           }))
       };
-      ytPlayer.h.Ih = function() {
-          this.H && (this.M ? this.F.start() : this.Kz(), this.o && (this.o.g = !1, ytPlayer.Mh(this.l, t3(this) ? 1 : 0), this.o.o(this.g, r3(this))), this.H = !1, this.I && (this.W.Ea(this.I), this.I = null))
+      _yt_player.h.Ih = function() {
+          this.H && (this.M ? this.F.start() : this.Kz(), this.o && (this.o.g = !1, _yt_player.Mh(this.l, t3(this) ? 1 : 0), this.o.o(this.g, r3(this))), this.H = !1, this.I && (this.W.Ea(this.I), this.I = null))
       };
-      ytPlayer.h.Kz = function() {
-          this.A && ytPlayer.O(this.A, !1);
-          this.B && ytPlayer.O(this.B, !1)
+      _yt_player.h.Kz = function() {
+          this.A && _yt_player.O(this.A, !1);
+          this.B && _yt_player.O(this.B, !1)
       };
-      ytPlayer.h.KO = function(a) {
+      _yt_player.h.KO = function(a) {
           this.Y = a;
           this.wp.Kj()
       };
-      ytPlayer.h.JO = function() {
+      _yt_player.h.JO = function() {
           var a = this.Y,
-              b = new ytPlayer.hd(a.clientX, a.clientY),
-              c = ytPlayer.Ch(this.C.getRootNode()),
+              b = new _yt_player.hd(a.clientX, a.clientY),
+              c = _yt_player.Ch(this.C.getRootNode()),
               d = lxa(c, this.K);
-          c = (this.B && ytPlayer.Nh(this.B) || this.A && ytPlayer.Nh(this.A)) && lxa(c, this.M);
+          c = (this.B && _yt_player.Nh(this.B) || this.A && _yt_player.Nh(this.A)) && lxa(c, this.M);
           d && d.contains(b) || c && c.contains(b) ? this.AB(a) : this.Ih(a)
       };
-      ytPlayer.h.show = function() {
+      _yt_player.h.show = function() {
           var a = this.g.l;
           a = (a && 0 == a.g || "title" == this.g.style || "highlightText" == this.g.style ? !1 : !0) && !this.o;
           var b = !this.l,
@@ -4795,29 +4776,29 @@ if (!self.__WB_pmw) {
               var d = r3(this),
                   e = null;
               "highlight" == this.g.type || "label" == this.g.style ? e = new m3 : "popup" == this.g.style ? e = new n3 : "anchored" == this.g.style ? e = new l3 : "speech" == this.g.style && (e = new o3);
-              e && (e.o(this.g, d), this.o = e, d = e.la()) && (ytPlayer.O(d, !1), ytPlayer.S(d, "annotation-type-" + this.g.type.toLowerCase()), this.X(d))
+              e && (e.o(this.g, d), this.o = e, d = e.la()) && (_yt_player.O(d, !1), _yt_player.S(d, "annotation-type-" + this.g.type.toLowerCase()), this.X(d))
           }
           if (b) {
               d = ["annotation"];
               "highlightText" != this.g.style ||
                   d.push("annotation-no-mouse");
               d.push("annotation-type-" + this.g.type.toLowerCase());
-              this.l = ytPlayer.K("DIV", d);
-              ytPlayer.O(this.l, !1);
-              this.g.A && (this.D = ytPlayer.K("DIV", "inner-text"), "label" == this.g.style && (ytPlayer.S(this.D, "label-text"), this.D.style.backgroundColor = this.g.l.bgColor), ytPlayer.Sd(this.D, this.g.A), this.l.appendChild(this.D));
-              ytPlayer.aF(this.l, "annotation_id", this.g.id);
+              this.l = _yt_player.K("DIV", d);
+              _yt_player.O(this.l, !1);
+              this.g.A && (this.D = _yt_player.K("DIV", "inner-text"), "label" == this.g.style && (_yt_player.S(this.D, "label-text"), this.D.style.backgroundColor = this.g.l.bgColor), _yt_player.Sd(this.D, this.g.A), this.l.appendChild(this.D));
+              _yt_player.aF(this.l, "annotation_id", this.g.id);
               this.X(this.l);
               ixa(this, this.l);
               if (d3(this.g) && this.g.showLinkIcon()) {
-                  if (e = this.g.Ta()) d = this.l, e = new ytPlayer.vm(X2(e)), d.title = e.l + e.o;
-                  this.B = ytPlayer.K("SPAN", "annotation-link-icon");
-                  ytPlayer.O(this.B, !1);
+                  if (e = this.g.Ta()) d = this.l, e = new _yt_player.vm(X2(e)), d.title = e.l + e.o;
+                  this.B = _yt_player.K("SPAN", "annotation-link-icon");
+                  _yt_player.O(this.B, !1);
                   this.l.appendChild(this.B)
               }
               jxa(this);
               d3(this.g) || (this.l.style.cursor = "default")
           }
-          c && "subscribe" == this.g.style && ytPlayer.J("yt-uix-subscription-button", this.l);
+          c && "subscribe" == this.g.style && _yt_player.J("yt-uix-subscription-button", this.l);
           if (a || b) {
               a: {
                   a = this.g.segment.g;
@@ -4830,61 +4811,61 @@ if (!self.__WB_pmw) {
               this.l && (this.l.style.zIndex = a);
               this.o && this.o.la() && (this.o.la().style.zIndex = a)
           }
-          ytPlayer.O(this.l, !0);
-          ytPlayer.Mh(this.l, t3(this) ? 1 : 0);
+          _yt_player.O(this.l, !0);
+          _yt_player.Mh(this.l, t3(this) ? 1 : 0);
           s3(this);
-          this.o && this.o.la() && ytPlayer.O(this.o.la(), !0)
+          this.o && this.o.la() && _yt_player.O(this.o.la(), !0)
       };
-      ytPlayer.h.hide = function() {
-          this.l && ytPlayer.O(this.l, !1);
-          this.o && this.o.la() && ytPlayer.O(this.o.la(), !1);
+      _yt_player.h.hide = function() {
+          this.l && _yt_player.O(this.l, !1);
+          this.o && this.o.la() && _yt_player.O(this.o.la(), !1);
           this.J && (this.W.Ea(this.J), this.J = null)
       };
-      ytPlayer.q(u3, ytPlayer.M);
-      ytPlayer.h = u3.prototype;
-      ytPlayer.h.hide = function() {
+      _yt_player.q(u3, _yt_player.M);
+      _yt_player.h = u3.prototype;
+      _yt_player.h.hide = function() {
           this.isVisible = !1;
           this.view && (nxa(this), this.view.hide())
       };
-      ytPlayer.h.show = function() {
+      _yt_player.h.show = function() {
           this.isVisible = !0;
           this.view && (this.view.show(), this.l.subscribe("resize", this.zB, this), this.l.subscribe("onVideoAreaChange", this.mD, this))
       };
-      ytPlayer.h.destroy = function() {
+      _yt_player.h.destroy = function() {
           if (this.view) {
               nxa(this);
               var a = this.view;
-              ytPlayer.DF(a.W);
+              _yt_player.DF(a.W);
               a.wp.dispose();
               a.F.dispose();
-              a.l && ytPlayer.Kd(a.l);
-              a.o && a.o.la() && ytPlayer.Kd(a.o.la())
+              a.l && _yt_player.Kd(a.l);
+              a.o && a.o.la() && _yt_player.Kd(a.o.la())
           }
           v3(this)
       };
-      ytPlayer.h.mD = function() {
+      _yt_player.h.mD = function() {
           s3(this.view)
       };
-      ytPlayer.h.zB = function() {
+      _yt_player.h.zB = function() {
           s3(this.view)
       };
-      ytPlayer.q(oxa, p2);
-      ytPlayer.q(w3, p2);
-      ytPlayer.q(pxa, w3);
-      ytPlayer.q(qxa, p2);
-      ytPlayer.q(rxa, p2);
-      ytPlayer.q(txa, w3);
-      ytPlayer.q(uxa, w3);
-      ytPlayer.q(vxa, p2);
-      ytPlayer.q(x3, p2);
+      _yt_player.q(oxa, p2);
+      _yt_player.q(w3, p2);
+      _yt_player.q(pxa, w3);
+      _yt_player.q(qxa, p2);
+      _yt_player.q(rxa, p2);
+      _yt_player.q(txa, w3);
+      _yt_player.q(uxa, w3);
+      _yt_player.q(vxa, p2);
+      _yt_player.q(x3, p2);
       G3.prototype.o = function(a, b) {
-          var c = ytPlayer.Zd(b.target, "label");
-          c && ytPlayer.U(c, "iv-card-poll-choice-focused", a)
+          var c = _yt_player.Zd(b.target, "label");
+          c && _yt_player.U(c, "iv-card-poll-choice-focused", a)
       };
       G3.prototype.D = function(a, b) {
-          var c = ytPlayer.$d(b.target, "iv-card-poll");
+          var c = _yt_player.$d(b.target, "iv-card-poll");
           if (c)
-              if (a.A) ytPlayer.J("iv-card-sign-in-button", c).click();
+              if (a.A) _yt_player.J("iv-card-sign-in-button", c).click();
               else {
                   var d = (0, window.parseInt)(Z1(b.target, "pollChoiceIndex"), 10);
                   if (null == a.g) a.choices[d].count++, a.g = d;
@@ -4895,7 +4876,7 @@ if (!self.__WB_pmw) {
                       a.g = d
                   } else e = a.choices[a.g], e.count = Math.max(e.count - 1, 0), a.g = null;
                   Axa(a, c);
-                  ytPlayer.rE(this.g.videoData.Of, {
+                  _yt_player.rE(this.g.videoData.Of, {
                       ad: {
                           action_poll_vote: 1
                       },
@@ -4910,11 +4891,11 @@ if (!self.__WB_pmw) {
                           "link-id": d
                       },
                       a.l.click, 5);
-                  (c = ytPlayer.MG()) && E2(c, a.C)
+                  (c = _yt_player.MG()) && E2(c, a.C)
               }
       };
       G3.prototype.C = function(a) {
-          var b = ytPlayer.x("yt.www.ypc.bootstrap.api.loadOffersForInnertubeRequestParams"),
+          var b = _yt_player.x("yt.www.ypc.bootstrap.api.loadOffersForInnertubeRequestParams"),
               c;
           b && (c = function() {
               b(a.H, a.B)
@@ -4922,65 +4903,65 @@ if (!self.__WB_pmw) {
           Exa(this, a, !0, c)
       };
       G3.prototype.F = function(a) {
-          var b = ytPlayer.x("yt.www.ypc.bootstrap.api.loadOffers");
-          b && (b = ytPlayer.Ga(b, a.K, a.H, a.B));
+          var b = _yt_player.x("yt.www.ypc.bootstrap.api.loadOffers");
+          b && (b = _yt_player.Ga(b, a.K, a.H, a.B));
           Exa(this, a, !1, b)
       };
-      ytPlayer.q(Q3, ytPlayer.M);
-      ytPlayer.h = Q3.prototype;
-      ytPlayer.h.gq = function() {
+      _yt_player.q(Q3, _yt_player.M);
+      _yt_player.h = Q3.prototype;
+      _yt_player.h.gq = function() {
           this.context.o.subscribe("resize", this.Fn, this)
       };
-      ytPlayer.h.la = function() {
+      _yt_player.h.la = function() {
           return this.Ga
       };
-      ytPlayer.h.Zi = function(a, b, c, d, e, f, k) {
-          this.context.g.U(a, "click", ytPlayer.Ga(this.Uo, b, c, d, e, f || [], k || 0), this);
-          this.context.g.U(a, "touchstart", ytPlayer.Ga(function() {
+      _yt_player.h.Zi = function(a, b, c, d, e, f, k) {
+          this.context.g.U(a, "click", _yt_player.Ga(this.Uo, b, c, d, e, f || [], k || 0), this);
+          this.context.g.U(a, "touchstart", _yt_player.Ga(function() {
               this.Yv = !1
           }), this);
-          this.context.g.U(a, "touchmove", ytPlayer.Ga(function() {
+          this.context.g.U(a, "touchmove", _yt_player.Ga(function() {
               this.Yv = !0
           }), this)
       };
-      ytPlayer.h.Uo = function(a, b, c, d, e, f, k) {
+      _yt_player.h.Uo = function(a, b, c, d, e, f, k) {
           if (this.Yv) return !1;
           k && (k.stopPropagation(), k.preventDefault());
           Mxa(this, a, c, d, e, f);
           return !1
       };
-      ytPlayer.h.show = function() {
-          this.Y = (0, ytPlayer.F)()
+      _yt_player.h.show = function() {
+          this.Y = (0, _yt_player.F)()
       };
-      ytPlayer.h.hide = function() {};
-      ytPlayer.h.destroy = function() {
-          ytPlayer.Kd(this.la())
+      _yt_player.h.hide = function() {};
+      _yt_player.h.destroy = function() {
+          _yt_player.Kd(this.la())
       };
-      ytPlayer.h.Fn = function() {};
-      ytPlayer.q(U3, Q3);
-      ytPlayer.h = U3.prototype;
-      ytPlayer.h.isAvailable = function() {
+      _yt_player.h.Fn = function() {};
+      _yt_player.q(U3, Q3);
+      _yt_player.h = U3.prototype;
+      _yt_player.h.isAvailable = function() {
           var a;
-          if (a = !!this.o.length)(a = this.g.getRootNode()) ? (a = ytPlayer.Kh(a), a = 173 < a.width && 173 < a.height) : a = !1;
+          if (a = !!this.o.length)(a = this.g.getRootNode()) ? (a = _yt_player.Kh(a), a = 173 < a.width && 173 < a.height) : a = !1;
           return a
       };
-      ytPlayer.h.Fn = function() {
+      _yt_player.h.Fn = function() {
           var a = this.isAvailable();
-          ytPlayer.O(this.la(), a);
-          ytPlayer.U(this.context.l.getRootNode(), "ytp-iv-drawer-enabled", a);
+          _yt_player.O(this.la(), a);
+          _yt_player.U(this.context.l.getRootNode(), "ytp-iv-drawer-enabled", a);
           U1(this.g)
       };
-      ytPlayer.h.destroy = function() {
-          var a = ytPlayer.NU(this.g).B;
+      _yt_player.h.destroy = function() {
+          var a = _yt_player.NU(this.g).B;
           a && a.St(!1, void 0);
           this.g.getRootNode().removeChild(this.D);
-          ytPlayer.VF(this.ha);
-          ytPlayer.sF(this.X);
+          _yt_player.VF(this.ha);
+          _yt_player.sF(this.X);
           this.Z && this.Z.dispose();
           this.F && this.F.dispose();
           Q3.prototype.destroy.call(this)
       };
-      ytPlayer.h.ZM = function(a) {
+      _yt_player.h.ZM = function(a) {
           this.J.start();
           a.preventDefault();
           a = a || window.event;
@@ -4988,10 +4969,10 @@ if (!self.__WB_pmw) {
           "MozMousePixelScroll" == a.type ? b = 0 == (a.axis == a.HORIZONTAL_AXIS) ? a.detail : 0 : window.opera ? b = a.detail : b = 0 == a.wheelDelta % 120 ? "WebkitTransform" in window.document.documentElement.style ? window.chrome && 0 == window.navigator.platform.indexOf("Mac") ? a.wheelDeltaY / -30 : a.wheelDeltaY / -1.2 : a.wheelDelta / -1.6 : a.wheelDeltaY / -3;
           if (a = b) this.A.scrollTop += a
       };
-      ytPlayer.h.kE = function(a) {
-          if (!ytPlayer.kq(this.g.getRootNode(), "ytp-cards-teaser-shown")) {
+      _yt_player.h.kE = function(a) {
+          if (!_yt_player.kq(this.g.getRootNode(), "ytp-cards-teaser-shown")) {
               this.l != a && (this.l = a, V3(this));
-              if (ytPlayer.Nh(this.la())) {
+              if (_yt_player.Nh(this.la())) {
                   if (2 == this.context.l.Qa()) var b = 1 == ((0, window.isNaN)(void 0) ? this.context.l.gB() : void 0);
                   else b = (0, window.isNaN)(void 0) ? this.context.l.Bh() : void 0, b = 1 == b || 0 == b && 0 === this.context.l.getCurrentTime();
                   if (b && a.hc.teaserDurationMs) {
@@ -4999,7 +4980,7 @@ if (!self.__WB_pmw) {
                           teaserText: a.hc.teaserText,
                           durationMs: a.hc.teaserDurationMs
                       };
-                      var c = ytPlayer.NU(this.g).B;
+                      var c = _yt_player.NU(this.g).B;
                       c && c.St(!0, b)
                   }
               }
@@ -5007,29 +4988,29 @@ if (!self.__WB_pmw) {
                   this.T) && Wxa(this, a), this.na.start(910 + a.hc.teaserDurationMs))
           }
       };
-      ytPlayer.h.MV = function(a) {
+      _yt_player.h.MV = function(a) {
           this.B || (this.l = a, V3(this), Wxa(this, a), S3(this, "YOUTUBE_DRAWER_AUTO_OPEN", !1, a))
       };
-      ytPlayer.h.fJ = function() {
+      _yt_player.h.fJ = function() {
           if (this.B) {
               E3(this.context.logger, this.M, 4, W3(this).l.close);
-              var a = ytPlayer.MG();
+              var a = _yt_player.MG();
               a && this.I && E2(a, this.I);
               T3(this)
           }
       };
-      ytPlayer.h.qJ = function() {
-          ytPlayer.U(this.D, "iv-drawer-scrolled", 0 < this.A.scrollTop)
+      _yt_player.h.qJ = function() {
+          _yt_player.U(this.D, "iv-drawer-scrolled", 0 < this.A.scrollTop)
       };
-      ytPlayer.h.YL = function() {
+      _yt_player.h.YL = function() {
           var a = W3(this);
           F3(this.context.logger, 8, a.o, a.l.dW);
-          var b = ytPlayer.MG();
+          var b = _yt_player.MG();
           b && a && (D2(b, a.F), D2(b, a.D))
       };
-      ytPlayer.h.XL = function(a) {
+      _yt_player.h.XL = function(a) {
           var b = W3(this),
-              c = ytPlayer.MG();
+              c = _yt_player.MG();
           this.l ? a ? (a = this.context.logger, F3(a, 9, b.o, b.l.Dv), a.g.Ni(4, void 0), c && E2(c, b.F)) : (a = this.context.logger, F3(a, 12, b.o, b.l.Dv), a.g.Ni(4, void 0), c && E2(c, b.D)) : (a = this.context.logger, E3(a, this.M, 12, b.l.Dv), a.g.Ni(4, void 0), c && this.ga && E2(c, this.ga))
       };
       var Nxa = {
@@ -5044,150 +5025,150 @@ if (!self.__WB_pmw) {
           tip: uxa,
           video: vxa
       };
-      ytPlayer.q(X3, Q3);
+      _yt_player.q(X3, Q3);
       X3.prototype.gq = function() {
           Q3.prototype.gq.call(this);
           Xxa(this)
       };
-      ytPlayer.q(Y3, X3);
-      ytPlayer.h = Y3.prototype;
-      ytPlayer.h.UV = function(a, b, c, d) {
+      _yt_player.q(Y3, X3);
+      _yt_player.h = Y3.prototype;
+      _yt_player.h.UV = function(a, b, c, d) {
           this.o.stop();
           if (!this.A) {
-              var e = ytPlayer.Kh(a);
-              this.g || (ytPlayer.Ih(a, e.width), ytPlayer.Ih(b, e.width));
-              ytPlayer.ph(c, "top", e.height - Math.max(Math.min(e.height, d) / 2 + 10, 20) + "px");
-              ytPlayer.ph(c, "right", "1px");
+              var e = _yt_player.Kh(a);
+              this.g || (_yt_player.Ih(a, e.width), _yt_player.Ih(b, e.width));
+              _yt_player.ph(c, "top", e.height - Math.max(Math.min(e.height, d) / 2 + 10, 20) + "px");
+              _yt_player.ph(c, "right", "1px");
               this.A = !0;
-              ytPlayer.O(a, !0);
-              this.B = new ytPlayer.Yt(function() {
-                      ytPlayer.S(this.la(), "iv-branding-active")
+              _yt_player.O(a, !0);
+              this.B = new _yt_player.Yt(function() {
+                      _yt_player.S(this.la(), "iv-branding-active")
                   },
                   0, this);
               this.B.start()
           }
       };
-      ytPlayer.h.JK = function(a, b) {
-          ytPlayer.mq(this.la(), "iv-branding-active");
-          this.C = new ytPlayer.Yt((0, ytPlayer.z)(function() {
-                  ytPlayer.O(a, !1);
-                  this.g || ytPlayer.Ih(b, 0)
+      _yt_player.h.JK = function(a, b) {
+          _yt_player.mq(this.la(), "iv-branding-active");
+          this.C = new _yt_player.Yt((0, _yt_player.z)(function() {
+                  _yt_player.O(a, !1);
+                  this.g || _yt_player.Ih(b, 0)
               },
               this), 250);
           this.C.start();
           this.A = !1
       };
-      ytPlayer.h.show = function() {
+      _yt_player.h.show = function() {
           if (!this.isActive) {
               X3.prototype.show.call(this);
               if (!this.D) {
-                  ytPlayer.S(this.la(), "iv-branding");
+                  _yt_player.S(this.la(), "iv-branding");
                   var a = this.annotation.data;
                   this.F = a.image_width;
-                  this.l = ytPlayer.K("IMG", {
+                  this.l = _yt_player.K("IMG", {
                       src: a.image_url,
                       "class": "branding-img iv-click-target",
                       width: a.image_width,
                       height: a.image_height
                   });
-                  ytPlayer.O(this.l, !1);
-                  var b = ytPlayer.K("DIV", "branding-img-container", this.l);
+                  _yt_player.O(this.l, !1);
+                  var b = _yt_player.K("DIV", "branding-img-container", this.l);
                   this.la().appendChild(b);
-                  var c = ytPlayer.K("DIV", "iv-branding-context-name");
-                  ytPlayer.Sd(c, a.channel_name);
-                  var d = ytPlayer.K("DIV", "iv-branding-context-subscribe");
+                  var c = _yt_player.K("DIV", "iv-branding-context-name");
+                  _yt_player.Sd(c, a.channel_name);
+                  var d = _yt_player.K("DIV", "iv-branding-context-subscribe");
                   if (b = a.standalone_subscribe_button_data) this.g =
-                      new ytPlayer.y_(b.subscribeText, b.subscribeCount, b.unsubscribeText, b.unsubscribeCount, !!b.enabled, !!b.classic, a.channel_id, !!b.subscribed, b.feature, a.session_data.itct, b.signinUrl, this.H.l), this.g.ua(d);
-                  b = ytPlayer.K("DIV", "iv-branding-context-subscribe-caret");
-                  c = ytPlayer.K("DIV", "branding-context-container-inner", b, c, d);
-                  ytPlayer.O(c, !1);
-                  d = ytPlayer.K("DIV", "branding-context-container-outer", c);
-                  ytPlayer.ph(d, "right", this.F + "px");
+                      new _yt_player.y_(b.subscribeText, b.subscribeCount, b.unsubscribeText, b.unsubscribeCount, !!b.enabled, !!b.classic, a.channel_id, !!b.subscribed, b.feature, a.session_data.itct, b.signinUrl, this.H.l), this.g.ua(d);
+                  b = _yt_player.K("DIV", "iv-branding-context-subscribe-caret");
+                  c = _yt_player.K("DIV", "branding-context-container-inner", b, c, d);
+                  _yt_player.O(c, !1);
+                  d = _yt_player.K("DIV", "branding-context-container-outer", c);
+                  _yt_player.ph(d, "right", this.F + "px");
                   this.la().appendChild(d);
                   var e = this.annotation.Ta();
                   e && this.Zi(this.l, e, this.annotation.id, a.session_data, this.annotation.g);
-                  this.o = new ytPlayer.Yt(ytPlayer.Ga(this.JK, c, d), 500, this);
-                  ytPlayer.N(this, this.o);
-                  this.context.g.U(this.la(), "mouseover", (0, ytPlayer.z)(this.UV, this, c, d, b, a.image_height));
-                  this.context.g.U(this.la(), "mouseout", (0, ytPlayer.z)(this.o.start, this.o, void 0));
+                  this.o = new _yt_player.Yt(_yt_player.Ga(this.JK, c, d), 500, this);
+                  _yt_player.N(this, this.o);
+                  this.context.g.U(this.la(), "mouseover", (0, _yt_player.z)(this.UV, this, c, d, b, a.image_height));
+                  this.context.g.U(this.la(), "mouseout", (0, _yt_player.z)(this.o.start, this.o, void 0));
                   this.D = !0
               }
               B3(this.context.logger, this.annotation.g);
-              ytPlayer.O(this.la(), !0);
+              _yt_player.O(this.la(), !0);
               this.isActive = !0;
               if (this.l) {
                   a = this.l;
                   var f = void 0 === f ? 0 : f;
-                  b = ytPlayer.Lh(a).width;
-                  c = ytPlayer.ua(void 0) ? void 0 : b;
-                  ytPlayer.wh(a, c);
+                  b = _yt_player.Lh(a).width;
+                  c = _yt_player.ua(void 0) ? void 0 : b;
+                  _yt_player.wh(a, c);
                   f = new f2(a, [c, a.offsetTop], [c - b - f, a.offsetTop], 200, Gva);
-                  ytPlayer.N(this, f);
-                  this.context.A.U(f, "begin", ytPlayer.Ga(ytPlayer.O,
+                  _yt_player.N(this, f);
+                  this.context.A.U(f, "begin", _yt_player.Ga(_yt_player.O,
                       a, !0));
                   f.play()
               }
           }
       };
-      ytPlayer.h.hide = function() {
-          this.isActive && (ytPlayer.O(this.la(), !1), this.isActive = !1)
+      _yt_player.h.hide = function() {
+          this.isActive && (_yt_player.O(this.la(), !1), this.isActive = !1)
       };
-      ytPlayer.h.destroy = function() {
+      _yt_player.h.destroy = function() {
           this.g && (this.g.dispose(), this.g = null);
           X3.prototype.destroy.call(this)
       };
-      ytPlayer.q(Z3, X3);
-      ytPlayer.h = Z3.prototype;
-      ytPlayer.h.show = function() {
-          this.isActive || (X3.prototype.show.call(this), this.I || (Yxa(this), this.I = !0), ytPlayer.O(this.la(), !0), this.annotation && this.annotation.g && B3(this.context.logger, this.annotation.g), ytPlayer.tg(function() {
-                  ytPlayer.mq(this.la(), "iv-promo-inactive")
+      _yt_player.q(Z3, X3);
+      _yt_player.h = Z3.prototype;
+      _yt_player.h.show = function() {
+          this.isActive || (X3.prototype.show.call(this), this.I || (Yxa(this), this.I = !0), _yt_player.O(this.la(), !0), this.annotation && this.annotation.g && B3(this.context.logger, this.annotation.g), _yt_player.tg(function() {
+                  _yt_player.mq(this.la(), "iv-promo-inactive")
               },
               100, this), this.la().removeAttribute("aria-hidden"), this.isActive = !0, $3(this), $xa(this), aya(this, this.F))
       };
-      ytPlayer.h.hide = function() {
-          this.isActive && (ytPlayer.S(this.la(), "iv-promo-inactive"), this.isActive = !1, this.la().setAttribute("aria-hidden", !0))
+      _yt_player.h.hide = function() {
+          this.isActive && (_yt_player.S(this.la(), "iv-promo-inactive"), this.isActive = !1, this.la().setAttribute("aria-hidden", !0))
       };
-      ytPlayer.h.Uo = function(a, b, c, d, e, f, k) {
+      _yt_player.h.Uo = function(a, b, c, d, e, f, k) {
           return this.B ? !1 : X3.prototype.Uo.call(this, a, b, c, d, e, f, k)
       };
-      ytPlayer.h.ys = function(a, b) {
+      _yt_player.h.ys = function(a, b) {
           b.stopPropagation();
           $xa(this);
           aya(this, a);
           this.g.focus()
       };
-      ytPlayer.h.fK = function(a) {
+      _yt_player.h.fK = function(a) {
           this.H = !0;
           this.ys(500, a)
       };
-      ytPlayer.h.eK = function() {
+      _yt_player.h.eK = function() {
           this.H = !1;
           Zxa(this)
       };
-      ytPlayer.h.LO = function(a) {
+      _yt_player.h.LO = function(a) {
           a.stopPropagation();
           this.hide();
           D3(this.context.logger, this.annotation.g)
       };
-      ytPlayer.h.UJ = function(a) {
+      _yt_player.h.UJ = function(a) {
           a.stopPropagation();
           $3(this);
           this.B = !0;
-          ytPlayer.S(this.la(), "iv-promo-collapsed-no-delay");
+          _yt_player.S(this.la(), "iv-promo-collapsed-no-delay");
           this.C.start();
           D3(this.context.logger, this.annotation.g)
       };
-      ytPlayer.h.destroy = function() {
+      _yt_player.h.destroy = function() {
           this.C.dispose();
           X3.prototype.destroy.call(this)
       };
-      ytPlayer.q(a4, ytPlayer.sV);
-      ytPlayer.h = a4.prototype;
-      ytPlayer.h.wM = function(a, b) {
-          if (!cya(ytPlayer.Y(this.g).playerStyle)) return null;
+      _yt_player.q(a4, _yt_player.sV);
+      _yt_player.h = a4.prototype;
+      _yt_player.h.wM = function(a, b) {
+          if (!cya(_yt_player.Y(this.g).playerStyle)) return null;
           switch (a) {
               case "loadCustomAnnotationsXml":
-                  var c = ytPlayer.Vr(b);
+                  var c = _yt_player.Vr(b);
                   c && c4(this, c);
                   return !0;
               case "removeCustomAnnotationById":
@@ -5195,39 +5176,39 @@ if (!self.__WB_pmw) {
           }
           return null
       };
-      ytPlayer.h.xM = function() {
-          return cya(ytPlayer.Y(this.g).playerStyle) ? ["loadCustomAnnotationsXml", "removeCustomAnnotationById"] : []
+      _yt_player.h.xM = function() {
+          return cya(_yt_player.Y(this.g).playerStyle) ? ["loadCustomAnnotationsXml", "removeCustomAnnotationById"] : []
       };
-      ytPlayer.h.Tu = function() {
+      _yt_player.h.Tu = function() {
           if (this.C) {
-              var a = ytPlayer.W_(ytPlayer.VU(this.g), !0);
-              ytPlayer.Jh(this.C.element, a.width, a.height);
-              ytPlayer.wh(this.C.element, a.left, a.top)
+              var a = _yt_player.W_(_yt_player.VU(this.g), !0);
+              _yt_player.Jh(this.C.element, a.width, a.height);
+              _yt_player.wh(this.C.element, a.left, a.top)
           }
           if (this.l) {
-              var b = ytPlayer.eV(this.g);
+              var b = _yt_player.eV(this.g);
               a = this.l;
               b = b.width;
-              ytPlayer.U(a.D, "iv-drawer-small", 426 >= b);
-              ytPlayer.U(a.D, "iv-drawer-big", 1280 <= b)
+              _yt_player.U(a.D, "iv-drawer-small", 426 >= b);
+              _yt_player.U(a.D, "iv-drawer-big", 1280 <= b)
           }
       };
-      ytPlayer.h.fT = function(a) {
-          ytPlayer.Y(this.g).experiments.g("web_player_update_annotations_module_visibility_killswitch") || this.Pc(a.state);
-          ytPlayer.X(a.state, 2) && (this.Vl() && this.WA() && 2 != this.g.Qa() && this.Tt(!1), this.St(!1))
+      _yt_player.h.fT = function(a) {
+          _yt_player.Y(this.g).experiments.g("web_player_update_annotations_module_visibility_killswitch") || this.Pc(a.state);
+          _yt_player.X(a.state, 2) && (this.Vl() && this.WA() && 2 != this.g.Qa() && this.Tt(!1), this.St(!1))
       };
-      ytPlayer.h.load = function() {
-          ytPlayer.sV.prototype.load.call(this);
-          ytPlayer.Y(this.g).experiments.g("web_player_update_annotations_module_visibility_killswitch") ? this.A.show() : this.Pc(ytPlayer.UU(this.g));
+      _yt_player.h.load = function() {
+          _yt_player.sV.prototype.load.call(this);
+          _yt_player.Y(this.g).experiments.g("web_player_update_annotations_module_visibility_killswitch") ? this.A.show() : this.Pc(_yt_player.UU(this.g));
           this.I++;
           var a = this.g.getVideoData(),
               b = a.videoId,
-              c = (0, ytPlayer.z)(this.JR, this, b, this.I),
-              d = (0, ytPlayer.z)(function() {
+              c = (0, _yt_player.z)(this.JR, this, b, this.I),
+              d = (0, _yt_player.z)(function() {
                       this.D = null
                   },
                   this);
-          ytPlayer.nG() && (c = jya(this, c));
+          _yt_player.nG() && (c = jya(this, c));
           c = {
               format: "XML",
               wd: c,
@@ -5237,30 +5218,30 @@ if (!self.__WB_pmw) {
           a.isPharma && (c.ad.pharma = "1");
           c.method = "POST";
           c.withCredentials = !0;
-          d = ytPlayer.Y(this.g);
+          d = _yt_player.Y(this.g);
           "gaming" == d.playerStyle && (c.ad.gaming = "1");
           (b = d.C.get(b)) && kya(c, b);
           b = b && (b.Zh || b.tr);
-          if (!a.xn || b) a.Of ? dya(this, a.Of, c) : (this.B = (0, ytPlayer.z)(this.BM, this, c), this.g.addEventListener("videodatachange", this.B));
-          ytPlayer.mV(this.g, this.C.element, 4);
+          if (!a.xn || b) a.Of ? dya(this, a.Of, c) : (this.B = (0, _yt_player.z)(this.BM, this, c), this.g.addEventListener("videodatachange", this.B));
+          _yt_player.mV(this.g, this.C.element, 4);
           this.Tu()
       };
-      ytPlayer.h.Pc = function(a) {
-          a = !ytPlayer.xP(a) && !ytPlayer.X(a, 1024);
-          ytPlayer.sH(this.A, a);
-          ytPlayer.sH(this.C, a)
+      _yt_player.h.Pc = function(a) {
+          a = !_yt_player.xP(a) && !_yt_player.X(a, 1024);
+          _yt_player.sH(this.A, a);
+          _yt_player.sH(this.C, a)
       };
-      ytPlayer.h.BM = function(a) {
+      _yt_player.h.BM = function(a) {
           var b = this.g.getVideoData();
           b.Of && (this.B && (this.g.removeEventListener("videodatachange", this.B), this.B = null), dya(this, b.Of, a))
       };
-      ytPlayer.h.unload = function() {
+      _yt_player.h.unload = function() {
           xxa(this.Ya);
-          ytPlayer.kV(this.g, "annotations_module");
-          ytPlayer.Lb(this.o, function(a) {
+          _yt_player.kV(this.g, "annotations_module");
+          _yt_player.Lb(this.o, function(a) {
               a.destroy()
           });
-          ytPlayer.Lb(this.K, function(a) {
+          _yt_player.Lb(this.K, function(a) {
               a.destroy()
           });
           this.H = null;
@@ -5270,15 +5251,15 @@ if (!self.__WB_pmw) {
           this.o = {};
           this.K = {};
           this.A.hide();
-          ytPlayer.sV.prototype.unload.call(this);
-          ytPlayer.rH(this.C);
+          _yt_player.sV.prototype.unload.call(this);
+          _yt_player.rH(this.C);
           this.B && (this.g.removeEventListener("videodatachange", this.B), this.B = null)
       };
-      ytPlayer.h.JR = function(a, b, c) {
+      _yt_player.h.JR = function(a, b, c) {
           this.D = null;
-          if (!fya(this, b, a) && (a = ytPlayer.WD(c) && c.responseXML ? c.responseXML : null)) {
+          if (!fya(this, b, a) && (a = _yt_player.WD(c) && c.responseXML ? c.responseXML : null)) {
               c4(this, a);
-              ytPlayer.S(this.g.getRootNode(), "iv-module-loaded");
+              _yt_player.S(this.g.getRootNode(), "iv-module-loaded");
               a = [];
               for (var d in this.o) {
                   b = this.o[d].annotation;
@@ -5301,31 +5282,31 @@ if (!self.__WB_pmw) {
                               namespace: "annotations_module"
                           };
                           "marker" == b.type && (f.style = "ytp-chapter-marker", f.tooltip = b.A, f.visible = !0);
-                          b = new ytPlayer.eQ(c, e, f);
+                          b = new _yt_player.eQ(c, e, f);
                           a.push(b)
                       }
               }
-              ytPlayer.hV(this.g, a)
+              _yt_player.hV(this.g, a)
           }
       };
-      ytPlayer.h.lD = function(a) {
+      _yt_player.h.lD = function(a) {
           a == this.g.getVideoData().videoId && (this.loaded ? lya(this) : this.load())
       };
-      ytPlayer.h.yM = function(a) {
+      _yt_player.h.yM = function(a) {
           a = a.getId();
           var b = this.o[a];
           b && !b.o && (b = b.annotation, oya(this, a), B3(this.Ya, b.g))
       };
-      ytPlayer.h.zM = function(a) {
+      _yt_player.h.zM = function(a) {
           d4(this, a.getId())
       };
-      ytPlayer.h.Iz = function(a) {
+      _yt_player.h.Iz = function(a) {
           a && (a.hide(), e4(this, "shown", !1, a.annotation.id), this.Xn(a.annotation, "hidden"))
       };
-      ytPlayer.h.CE = function(a) {
+      _yt_player.h.CE = function(a) {
           a && (a.show(), e4(this, "shown", !0, a.annotation.id), this.Xn(a.annotation, "shown"))
       };
-      ytPlayer.h.wU = function(a, b, c) {
+      _yt_player.h.wU = function(a, b, c) {
           var d = this.o[a];
           if (d && b.value != c) {
               b.value = c;
@@ -5336,20 +5317,20 @@ if (!self.__WB_pmw) {
               pya(this, a, b, e)
           }
       };
-      ytPlayer.h.vQ = function(a) {
+      _yt_player.h.vQ = function(a) {
           if (a && a.id) {
               var b = a.Ta();
               if (b) {
                   var c = X2(b);
                   if (c) {
-                      var d = (0, ytPlayer.z)(this.Xn, this, a, "click");
+                      var d = (0, _yt_player.z)(this.Xn, this, a, "click");
                       if ("new" == P3(c, b.target) || qya(this, b)) d(), d = null;
                       C3(this.Ya, a.g, d)
                   }
               }
           }
       };
-      ytPlayer.h.Xn = function(a, b) {
+      _yt_player.h.Xn = function(a, b) {
           Rwa(a, function(c) {
                   if (c.trigger == b && "openUrl" == c.type && c.url) {
                       var d = this.g.getVideoData(),
@@ -5357,89 +5338,89 @@ if (!self.__WB_pmw) {
                       if (!(e = !qya(this, c.url))) {
                           e = Jxa(c.url);
                           var f = Ixa(c.url);
-                          e ? (d.videoId == e ? this.g.ac(f || 0) : (d = b4(this).l, ytPlayer.H0(d.app, e, void 0, void 0, void 0, void 0, void 0), f && b4(this).l.gd() && b4(this).l.ac(f)), d = !0) : d = !1;
+                          e ? (d.videoId == e ? this.g.ac(f || 0) : (d = b4(this).l, _yt_player.H0(d.app, e, void 0, void 0, void 0, void 0, void 0), f && b4(this).l.gd() && b4(this).l.ac(f)), d = !0) : d = !1;
                           e = !d
                       }
-                      e && (e = ytPlayer.Y(this.g), (d = X2(c.url)) ? (f = Hxa(d), e && "com" == f[0] && "google" == f[1] && "plus" == f[2] && (e = ytPlayer.Ga(Kxa, e.pageId, e.Sc), d = new ytPlayer.vm(d), ytPlayer.zm(d, e(d.o)), d = d.toString())) : d = null, d && (this.g.hd(),
-                          c = P3(d, c.url.target), e = a.itct, "ei" in ytPlayer.dE(d) && (d = ytPlayer.Vg(d, "ei")), ytPlayer.vV(d, "current" == c ? "_top" : void 0, {
+                      e && (e = _yt_player.Y(this.g), (d = X2(c.url)) ? (f = Hxa(d), e && "com" == f[0] && "google" == f[1] && "plus" == f[2] && (e = _yt_player.Ga(Kxa, e.pageId, e.Sc), d = new _yt_player.vm(d), _yt_player.zm(d, e(d.o)), d = d.toString())) : d = null, d && (this.g.hd(),
+                          c = P3(d, c.url.target), e = a.itct, "ei" in _yt_player.dE(d) && (d = _yt_player.Vg(d, "ei")), _yt_player.vV(d, "current" == c ? "_top" : void 0, {
                               itct: e
                           })))
                   }
               },
               this)
       };
-      ytPlayer.h.SR = function() {
+      _yt_player.h.SR = function() {
           e4(this, "playerControlShow", !1)
       };
-      ytPlayer.h.bU = function() {
+      _yt_player.h.bU = function() {
           e4(this, "playerControlShow", !0)
       };
-      ytPlayer.h.AM = function(a) {
+      _yt_player.h.AM = function(a) {
           e4(this, "rollOver", !0, a.id)
       };
-      ytPlayer.h.Ih = function(a) {
+      _yt_player.h.Ih = function(a) {
           e4(this, "rollOver", !1, a.id)
       };
-      ytPlayer.h.bR = function(a) {
+      _yt_player.h.bR = function(a) {
           a && a.id && (this.o[a.id].o = !0, d4(this, a.id), D3(this.Ya, a.g), this.Xn(a, "close"), e4(this, "closed", !0, a.id))
       };
-      ytPlayer.h.Vl = function() {
+      _yt_player.h.Vl = function() {
           return !!this.l && this.l.isAvailable()
       };
-      ytPlayer.h.WA = function() {
+      _yt_player.h.WA = function() {
           this.Vl();
           return !!this.l && this.l.B
       };
-      ytPlayer.h.Tt = function(a, b, c) {
+      _yt_player.h.Tt = function(a, b, c) {
           b = void 0 === b ? !1 : b;
           this.Vl();
           this.l && (a ? c ? S3(this.l, c, b) : S3(this.l, "YOUTUBE_DRAWER_AUTO_OPEN", b) : T3(this.l))
       };
-      ytPlayer.h.St = function(a, b) {
+      _yt_player.h.St = function(a, b) {
           this.g.R(a ? "cardsteasershow" : "cardsteaserhide", b)
       };
-      ytPlayer.h.V = function() {
-          ytPlayer.Y(this.g).C.unsubscribe("vast_info_card_add", this.lD, this);
-          ytPlayer.mq(this.g.getRootNode(), "ytp-iv-drawer-open");
-          for (var a = this.M, b = 0, c = a.length; b < c; b++) ytPlayer.oG(a[b]);
+      _yt_player.h.V = function() {
+          _yt_player.Y(this.g).C.unsubscribe("vast_info_card_add", this.lD, this);
+          _yt_player.mq(this.g.getRootNode(), "ytp-iv-drawer-open");
+          for (var a = this.M, b = 0, c = a.length; b < c; b++) _yt_player.oG(a[b]);
           this.M.length = 0;
-          ytPlayer.sV.prototype.V.call(this)
+          _yt_player.sV.prototype.V.call(this)
       };
       var g4 = {},
           nza = "ontouchstart" in window.document;
-      ytPlayer.rF(window.document, "blur", h4, !0);
-      ytPlayer.rF(window.document, "change", h4, !0);
-      ytPlayer.rF(window.document, "click", h4);
-      ytPlayer.rF(window.document, "focus", h4, !0);
-      ytPlayer.rF(window.document, "mouseover", h4);
-      ytPlayer.rF(window.document, "mouseout", h4);
-      ytPlayer.rF(window.document, "mousedown", h4);
-      ytPlayer.rF(window.document, "keydown", h4);
-      ytPlayer.rF(window.document, "keyup", h4);
-      ytPlayer.rF(window.document, "keypress", h4);
-      ytPlayer.rF(window.document, "cut", h4);
-      ytPlayer.rF(window.document, "paste", h4);
-      nza && (ytPlayer.rF(window.document, "touchstart", h4), ytPlayer.rF(window.document, "touchend", h4), ytPlayer.rF(window.document, "touchcancel", h4));
-      ytPlayer.h = i4.prototype;
-      ytPlayer.h.pe = function(a) {
-          return ytPlayer.$d(a, Z(this))
+      _yt_player.rF(window.document, "blur", h4, !0);
+      _yt_player.rF(window.document, "change", h4, !0);
+      _yt_player.rF(window.document, "click", h4);
+      _yt_player.rF(window.document, "focus", h4, !0);
+      _yt_player.rF(window.document, "mouseover", h4);
+      _yt_player.rF(window.document, "mouseout", h4);
+      _yt_player.rF(window.document, "mousedown", h4);
+      _yt_player.rF(window.document, "keydown", h4);
+      _yt_player.rF(window.document, "keyup", h4);
+      _yt_player.rF(window.document, "keypress", h4);
+      _yt_player.rF(window.document, "cut", h4);
+      _yt_player.rF(window.document, "paste", h4);
+      nza && (_yt_player.rF(window.document, "touchstart", h4), _yt_player.rF(window.document, "touchend", h4), _yt_player.rF(window.document, "touchcancel", h4));
+      _yt_player.h = i4.prototype;
+      _yt_player.h.pe = function(a) {
+          return _yt_player.$d(a, Z(this))
       };
-      ytPlayer.h.unregister = function() {
-          ytPlayer.VF(this.H);
+      _yt_player.h.unregister = function() {
+          _yt_player.VF(this.H);
           this.H.length = 0;
-          ytPlayer.HN(this.F);
+          _yt_player.HN(this.F);
           this.F.length = 0
       };
-      ytPlayer.h.init = ytPlayer.y;
-      ytPlayer.h.dispose = ytPlayer.y;
-      ytPlayer.h.addBehavior = function(a, b, c) {
+      _yt_player.h.init = _yt_player.y;
+      _yt_player.h.dispose = _yt_player.y;
+      _yt_player.h.addBehavior = function(a, b, c) {
           c = Z(this, c);
-          var d = (0, ytPlayer.z)(b, this);
-          a in g4 || (g4[a] = new ytPlayer.XC);
+          var d = (0, _yt_player.z)(b, this);
+          a in g4 || (g4[a] = new _yt_player.XC);
           g4[a].subscribe(c, d);
           this.D[b] = d
       };
-      ytPlayer.h.removeBehavior = function(a, b, c) {
+      _yt_player.h.removeBehavior = function(a, b, c) {
           if (a in g4) {
               var d = g4[a];
               d.unsubscribe(Z(this, c), this.D[b]);
@@ -5447,30 +5428,30 @@ if (!self.__WB_pmw) {
           }
           delete this.D[b]
       };
-      ytPlayer.h.qj = function(a, b, c) {
+      _yt_player.h.qj = function(a, b, c) {
           var d = this.Ba(a, b);
-          if (d && (d = ytPlayer.x(d))) {
-              var e = ytPlayer.$a(arguments, 2);
-              ytPlayer.ab(e, 0, 0, a);
+          if (d && (d = _yt_player.x(d))) {
+              var e = _yt_player.$a(arguments, 2);
+              _yt_player.ab(e, 0, 0, a);
               d.apply(null, e)
           }
       };
-      ytPlayer.h.Ba = function(a, b) {
-          return ytPlayer.bF(a, b)
+      _yt_player.h.Ba = function(a, b) {
+          return _yt_player.bF(a, b)
       };
-      ytPlayer.h.setData = function(a, b, c) {
-          ytPlayer.aF(a, b, c)
+      _yt_player.h.setData = function(a, b, c) {
+          _yt_player.aF(a, b, c)
       };
-      ytPlayer.A(l4, i4);
-      ytPlayer.ya(l4);
-      ytPlayer.h = l4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.A(l4, i4);
+      _yt_player.ya(l4);
+      _yt_player.h = l4.prototype;
+      _yt_player.h.register = function() {
           this.addBehavior("click", this.bG);
           this.addBehavior("keydown", this.sA);
           this.addBehavior("keypress", this.tA);
           j4(this, "page-scroll", this.hK)
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           this.removeBehavior("click", this.bG);
           this.removeBehavior("keydown", this.sA);
           this.removeBehavior("keypress", this.tA);
@@ -5478,10 +5459,10 @@ if (!self.__WB_pmw) {
           this.l = {};
           l4.ba.unregister.call(this)
       };
-      ytPlayer.h.bG = function(a) {
+      _yt_player.h.bG = function(a) {
           a && !a.disabled && (this.toggle(a), this.click(a))
       };
-      ytPlayer.h.sA = function(a, b, c) {
+      _yt_player.h.sA = function(a, b, c) {
           if (!(c.altKey || c.ctrlKey || c.shiftKey || c.metaKey) && (b = q4(this, a))) {
               var d = function(a) {
                       var b = "";
@@ -5494,41 +5475,41 @@ if (!self.__WB_pmw) {
                   e = e.tagName.toLowerCase();
                   if ("ul" == e) var f = this.iM;
                   else "table" == e && (f = this.hM);
-                  f && sya(this, a, b, c, (0, ytPlayer.z)(f, this))
+                  f && sya(this, a, b, c, (0, _yt_player.z)(f, this))
               }
           }
       };
-      ytPlayer.h.hK = function() {
+      _yt_player.h.hK = function() {
           var a = this.l;
-          if (0 != ytPlayer.Pb(a))
+          if (0 != _yt_player.Pb(a))
               for (var b in a) {
                   var c = a[b],
-                      d = ytPlayer.$d(c.activeButtonNode || c.parentNode, Z(this));
+                      d = _yt_player.$d(c.activeButtonNode || c.parentNode, Z(this));
                   if (void 0 == d || void 0 == c) break;
                   p4(this, d, c, !0)
               }
       };
-      ytPlayer.h.tA = function(a, b, c) {
+      _yt_player.h.tA = function(a, b, c) {
           c.altKey || c.ctrlKey || c.shiftKey || c.metaKey || (a = q4(this, a), m2(a) && c.preventDefault())
       };
-      ytPlayer.h.hM = function(a, b, c) {
+      _yt_player.h.hM = function(a, b, c) {
           var d = m4(this, b);
           if (d) {
               b = Kva("table", b);
               var e = Kva("tr", b);
-              e = ytPlayer.qd(window.document, "td", null, e).length;
-              b = ytPlayer.qd(window.document, "td", null, b);
+              e = _yt_player.qd(window.document, "td", null, e).length;
+              b = _yt_player.qd(window.document, "td", null, b);
               d = uya(d, b, e, c); -
               1 != d && (tya(this, a, b[d]), c.preventDefault())
           }
       };
-      ytPlayer.h.iM = function(a, b, c) {
+      _yt_player.h.iM = function(a, b, c) {
           if (40 == c.keyCode || 38 == c.keyCode) {
               var d = m4(this, b);
-              d && (b = (0, ytPlayer.Ld)(ytPlayer.qd(window.document, "li", null, b), m2), d = uya(d, b, 1, c), tya(this, a, b[d]), c.preventDefault())
+              d && (b = (0, _yt_player.Ld)(_yt_player.qd(window.document, "li", null, b), m2), d = uya(d, b, 1, c), tya(this, a, b[d]), c.preventDefault())
           }
       };
-      ytPlayer.h.dG = function(a) {
+      _yt_player.h.dG = function(a) {
           if (a) {
               var b = q4(this, a);
               if (b) {
@@ -5545,96 +5526,96 @@ if (!self.__WB_pmw) {
                   d && c.appendChild(d);
                   (c = !!this.Ba(a, "button-menu-fixed")) && (this.l[i2(a).toString()] = b);
                   p4(this, a, b, c);
-                  ytPlayer.YF("yt-uix-button-menu-before-show", a, b);
+                  _yt_player.YF("yt-uix-button-menu-before-show", a, b);
                   n2(b);
                   d && n2(d);
                   this.qj(a, "button-menu-action", !0);
-                  ytPlayer.S(a, Z(this, "active"));
-                  b = (0, ytPlayer.z)(this.cG, this, a, !1);
-                  d = (0, ytPlayer.z)(this.cG, this, a, !0);
-                  c = (0, ytPlayer.z)(this.wW, this, a, void 0);
+                  _yt_player.S(a, Z(this, "active"));
+                  b = (0, _yt_player.z)(this.cG, this, a, !1);
+                  d = (0, _yt_player.z)(this.cG, this, a, !0);
+                  c = (0, _yt_player.z)(this.wW, this, a, void 0);
                   this.g && q4(this, this.g) == q4(this, a) || r4(this);
-                  ytPlayer.XF("yt-uix-button-menu-show", a);
-                  ytPlayer.sF(this.o);
-                  this.o = [ytPlayer.rF(window.document, "click", d), ytPlayer.rF(window.document, "contextmenu", b), ytPlayer.rF(window, "resize", c)];
+                  _yt_player.XF("yt-uix-button-menu-show", a);
+                  _yt_player.sF(this.o);
+                  this.o = [_yt_player.rF(window.document, "click", d), _yt_player.rF(window.document, "contextmenu", b), _yt_player.rF(window, "resize", c)];
                   this.g = a
               }
           }
       };
-      ytPlayer.h.wW = function(a, b) {
+      _yt_player.h.wW = function(a, b) {
           var c = q4(this, a);
           if (c) {
-              b && (b instanceof ytPlayer.Uc ? c.innerHTML = ytPlayer.Vc(b) : ytPlayer.Sd(c, b));
+              b && (b instanceof _yt_player.Uc ? c.innerHTML = _yt_player.Vc(b) : _yt_player.Sd(c, b));
               var d = !!this.Ba(a, "button-menu-fixed");
               p4(this, a, c, d)
           }
       };
-      ytPlayer.h.cd = function() {
-          return ytPlayer.J(Z(this, "content"), void 0)
+      _yt_player.h.cd = function() {
+          return _yt_player.J(Z(this, "content"), void 0)
       };
-      ytPlayer.h.cG = function(a, b, c) {
-          c = ytPlayer.tF(c);
-          var d = ytPlayer.$d(c, Z(this));
+      _yt_player.h.cG = function(a, b, c) {
+          c = _yt_player.tF(c);
+          var d = _yt_player.$d(c, Z(this));
           if (d) {
               d = q4(this, d);
               var e = q4(this, a);
               if (d == e) return
           }
-          d = ytPlayer.$d(c, Z(this, "menu"));
+          d = _yt_player.$d(c, Z(this, "menu"));
           e = d == q4(this, a);
-          var f = ytPlayer.kq(c, Z(this, "menu-item")),
-              k = ytPlayer.kq(c, Z(this, "menu-close"));
-          if (!d || e && (f || k)) n4(this, a), d && b && this.Ba(a, "button-menu-indicate-selected") && ((a = ytPlayer.J(Z(this, "content"), a)) && ytPlayer.Sd(a, W1(c)), wya(this, d, c))
+          var f = _yt_player.kq(c, Z(this, "menu-item")),
+              k = _yt_player.kq(c, Z(this, "menu-close"));
+          if (!d || e && (f || k)) n4(this, a), d && b && this.Ba(a, "button-menu-indicate-selected") && ((a = _yt_player.J(Z(this, "content"), a)) && _yt_player.Sd(a, W1(c)), wya(this, d, c))
       };
-      ytPlayer.h.isToggled = function(a) {
-          return ytPlayer.kq(a, Z(this, "toggled"))
+      _yt_player.h.isToggled = function(a) {
+          return _yt_player.kq(a, Z(this, "toggled"))
       };
-      ytPlayer.h.toggle = function(a) {
+      _yt_player.h.toggle = function(a) {
           if (this.Ba(a, "button-toggle")) {
-              var b = ytPlayer.$d(a, Z(this, "group")),
+              var b = _yt_player.$d(a, Z(this, "group")),
                   c = Z(this, "toggled"),
-                  d = ytPlayer.kq(a, c);
+                  d = _yt_player.kq(a, c);
               if (b && this.Ba(b, "button-toggle-group")) {
                   var e = this.Ba(b, "button-toggle-group");
-                  b = ytPlayer.rd(Z(this), b);
-                  (0, ytPlayer.B)(b, function(b) {
-                      b != a || "optional" == e && d ? (ytPlayer.mq(b, c), b.removeAttribute("aria-pressed")) : (ytPlayer.S(a, c), b.setAttribute("aria-pressed", "true"))
+                  b = _yt_player.rd(Z(this), b);
+                  (0, _yt_player.B)(b, function(b) {
+                      b != a || "optional" == e && d ? (_yt_player.mq(b, c), b.removeAttribute("aria-pressed")) : (_yt_player.S(a, c), b.setAttribute("aria-pressed", "true"))
                   })
-              } else d ? a.removeAttribute("aria-pressed") : a.setAttribute("aria-pressed", "true"), ytPlayer.pq(a, c)
+              } else d ? a.removeAttribute("aria-pressed") : a.setAttribute("aria-pressed", "true"), _yt_player.pq(a, c)
           }
       };
-      ytPlayer.h.click = function(a) {
+      _yt_player.h.click = function(a) {
           if (q4(this, a)) {
               var b = q4(this, a);
               if (b) {
-                  var c = ytPlayer.$d(b.activeButtonNode || b.parentNode, Z(this));
-                  c && c != a ? (n4(this, c), ytPlayer.XD((0, ytPlayer.z)(this.dG, this, a), 1)) : m2(b) ? n4(this, a) : this.dG(a)
+                  var c = _yt_player.$d(b.activeButtonNode || b.parentNode, Z(this));
+                  c && c != a ? (n4(this, c), _yt_player.XD((0, _yt_player.z)(this.dG, this, a), 1)) : m2(b) ? n4(this, a) : this.dG(a)
               }
               a.focus()
           }
           this.qj(a, "button-action")
       };
-      ytPlayer.A(s4, i4);
-      ytPlayer.h = s4.prototype;
-      ytPlayer.h.pe = function(a) {
+      _yt_player.A(s4, i4);
+      _yt_player.h = s4.prototype;
+      _yt_player.h.pe = function(a) {
           var b = i4.prototype.pe.call(this, a);
           return b ? b : a
       };
-      ytPlayer.h.register = function() {
+      _yt_player.h.register = function() {
           j4(this, "yt-uix-kbd-nav-move-out-done", this.hide)
       };
-      ytPlayer.h.dispose = function() {
+      _yt_player.h.dispose = function() {
           t4(this);
           s4.ba.dispose.call(this)
       };
-      ytPlayer.h.Ba = function(a, b) {
+      _yt_player.h.Ba = function(a, b) {
           var c = s4.ba.Ba.call(this, a, b);
-          return c ? c : (c = s4.ba.Ba.call(this, a, "card-config")) && (c = ytPlayer.x(c)) && c[b] ? c[b] : null
+          return c ? c : (c = s4.ba.Ba.call(this, a, "card-config")) && (c = _yt_player.x(c)) && c[b] ? c[b] : null
       };
-      ytPlayer.h.show = function(a) {
+      _yt_player.h.show = function(a) {
           var b = this.pe(a);
           if (b) {
-              ytPlayer.S(b, Z(this, "active"));
+              _yt_player.S(b, Z(this, "active"));
               var c = xya(this, a, b);
               if (c) {
                   c.cardTargetNode = a;
@@ -5645,67 +5626,67 @@ if (!self.__WB_pmw) {
                   this.qj(b, "card-action", a);
                   this.o = a;
                   o2(c);
-                  ytPlayer.XD((0, ytPlayer.z)(function() {
-                          e || (n2(c), ytPlayer.XF("yt-uix-card-show", b, a, c));
+                  _yt_player.XD((0, _yt_player.z)(function() {
+                          e || (n2(c), _yt_player.XF("yt-uix-card-show", b, a, c));
                           zya(c);
-                          ytPlayer.S(c, d);
-                          ytPlayer.XF("yt-uix-kbd-nav-move-in-to", c)
+                          _yt_player.S(c, d);
+                          _yt_player.XF("yt-uix-kbd-nav-move-in-to", c)
                       },
                       this), 10)
               }
           }
       };
-      ytPlayer.h.hide = function(a) {
+      _yt_player.h.hide = function(a) {
           if (a = this.pe(a)) {
-              var b = ytPlayer.pd(Z(this, "card") + i2(a));
-              b && (ytPlayer.mq(a, Z(this, "active")), ytPlayer.mq(b, Z(this, "card-visible")), o2(b), this.o = null, b.cardTargetNode = null, b.cardRootNode = null, b.cardMask && (ytPlayer.Kd(b.cardMask), b.cardMask = null))
+              var b = _yt_player.pd(Z(this, "card") + i2(a));
+              b && (_yt_player.mq(a, Z(this, "active")), _yt_player.mq(b, Z(this, "card-visible")), o2(b), this.o = null, b.cardTargetNode = null, b.cardRootNode = null, b.cardMask && (_yt_player.Kd(b.cardMask), b.cardMask = null))
           }
       };
-      ytPlayer.h.uW = function(a, b) {
+      _yt_player.h.uW = function(a, b) {
           var c = this.pe(a);
           if (c) {
               if (b) {
                   var d = this.Cc(c);
                   if (!d) return;
-                  b instanceof ytPlayer.Uc ? d.innerHTML = ytPlayer.Vc(b) : ytPlayer.Sd(d, b)
+                  b instanceof _yt_player.Uc ? d.innerHTML = _yt_player.Vc(b) : _yt_player.Sd(d, b)
               }
-              ytPlayer.kq(c, Z(this, "active")) && (c = xya(this, a, c), yya(this, a, c), n2(c), zya(c))
+              _yt_player.kq(c, Z(this, "active")) && (c = xya(this, a, c), yya(this, a, c), n2(c), zya(c))
           }
       };
-      ytPlayer.h.isActive = function(a) {
-          return (a = this.pe(a)) ? ytPlayer.kq(a, Z(this, "active")) : !1
+      _yt_player.h.isActive = function(a) {
+          return (a = this.pe(a)) ? _yt_player.kq(a, Z(this, "active")) : !1
       };
-      ytPlayer.h.Cc = function(a) {
+      _yt_player.h.Cc = function(a) {
           var b = a.cardContentNode;
           if (!b) {
               var c = Z(this, "content"),
                   d = Z(this, "card-content");
-              (b = (b = this.Ba(a, "card-id")) ? ytPlayer.pd(b) : ytPlayer.J(c, a)) || (b = window.document.createElement("div"));
+              (b = (b = this.Ba(a, "card-id")) ? _yt_player.pd(b) : _yt_player.J(c, a)) || (b = window.document.createElement("div"));
               var e = b;
-              ytPlayer.mq(e, c);
-              ytPlayer.S(e, d);
+              _yt_player.mq(e, c);
+              _yt_player.S(e, d);
               a.cardContentNode = b
           }
           return b
       };
       var v4;
-      ytPlayer.A(u4, i4);
-      ytPlayer.ya(u4);
-      ytPlayer.h = u4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.A(u4, i4);
+      _yt_player.ya(u4);
+      _yt_player.h = u4.prototype;
+      _yt_player.h.register = function() {
           this.addBehavior("keydown", this.Bz);
           j4(this, "yt-uix-kbd-nav-move-in", this.gC);
           j4(this, "yt-uix-kbd-nav-move-in-to", this.bQ);
           j4(this, "yt-uix-kbd-move-next", this.hC);
           j4(this, "yt-uix-kbd-nav-move-to", this.jo)
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           this.removeBehavior("keydown", this.Bz);
-          ytPlayer.sF(v4)
+          _yt_player.sF(v4)
       };
-      ytPlayer.h.Bz = function(a, b, c) {
+      _yt_player.h.Bz = function(a, b, c) {
           var d = c.keyCode;
-          if (a = ytPlayer.$d(a, Z(this))) switch (d) {
+          if (a = _yt_player.$d(a, Z(this))) switch (d) {
               case 13:
               case 32:
                   this.gC(a);
@@ -5715,18 +5696,18 @@ if (!self.__WB_pmw) {
                   c.stopImmediatePropagation();
                   a: {
                       for (c = Z1(a, "kbdNavMoveOut"); !c;) {
-                          c = ytPlayer.$d(a.parentElement, Z(this));
+                          c = _yt_player.$d(a.parentElement, Z(this));
                           if (!c) break a;
                           c = Z1(c, "kbdNavMoveOut")
                       }
-                      c = ytPlayer.pd(c);
+                      c = _yt_player.pd(c);
                       this.jo(c);
-                      ytPlayer.XF("yt-uix-kbd-nav-move-out-done", c)
+                      _yt_player.XF("yt-uix-kbd-nav-move-out-done", c)
                   }
                   break;
               case 40:
               case 38:
-                  if ((b = c.target) && ytPlayer.kq(a, Z(this, "list"))) switch (d) {
+                  if ((b = c.target) && _yt_player.kq(a, Z(this, "list"))) switch (d) {
                       case 40:
                           this.hC(b, a);
                           break;
@@ -5737,36 +5718,36 @@ if (!self.__WB_pmw) {
                   c.preventDefault()
           }
       };
-      ytPlayer.h.gC = function(a) {
+      _yt_player.h.gC = function(a) {
           var b = Z1(a, "kbdNavMoveIn");
-          b = ytPlayer.pd(b);
+          b = _yt_player.pd(b);
           Aya(this, a, b);
           this.jo(b)
       };
-      ytPlayer.h.bQ = function(a) {
-          Aya(this, ytPlayer.ae(), a);
+      _yt_player.h.bQ = function(a) {
+          Aya(this, _yt_player.ae(), a);
           this.jo(a)
       };
-      ytPlayer.h.jo = function(a) {
+      _yt_player.h.jo = function(a) {
           if (a)
-              if (ytPlayer.Xd(a)) a.focus();
+              if (_yt_player.Xd(a)) a.focus();
               else {
                   var b = V1(a, function(a) {
-                      return ytPlayer.Da(a) && 1 == a.nodeType ? ytPlayer.Xd(a) : !1
+                      return _yt_player.Da(a) && 1 == a.nodeType ? _yt_player.Xd(a) : !1
                   });
                   b ? b.focus() : (a.setAttribute("tabindex", "-1"), a.focus())
               }
       };
-      ytPlayer.h.hC = function(a, b) {
+      _yt_player.h.hC = function(a, b) {
           var c = window.document.activeElement == b,
               d = Cya(b),
               e = d.indexOf(a);
           0 > e && !c || (c = c ? 0 : (e + 1) % d.length, d[c].focus(), Bya(this, d[c]))
       };
-      ytPlayer.A(w4, i4);
-      ytPlayer.ya(w4);
-      ytPlayer.h = w4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.A(w4, i4);
+      _yt_player.ya(w4);
+      _yt_player.h = w4.prototype;
+      _yt_player.h.register = function() {
           this.addBehavior("click", this.eG);
           this.addBehavior("mouseenter", this.cK);
           j4(this, "page-scroll", this.rK);
@@ -5774,198 +5755,198 @@ if (!self.__WB_pmw) {
               a = this.pe(a);
               A4(this, a)
           });
-          this.A = new ytPlayer.XC
+          this.A = new _yt_player.XC
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           this.removeBehavior("click", this.eG);
           this.l = this.g = null;
-          ytPlayer.sF(rva(ytPlayer.Rb(this.o)));
+          _yt_player.sF(rva(_yt_player.Rb(this.o)));
           this.o = {};
-          ytPlayer.Lb(this.C, function(a) {
-                  ytPlayer.Kd(a)
+          _yt_player.Lb(this.C, function(a) {
+                  _yt_player.Kd(a)
               },
               this);
           this.C = {};
-          ytPlayer.$e(this.A);
+          _yt_player.$e(this.A);
           this.A = null;
           w4.ba.unregister.call(this)
       };
-      ytPlayer.h.eG = function(a, b, c) {
+      _yt_player.h.eG = function(a, b, c) {
           a && (b = D4(this, a), !b.disabled && j2(c.target, b) && Fya(this, a))
       };
-      ytPlayer.h.cK = function(a, b, c) {
-          a && ytPlayer.kq(a, Z(this, "hover")) && (b = D4(this, a), j2(c.target, b) && Fya(this, a, !0))
+      _yt_player.h.cK = function(a, b, c) {
+          a && _yt_player.kq(a, Z(this, "hover")) && (b = D4(this, a), j2(c.target, b) && Fya(this, a, !0))
       };
-      ytPlayer.h.rK = function() {
+      _yt_player.h.rK = function() {
           this.g && this.l && Dya(this, this.l, this.g)
       };
-      ytPlayer.h.fG = function(a) {
+      _yt_player.h.fG = function(a) {
           if (a) {
               var b = C4(this, a);
               if (b) {
-                  ytPlayer.YF("yt-uix-menu-before-show", a, b);
+                  _yt_player.YF("yt-uix-menu-before-show", a, b);
                   if (this.g) j2(a, this.g) || A4(this, this.l);
                   else {
                       this.l = a;
                       this.g = b;
-                      ytPlayer.kq(a, Z(this, "sibling-content")) || (ytPlayer.Kd(b), window.document.body.appendChild(b));
+                      _yt_player.kq(a, Z(this, "sibling-content")) || (_yt_player.Kd(b), window.document.body.appendChild(b));
                       var c = D4(this, a).offsetWidth - 2;
                       b.style.minWidth = c + "px"
                   }(c = y4(this, a)) && b.parentNode && b.parentNode.insertBefore(c, b.nextSibling);
-                  ytPlayer.mq(b, Z(this, "content-hidden"));
+                  _yt_player.mq(b, Z(this, "content-hidden"));
                   Dya(this, a, b);
-                  ytPlayer.lq(D4(this, a), [Z(this, "trigger-selected"), "yt-uix-button-toggled"]);
-                  ytPlayer.XF("yt-uix-menu-show", a);
+                  _yt_player.lq(D4(this, a), [Z(this, "trigger-selected"), "yt-uix-button-toggled"]);
+                  _yt_player.XF("yt-uix-menu-show", a);
                   Iya(b);
                   Gya(this, a);
-                  ytPlayer.XF("yt-uix-kbd-nav-move-in-to", b);
-                  var d = (0, ytPlayer.z)(this.vX, this, a),
-                      e = (0, ytPlayer.z)(this.eM, this, a);
-                  c = ytPlayer.Fa(a).toString();
-                  this.o[c] = [ytPlayer.rF(b, "click", e), ytPlayer.rF(window.document, "click", d)];
-                  ytPlayer.kq(a, Z(this, "indicate-selected")) && (d = (0, ytPlayer.z)(this.fM, this, a), this.o[c].push(ytPlayer.rF(b, "click", d)));
-                  ytPlayer.kq(a, Z(this, "hover")) && (a = (0, ytPlayer.z)(this.uX, this, a), this.o[c].push(ytPlayer.rF(window.document, "mousemove", a)))
+                  _yt_player.XF("yt-uix-kbd-nav-move-in-to", b);
+                  var d = (0, _yt_player.z)(this.vX, this, a),
+                      e = (0, _yt_player.z)(this.eM, this, a);
+                  c = _yt_player.Fa(a).toString();
+                  this.o[c] = [_yt_player.rF(b, "click", e), _yt_player.rF(window.document, "click", d)];
+                  _yt_player.kq(a, Z(this, "indicate-selected")) && (d = (0, _yt_player.z)(this.fM, this, a), this.o[c].push(_yt_player.rF(b, "click", d)));
+                  _yt_player.kq(a, Z(this, "hover")) && (a = (0, _yt_player.z)(this.uX, this, a), this.o[c].push(_yt_player.rF(window.document, "mousemove", a)))
               }
           }
       };
-      ytPlayer.h.uX = function(a, b) {
-          var c = ytPlayer.tF(b);
+      _yt_player.h.uX = function(a, b) {
+          var c = _yt_player.tF(b);
           if (c) {
               var d = D4(this, a);
               j2(c, d) || Jya(this, c) || B4(this, a)
           }
       };
-      ytPlayer.h.vX = function(a, b) {
-          var c = ytPlayer.tF(b);
+      _yt_player.h.vX = function(a, b) {
+          var c = _yt_player.tF(b);
           if (c) {
               if (Jya(this, c)) {
-                  var d = ytPlayer.$d(c, Z(this, "content")),
-                      e = ytPlayer.Zd(c, "LI");
-                  e && d && ytPlayer.Qd(d, e) && ytPlayer.YF("yt-uix-menu-item-clicked", c);
-                  c = ytPlayer.$d(c, Z(this, "close-on-select"));
+                  var d = _yt_player.$d(c, Z(this, "content")),
+                      e = _yt_player.Zd(c, "LI");
+                  e && d && _yt_player.Qd(d, e) && _yt_player.YF("yt-uix-menu-item-clicked", c);
+                  c = _yt_player.$d(c, Z(this, "close-on-select"));
                   if (!c) return;
                   d = x4(c)
               }
               A4(this, d || a)
           }
       };
-      ytPlayer.h.eM = function(a, b) {
-          var c = ytPlayer.tF(b);
+      _yt_player.h.eM = function(a, b) {
+          var c = _yt_player.tF(b);
           c && Hya(this, a, c)
       };
-      ytPlayer.h.fM = function(a, b) {
-          var c = ytPlayer.tF(b);
+      _yt_player.h.fM = function(a, b) {
+          var c = _yt_player.tF(b);
           if (c) {
               var d = D4(this, a);
-              if (d && (c = ytPlayer.Zd(c, "LI")))
+              if (d && (c = _yt_player.Zd(c, "LI")))
                   if (c = W1(c).trim(), d.hasChildNodes()) {
                       var e = l4.getInstance();
-                      (d = ytPlayer.J(Z(e, "content"), d)) && ytPlayer.Sd(d, c)
-                  } else ytPlayer.Sd(d, c)
+                      (d = _yt_player.J(Z(e, "content"), d)) && _yt_player.Sd(d, c)
+                  } else _yt_player.Sd(d, c)
           }
       };
-      ytPlayer.A(E4, s4);
-      ytPlayer.ya(E4);
-      ytPlayer.h = E4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.A(E4, s4);
+      _yt_player.ya(E4);
+      _yt_player.h = E4.prototype;
+      _yt_player.h.register = function() {
           E4.ba.register.call(this);
           this.addBehavior("click", this.Zx, "target");
           this.addBehavior("click", this.Yx, "close")
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           E4.ba.unregister.call(this);
           this.removeBehavior("click", this.Zx, "target");
           this.removeBehavior("click", this.Yx, "close");
-          for (var a in this.g) ytPlayer.sF(this.g[a]);
+          for (var a in this.g) _yt_player.sF(this.g[a]);
           this.g = {};
-          for (a in this.l) ytPlayer.sF(this.l[a]);
+          for (a in this.l) _yt_player.sF(this.l[a]);
           this.l = {}
       };
-      ytPlayer.h.Zx = function(a, b, c) {
+      _yt_player.h.Zx = function(a, b, c) {
           c.preventDefault();
-          b = ytPlayer.Zd(c.target, "button");
+          b = _yt_player.Zd(c.target, "button");
           if (!b || !b.disabled) {
               b = this.Ba(a, "card-target");
               var d;
-              b ? d = ytPlayer.u(b) ? window.document.getElementById(b) : b : d = a;
+              b ? d = _yt_player.u(b) ? window.document.getElementById(b) : b : d = a;
               a = d;
               d = this.pe(a);
-              this.Ba(d, "disabled") || (ytPlayer.kq(d, Z(this, "active")) ? (this.hide(a), ytPlayer.mq(d, Z(this, "active"))) : (this.show(a), ytPlayer.S(d, Z(this, "active"))))
+              this.Ba(d, "disabled") || (_yt_player.kq(d, Z(this, "active")) ? (this.hide(a), _yt_player.mq(d, Z(this, "active"))) : (this.show(a), _yt_player.S(d, Z(this, "active"))))
           }
       };
-      ytPlayer.h.show = function(a) {
+      _yt_player.h.show = function(a) {
           E4.ba.show.call(this, a);
           var b = this.pe(a),
-              c = ytPlayer.Fa(a).toString();
-          if (!ytPlayer.bF(b, "click-outside-persists")) {
+              c = _yt_player.Fa(a).toString();
+          if (!_yt_player.bF(b, "click-outside-persists")) {
               if (this.g[c]) return;
-              b = ytPlayer.rF(window.document, "click", (0, ytPlayer.z)(this.ay, this, a));
-              var d = ytPlayer.rF(window, "blur", (0, ytPlayer.z)(this.ay, this, a));
+              b = _yt_player.rF(window.document, "click", (0, _yt_player.z)(this.ay, this, a));
+              var d = _yt_player.rF(window, "blur", (0, _yt_player.z)(this.ay, this, a));
               this.g[c] = [b, d]
           }
-          a = ytPlayer.rF(window, "resize", (0, ytPlayer.z)(this.uW, this, a, void 0));
+          a = _yt_player.rF(window, "resize", (0, _yt_player.z)(this.uW, this, a, void 0));
           this.l[c] = a
       };
-      ytPlayer.h.hide = function(a) {
+      _yt_player.h.hide = function(a) {
           E4.ba.hide.call(this, a);
-          a = ytPlayer.Fa(a).toString();
+          a = _yt_player.Fa(a).toString();
           var b = this.g[a];
-          b && (ytPlayer.sF(b), this.g[a] = null);
-          if (b = this.l[a]) ytPlayer.sF(b), delete this.l[a]
+          b && (_yt_player.sF(b), this.g[a] = null);
+          if (b = this.l[a]) _yt_player.sF(b), delete this.l[a]
       };
-      ytPlayer.h.ay = function(a, b) {
+      _yt_player.h.ay = function(a, b) {
           var c = "yt-uix" + (this.B ? "-" + this.B : "") + "-card",
               d = null;
-          b.target && (d = ytPlayer.$d(b.target, c) || ytPlayer.$d(x4(b.target), c));
-          (d = d || ytPlayer.$d(window.document.activeElement, c) || ytPlayer.$d(x4(window.document.activeElement), c)) || this.hide(a)
+          b.target && (d = _yt_player.$d(b.target, c) || _yt_player.$d(x4(b.target), c));
+          (d = d || _yt_player.$d(window.document.activeElement, c) || _yt_player.$d(x4(window.document.activeElement), c)) || this.hide(a)
       };
-      ytPlayer.h.Yx = function(a) {
-          (a = ytPlayer.$d(a, Z(this, "card"))) && (a = a.cardTargetNode) && this.hide(a)
+      _yt_player.h.Yx = function(a) {
+          (a = _yt_player.$d(a, Z(this, "card"))) && (a = a.cardTargetNode) && this.hide(a)
       };
-      ytPlayer.A(F4, s4);
-      ytPlayer.ya(F4);
-      ytPlayer.h = F4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.A(F4, s4);
+      _yt_player.ya(F4);
+      _yt_player.h = F4.prototype;
+      _yt_player.h.register = function() {
           this.addBehavior("mouseenter", this.cC, "target");
           this.addBehavior("mouseleave", this.eC, "target");
           this.addBehavior("mouseenter", this.dC, "card");
           this.addBehavior("mouseleave", this.fC, "card")
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           this.removeBehavior("mouseenter", this.cC, "target");
           this.removeBehavior("mouseleave", this.eC, "target");
           this.removeBehavior("mouseenter", this.dC, "card");
           this.removeBehavior("mouseleave", this.fC, "card")
       };
-      ytPlayer.h.cC = function(a) {
+      _yt_player.h.cC = function(a) {
           if (S4 != a) {
               S4 && (this.hide(S4), S4 = null);
-              var b = (0, ytPlayer.z)(this.show, this, a),
+              var b = (0, _yt_player.z)(this.show, this, a),
                   c = (0, window.parseInt)(this.Ba(a, "delay-show"), 10);
-              b = ytPlayer.XD(b, -1 < c ? c : 200);
+              b = _yt_player.XD(b, -1 < c ? c : 200);
               this.setData(a, "card-timer", b.toString());
               S4 = a;
               a.alt && (this.setData(a, "card-alt", a.alt), a.alt = "");
               a.title && (this.setData(a, "card-title", a.title), a.title = "")
           }
       };
-      ytPlayer.h.eC = function(a) {
+      _yt_player.h.eC = function(a) {
           var b = (0, window.parseInt)(this.Ba(a, "card-timer"), 10);
-          ytPlayer.ZD(b);
+          _yt_player.ZD(b);
           this.pe(a).isCardHidable = !0;
           b = (0, window.parseInt)(this.Ba(a, "delay-hide"), 10);
           b = -1 < b ? b : 200;
-          ytPlayer.XD((0, ytPlayer.z)(this.KK, this, a), b);
+          _yt_player.XD((0, _yt_player.z)(this.KK, this, a), b);
           if (b = this.Ba(a, "card-alt")) a.alt = b;
           if (b = this.Ba(a, "card-title")) a.title = b
       };
-      ytPlayer.h.KK = function(a) {
+      _yt_player.h.KK = function(a) {
           this.pe(a).isCardHidable && (this.hide(a), S4 = null)
       };
-      ytPlayer.h.dC = function(a) {
+      _yt_player.h.dC = function(a) {
           a && (a.cardRootNode.isCardHidable = !1)
       };
-      ytPlayer.h.fC = function(a) {
+      _yt_player.h.fC = function(a) {
           a && this.hide(a.cardTargetNode)
       };
       var S4 = null;
@@ -5974,12 +5955,12 @@ if (!self.__WB_pmw) {
           FG: "content",
           F4: "working"
       };
-      ytPlayer.h = G4.prototype;
-      ytPlayer.h.show = function() {
+      _yt_player.h = G4.prototype;
+      _yt_player.h.show = function() {
           if (!this.ka()) {
               this.D = window.document.activeElement;
               if (!this.M) {
-                  this.l || (this.l = ytPlayer.pd("yt-dialog-bg"), this.l || (this.l = ytPlayer.Ed("div"), this.l.id = "yt-dialog-bg", this.l.className = "yt-dialog-bg", window.document.body.appendChild(this.l)));
+                  this.l || (this.l = _yt_player.pd("yt-dialog-bg"), this.l || (this.l = _yt_player.Ed("div"), this.l.id = "yt-dialog-bg", this.l.className = "yt-dialog-bg", window.document.body.appendChild(this.l)));
                   var a = window,
                       b = a.document;
                   var c = 0;
@@ -5987,7 +5968,7 @@ if (!self.__WB_pmw) {
                       c = b.body;
                       var d = b.documentElement;
                       if (d && c)
-                          if (a = ytPlayer.wd(a).height, ytPlayer.vd(b) && d.scrollHeight) c = d.scrollHeight != a ? d.scrollHeight : d.offsetHeight;
+                          if (a = _yt_player.wd(a).height, _yt_player.vd(b) && d.scrollHeight) c = d.scrollHeight != a ? d.scrollHeight : d.offsetHeight;
                           else {
                               b = d.scrollHeight;
                               var e = d.offsetHeight;
@@ -6003,34 +5984,34 @@ if (!self.__WB_pmw) {
               this.Jz();
               c = Oya(this);
               Pya(c);
-              this.B = ytPlayer.rF(window.document, "keydown", (0, ytPlayer.z)(this.OL, this));
+              this.B = _yt_player.rF(window.document, "keydown", (0, _yt_player.z)(this.OL, this));
               c = this.g;
-              d = ytPlayer.UF("player-added", this.Jz, this);
-              ytPlayer.aF(c, "player-ready-pubsub-key", d);
-              this.T && (this.C = ytPlayer.rF(window.document, "click", (0, ytPlayer.z)(this.bV, this)));
+              d = _yt_player.UF("player-added", this.Jz, this);
+              _yt_player.aF(c, "player-ready-pubsub-key", d);
+              this.T && (this.C = _yt_player.rF(window.document, "click", (0, _yt_player.z)(this.bV, this)));
               n2(this.g);
               this.o.setAttribute("tabindex", "0");
               Rya(this);
-              this.H || ytPlayer.S(window.document.body, "yt-dialog-active");
+              this.H || _yt_player.S(window.document.body, "yt-dialog-active");
               r4(l4.getInstance());
               t4(E4.getInstance());
               t4(F4.getInstance());
-              ytPlayer.XF("yt-ui-dialog-show-complete",
+              _yt_player.XF("yt-ui-dialog-show-complete",
                   this)
           }
       };
-      ytPlayer.h.Jz = function() {
+      _yt_player.h.Jz = function() {
           if (!this.X) {
               var a = this.g;
-              ytPlayer.U(window.document.body, "hide-players", !0);
-              a && ytPlayer.U(a, "preserve-players", !0)
+              _yt_player.U(window.document.body, "hide-players", !0);
+              a && _yt_player.U(a, "preserve-players", !0)
           }
       };
-      ytPlayer.h.YQ = function(a) {
+      _yt_player.h.YQ = function(a) {
           a = a.currentTarget;
-          a.disabled || (a = ytPlayer.bF(a, "action") || "", this.dismiss(a))
+          a.disabled || (a = _yt_player.bF(a, "action") || "", this.dismiss(a))
       };
-      ytPlayer.h.dismiss = function(a) {
+      _yt_player.h.dismiss = function(a) {
           if (!this.ka()) {
               this.A.R("pre-all");
               this.A.R("pre-" + a);
@@ -6038,43 +6019,43 @@ if (!self.__WB_pmw) {
               t4(E4.getInstance());
               t4(F4.getInstance());
               this.o.setAttribute("tabindex", "-1");
-              Nya() || (o2(this.l), this.H || ytPlayer.mq(window.document.body, "yt-dialog-active"), Lva(), Qya());
-              this.B && (ytPlayer.sF(this.B), this.B = null);
-              this.C && (ytPlayer.sF(this.C), this.C = null);
+              Nya() || (o2(this.l), this.H || _yt_player.mq(window.document.body, "yt-dialog-active"), Lva(), Qya());
+              this.B && (_yt_player.sF(this.B), this.B = null);
+              this.C && (_yt_player.sF(this.C), this.C = null);
               var b = this.g;
               if (b) {
-                  var c = ytPlayer.bF(b, "player-ready-pubsub-key");
-                  c && (ytPlayer.VF(c), h2(b, "player-ready-pubsub-key"))
+                  var c = _yt_player.bF(b, "player-ready-pubsub-key");
+                  c && (_yt_player.VF(c), h2(b, "player-ready-pubsub-key"))
               }
               this.A.R("post-all");
-              ytPlayer.XF("yt-ui-dialog-hide-complete", this);
+              _yt_player.XF("yt-ui-dialog-hide-complete", this);
               "cancel" == a &&
-                  ytPlayer.XF("yt-ui-dialog-cancelled", this);
+                  _yt_player.XF("yt-ui-dialog-cancelled", this);
               this.A && this.A.R("post-" + a);
               this.D && this.D.focus()
           }
       };
-      ytPlayer.h.setTitle = function(a) {
-          ytPlayer.Sd(ytPlayer.J("yt-dialog-title", this.g), a)
+      _yt_player.h.setTitle = function(a) {
+          _yt_player.Sd(_yt_player.J("yt-dialog-title", this.g), a)
       };
-      ytPlayer.h.OL = function(a) {
-          ytPlayer.XD((0, ytPlayer.z)(function() {
+      _yt_player.h.OL = function(a) {
+          _yt_player.XD((0, _yt_player.z)(function() {
                   this.K || 27 != a.keyCode || this.dismiss("cancel")
               },
               this), 0);
-          9 == a.keyCode && a.shiftKey && ytPlayer.kq(window.document.activeElement, "yt-dialog-fg") && a.preventDefault()
+          9 == a.keyCode && a.shiftKey && _yt_player.kq(window.document.activeElement, "yt-dialog-fg") && a.preventDefault()
       };
-      ytPlayer.h.bV = function(a) {
+      _yt_player.h.bV = function(a) {
           "yt-dialog-base" == a.target.className && this.dismiss("cancel")
       };
-      ytPlayer.h.ka = function() {
+      _yt_player.h.ka = function() {
           return this.J
       };
-      ytPlayer.h.dispose = function() {
+      _yt_player.h.dispose = function() {
           m2(this.g) && this.dismiss("dispose");
-          ytPlayer.sF(this.F);
+          _yt_player.sF(this.F);
           this.F.length = 0;
-          ytPlayer.XD((0, ytPlayer.z)(function() {
+          _yt_player.XD((0, _yt_player.z)(function() {
                   this.D = null
               },
               this), 0);
@@ -6083,27 +6064,27 @@ if (!self.__WB_pmw) {
           this.A = null;
           this.J = !0
       };
-      ytPlayer.h.CJ = function(a) {
+      _yt_player.h.CJ = function(a) {
           a.stopPropagation();
           Rya(this)
       };
-      ytPlayer.va("yt.ui.Dialog", G4, void 0);
-      ytPlayer.A(H4, i4);
-      ytPlayer.ya(H4);
-      ytPlayer.h = H4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.va("yt.ui.Dialog", G4, void 0);
+      _yt_player.A(H4, i4);
+      _yt_player.ya(H4);
+      _yt_player.h = H4.prototype;
+      _yt_player.h.register = function() {
           this.addBehavior("click", this.yv, "target");
           this.addBehavior("click", this.hide, "close");
           Tya(this)
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           H4.ba.unregister.call(this);
           this.removeBehavior("click", this.yv, "target");
           this.removeBehavior("click", this.hide, "close");
-          this.A && (ytPlayer.VF(this.A), this.A = null);
-          this.l && (ytPlayer.sF(this.l), this.l = null)
+          this.A && (_yt_player.VF(this.A), this.A = null);
+          this.l && (_yt_player.sF(this.l), this.l = null)
       };
-      ytPlayer.h.yv = function(a) {
+      _yt_player.h.yv = function(a) {
           if (!this.g || !m2(this.g.g)) {
               var b = this.pe(a);
               a = Vya(b, a);
@@ -6113,7 +6094,7 @@ if (!self.__WB_pmw) {
                       d = !!this.Ba(b, "disable-outside-click-dismiss") || !1;
                   this.g = new G4(a, c);
                   this.o = b;
-                  var e = ytPlayer.J("yt-dialog-fg", a);
+                  var e = _yt_player.J("yt-dialog-fg", a);
                   if (e) {
                       var f = this.Ba(b, "overlay-class") || "",
                           k = this.Ba(b, "overlay-style") || "default",
@@ -6121,34 +6102,34 @@ if (!self.__WB_pmw) {
                       f = f ? f.split(" ") : [];
                       f.push(Z(this, k));
                       f.push(Z(this, l));
-                      ytPlayer.lq(e, f)
+                      _yt_player.lq(e, f)
                   }
                   this.g.show();
-                  ytPlayer.XF("yt-uix-kbd-nav-move-to", e ||
+                  _yt_player.XF("yt-uix-kbd-nav-move-to", e ||
                       a);
                   Tya(this);
-                  c || d || (c = (0, ytPlayer.z)(function(a) {
-                          ytPlayer.kq(a.target, "yt-dialog-base") && Uya(this)
+                  c || d || (c = (0, _yt_player.z)(function(a) {
+                          _yt_player.kq(a.target, "yt-dialog-base") && Uya(this)
                       },
-                      this), a = ytPlayer.J("yt-dialog-base", a), this.l = ytPlayer.rF(a, "click", c));
+                      this), a = _yt_player.J("yt-dialog-base", a), this.l = _yt_player.rF(a, "click", c));
                   this.qj(b, "overlay-shown");
-                  ytPlayer.XF("yt-uix-overlay-shown", b)
+                  _yt_player.XF("yt-uix-overlay-shown", b)
               }
           }
       };
-      ytPlayer.h.Cc = function(a) {
-          return ytPlayer.J("yt-dialog-content", a.overlayContentNode || a)
+      _yt_player.h.Cc = function(a) {
+          return _yt_player.J("yt-dialog-content", a.overlayContentNode || a)
       };
-      ytPlayer.h.hide = function(a) {
-          a && a.disabled || ytPlayer.XF("yt-uix-overlay-hide")
+      _yt_player.h.hide = function(a) {
+          a && a.disabled || _yt_player.XF("yt-uix-overlay-hide")
       };
-      ytPlayer.h.show = function(a) {
+      _yt_player.h.show = function(a) {
           this.yv(a)
       };
-      ytPlayer.A(I4, i4);
-      ytPlayer.ya(I4);
-      ytPlayer.h = I4.prototype;
-      ytPlayer.h.register = function() {
+      _yt_player.A(I4, i4);
+      _yt_player.ya(I4);
+      _yt_player.h = I4.prototype;
+      _yt_player.h.register = function() {
           this.addBehavior("mouseover", this.xp);
           this.addBehavior("mouseout", this.Oi);
           this.addBehavior("focus", this.Uy);
@@ -6158,7 +6139,7 @@ if (!self.__WB_pmw) {
           this.addBehavior("touchend", this.qq);
           this.addBehavior("touchcancel", this.qq)
       };
-      ytPlayer.h.unregister = function() {
+      _yt_player.h.unregister = function() {
           this.removeBehavior("mouseover", this.xp);
           this.removeBehavior("mouseout", this.Oi);
           this.removeBehavior("focus", this.Uy);
@@ -6170,80 +6151,80 @@ if (!self.__WB_pmw) {
           this.dispose();
           I4.ba.unregister.call(this)
       };
-      ytPlayer.h.dispose = function() {
+      _yt_player.h.dispose = function() {
           for (var a in this.l) this.Oi(this.l[a]);
           this.l = {}
       };
-      ytPlayer.h.xp = function(a) {
-          if (!(this.g && 1E3 > (0, ytPlayer.F)() - this.g)) {
+      _yt_player.h.xp = function(a) {
+          if (!(this.g && 1E3 > (0, _yt_player.F)() - this.g)) {
               var b = (0, window.parseInt)(this.Ba(a, "tooltip-hide-timer"), 10);
-              b && (h2(a, "tooltip-hide-timer"), ytPlayer.ZD(b));
-              b = (0, ytPlayer.z)(function() {
+              b && (h2(a, "tooltip-hide-timer"), _yt_player.ZD(b));
+              b = (0, _yt_player.z)(function() {
                       aza(this, a);
                       h2(a, "tooltip-show-timer")
                   },
                   this);
               var c = (0, window.parseInt)(this.Ba(a, "tooltip-show-delay"), 10) || 0;
-              b = ytPlayer.XD(b, c);
+              b = _yt_player.XD(b, c);
               this.setData(a, "tooltip-show-timer", b.toString());
               a.title && (this.setData(a, "tooltip-text", Yya(this, a)), a.title = "");
-              b = ytPlayer.Fa(a).toString();
+              b = _yt_player.Fa(a).toString();
               this.l[b] = a
           }
       };
-      ytPlayer.h.Oi = function(a) {
+      _yt_player.h.Oi = function(a) {
           var b = (0, window.parseInt)(this.Ba(a, "tooltip-show-timer"), 10);
-          b && (ytPlayer.ZD(b), h2(a, "tooltip-show-timer"));
-          b = (0, ytPlayer.z)(function() {
+          b && (_yt_player.ZD(b), h2(a, "tooltip-show-timer"));
+          b = (0, _yt_player.z)(function() {
                   if (a) {
-                      var b = ytPlayer.pd(J4(this, a));
-                      b && (bza(b), ytPlayer.Kd(b), h2(a, "content-id"));
-                      b = ytPlayer.pd(J4(this, a, "arialabel"));
-                      ytPlayer.Kd(b)
+                      var b = _yt_player.pd(J4(this, a));
+                      b && (bza(b), _yt_player.Kd(b), h2(a, "content-id"));
+                      b = _yt_player.pd(J4(this, a, "arialabel"));
+                      _yt_player.Kd(b)
                   }
                   h2(a, "tooltip-hide-timer")
               },
               this);
-          b = ytPlayer.XD(b, 50);
+          b = _yt_player.XD(b, 50);
           this.setData(a, "tooltip-hide-timer", b.toString());
           if (b = this.Ba(a, "tooltip-text")) a.title = b;
-          b = ytPlayer.Fa(a).toString();
+          b = _yt_player.Fa(a).toString();
           delete this.l[b]
       };
-      ytPlayer.h.Uy = function(a, b) {
+      _yt_player.h.Uy = function(a, b) {
           this.g = 0;
           this.xp(a, b)
       };
-      ytPlayer.h.Ix = function(a) {
+      _yt_player.h.Ix = function(a) {
           this.g = 0;
           this.Oi(a)
       };
-      ytPlayer.h.TE = function(a, b, c) {
+      _yt_player.h.TE = function(a, b, c) {
           c.changedTouches && (this.g = 0, (a = f4(b, Z(this), c.changedTouches[0].target)) && this.xp(a, b))
       };
-      ytPlayer.h.qq = function(a, b, c) {
-          c.changedTouches && (this.g = (0, ytPlayer.F)(), (a = f4(b, Z(this), c.changedTouches[0].target)) && this.Oi(a))
+      _yt_player.h.qq = function(a, b, c) {
+          c.changedTouches && (this.g = (0, _yt_player.F)(), (a = f4(b, Z(this), c.changedTouches[0].target)) && this.Oi(a))
       };
       var T4 = window.yt && window.yt.uix && window.yt.uix.widgets_ || {};
-      ytPlayer.va("yt.uix.widgets_", T4, void 0);
-      ytPlayer.A(K4, ytPlayer.yN);
-      ytPlayer.A(L4, ytPlayer.yN);
-      ytPlayer.A(cza, ytPlayer.yN);
-      ytPlayer.A(M4, ytPlayer.yN);
-      var oza = new ytPlayer.zN("subscription-subscribe", L4),
-          pza = new ytPlayer.zN("subscription-subscribe-loading", K4),
-          qza = new ytPlayer.zN("subscription-subscribe-loaded", K4),
-          rza = new ytPlayer.zN("subscription-subscribe-success", cza),
-          sza = new ytPlayer.zN("subscription-unsubscribe", M4),
-          tza = new ytPlayer.zN("subscription-unsubscirbe-loading", K4),
-          uza = new ytPlayer.zN("subscription-unsubscribe-loaded", K4),
-          vza = new ytPlayer.zN("subscription-unsubscribe-success", K4),
-          wza = new ytPlayer.zN("subscription-enable-ypc", K4),
-          xza = new ytPlayer.zN("subscription-disable-ypc", K4);
+      _yt_player.va("yt.uix.widgets_", T4, void 0);
+      _yt_player.A(K4, _yt_player.yN);
+      _yt_player.A(L4, _yt_player.yN);
+      _yt_player.A(cza, _yt_player.yN);
+      _yt_player.A(M4, _yt_player.yN);
+      var oza = new _yt_player.zN("subscription-subscribe", L4),
+          pza = new _yt_player.zN("subscription-subscribe-loading", K4),
+          qza = new _yt_player.zN("subscription-subscribe-loaded", K4),
+          rza = new _yt_player.zN("subscription-subscribe-success", cza),
+          sza = new _yt_player.zN("subscription-unsubscribe", M4),
+          tza = new _yt_player.zN("subscription-unsubscirbe-loading", K4),
+          uza = new _yt_player.zN("subscription-unsubscribe-loaded", K4),
+          vza = new _yt_player.zN("subscription-unsubscribe-success", K4),
+          wza = new _yt_player.zN("subscription-enable-ypc", K4),
+          xza = new _yt_player.zN("subscription-disable-ypc", K4);
       var O4 = {},
           N4 = [];
-      ytPlayer.A(P4, i4);
-      ytPlayer.ya(P4);
+      _yt_player.A(P4, i4);
+      _yt_player.ya(P4);
       P4.prototype.register = function() {
           this.addBehavior("click", this.kw);
           k4(this, pza, this.NC);
@@ -6288,13 +6269,13 @@ if (!self.__WB_pmw) {
               j3: "target",
               DI: "ypc-enabled"
           };
-      ytPlayer.h = P4.prototype;
-      ytPlayer.h.kw = function(a) {
+      _yt_player.h = P4.prototype;
+      _yt_player.h.kw = function(a) {
           var b = this.Ba(a, "href"),
               c = this.Ba(a, "insecure");
           if (b) a = this.Ba(a, "target") || "_self", window.open(b, a);
           else if (!c)
-              if (ytPlayer.ZV()) {
+              if (_yt_player.ZV()) {
                   b = this.Ba(a, "channel-external-id");
                   c = this.Ba(a, "clicktracking");
                   var d = fza(this, a),
@@ -6303,84 +6284,61 @@ if (!self.__WB_pmw) {
                       var f = this.Ba(a, "subscription-id"),
                           k = new M4(b, f, d, a, c, e);
                       jza(this, a) ? eza(a, b).then(function() {
-                          ytPlayer.BN(sza, k)
-                      }) : ytPlayer.BN(sza, k)
-                  } else ytPlayer.BN(oza, new L4(b, d, c, e))
+                          _yt_player.BN(sza, k)
+                      }) : _yt_player.BN(sza, k)
+                  } else _yt_player.BN(oza, new L4(b, d, c, e))
               } else iza(this, a)
       };
-      ytPlayer.h.NC = function(a) {
+      _yt_player.h.NC = function(a) {
           this.nj(a.g, this.nE, !0)
       };
-      ytPlayer.h.gG = function(a) {
+      _yt_player.h.gG = function(a) {
           this.nj(a.g, this.nE, !1)
       };
-      ytPlayer.h.kU = function(a) {
+      _yt_player.h.kU = function(a) {
           this.nj(a.g, this.tE, !0, a.l)
       };
-      ytPlayer.h.xU = function(a) {
+      _yt_player.h.xU = function(a) {
           this.nj(a.g, this.tE, !1)
       };
-      ytPlayer.h.AR = function(a) {
+      _yt_player.h.AR = function(a) {
           this.nj(a.g, this.uJ)
       };
-      ytPlayer.h.uR = function(a) {
+      _yt_player.h.uR = function(a) {
           this.nj(a.g, this.nJ)
       };
-      ytPlayer.h.tE = function(a, b, c) {
+      _yt_player.h.tE = function(a, b, c) {
           b ? (this.setData(a, Q4.Ew, "true"), c && this.setData(a, Q4.gx, c), this.Ba(a, Q4.bI) && (b = new $1, this.setData(a, Q4.fx, (b.getTime() / 1E3).toString()))) : (h2(a, Q4.Ew), h2(a, Q4.fx), h2(a, Q4.gx));
           gza(this, a)
       };
-      ytPlayer.h.nE = function(a, b) {
-          var c = ytPlayer.$d(a, R4.DG);
-          ytPlayer.U(c, R4.EG, b);
+      _yt_player.h.nE = function(a, b) {
+          var c = _yt_player.$d(a, R4.DG);
+          _yt_player.U(c, R4.EG, b);
           a.setAttribute("aria-busy", b ? "true" : "false");
           a.disabled = b
       };
-      ytPlayer.h.uJ = function(a) {
+      _yt_player.h.uJ = function(a) {
           var b = !!this.Ba(a, "ypc-item-type"),
               c = !!this.Ba(a, "ypc-item-id");
-          !this.Ba(a, "ypc-enabled") && b && c && (ytPlayer.S(a, "ypc-enabled"), this.setData(a, Q4.DI, "true"))
+          !this.Ba(a, "ypc-enabled") && b && c && (_yt_player.S(a, "ypc-enabled"), this.setData(a, Q4.DI, "true"))
       };
-      ytPlayer.h.nJ = function(a) {
-          this.Ba(a, "ypc-enabled") && (ytPlayer.mq(a, "ypc-enabled"), h2(a, "ypc-enabled"))
+      _yt_player.h.nJ = function(a) {
+          this.Ba(a, "ypc-enabled") && (_yt_player.mq(a, "ypc-enabled"), h2(a, "ypc-enabled"))
       };
-      ytPlayer.h.QI = function(a, b, c) {
-          var d = ytPlayer.$a(arguments, 2);
-          (0, ytPlayer.B)(a, function(a) {
-                  b.apply(this, ytPlayer.Xa(a, d))
+      _yt_player.h.QI = function(a, b, c) {
+          var d = _yt_player.$a(arguments, 2);
+          (0, _yt_player.B)(a, function(a) {
+                  b.apply(this, _yt_player.Xa(a, d))
               },
               this)
       };
-      ytPlayer.h.nj = function(a, b, c) {
+      _yt_player.h.nj = function(a, b, c) {
           var d = hza(this, a);
-          d = ytPlayer.Xa([d], ytPlayer.$a(arguments, 1));
+          d = _yt_player.Xa([d], _yt_player.$a(arguments, 1));
           this.QI.apply(this, d)
       };
-      ytPlayer.iY.annotations_module = a4;
-      ytPlayer.iY.creatorendscreen = G2;
+      _yt_player.iY.annotations_module = a4;
+      _yt_player.iY.creatorendscreen = G2;
       var U4 = P4.getInstance(),
           V4 = Z(U4);
       V4 in T4 || (U4.register(), j4(U4, "yt-uix-init-" + V4, U4.init), j4(U4, "yt-uix-dispose-" + V4, U4.dispose), T4[V4] = U4);
-  })(_yt_player);
-
-
-}
-/*
-   FILE ARCHIVED ON 02:28:38 Jun 25, 2018 AND RETRIEVED FROM THE
-   INTERNET ARCHIVE ON 12:38:17 Jan 26, 2024.
-   JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-   ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-   SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-exclusion.robots: 0.095
-exclusion.robots.policy: 0.088
-cdx.remote: 0.088
-esindex: 0.009
-LoadShardBlock: 172.311 (6)
-PetaboxLoader3.datanode: 444.56 (8)
-load_resource: 534.007 (2)
-PetaboxLoader3.resolve: 176.912 (2)
-*/
