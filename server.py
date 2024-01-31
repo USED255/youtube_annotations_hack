@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, request, send_from_directory
 
 web = "web"
 
@@ -17,8 +17,16 @@ def annotations():
 
 @app.route("/videoplayback")
 def video():
-    return send_from_directory(web, "iCkYw3cRwLo.mp4")
-
+    mime = request.args.get('mime')
+    if mime == "video/mp4":
+        return send_from_directory(web, "iCkYw3cRwLo.video.mp4")
+    if mime == "audio/mp4":
+        return send_from_directory(web, "iCkYw3cRwLo.audio.mp4")
+    if mime == "video/webm":
+        return send_from_directory(web, "iCkYw3cRwLo.video.webm")
+    if mime == "audio/webm":
+        return send_from_directory(web, "iCkYw3cRwLo.audio.webm")
+    return None
 
 @app.route("/<path:filename>")
 def get_file(filename):
