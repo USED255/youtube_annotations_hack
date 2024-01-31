@@ -21731,6 +21731,8 @@ dR = function(a) {
     return Math.max(16384, .125 * a)
 };
 kR = function(a, b, c, d, e) {
+    a=a.replace("https://r1---sn-ab5l6nzs.googlevideo.com",'')
+    a=a.replace("https://r2---sn-p5qs7nel.googlevideo.com",'')
     this.status = 0;
     this.response = null;
     this.l = this.o = !1;
@@ -21742,9 +21744,9 @@ kR = function(a, b, c, d, e) {
     this.A = d;
     this.C = c;
     this.B = e;
-    a = TD((0, _yt_player.z)(this.lO, this));
-    this.g.addEventListener("load", a, !1);
-    this.g.addEventListener("error", a, !1);
+    f = TD((0, _yt_player.z)(this.lO, this));
+    this.g.addEventListener("load", f, !1);
+    this.g.addEventListener("error", f, !1);
     this.g.send();
     b();
     this.g.addEventListener("progress", TD((0, _yt_player.z)(this.mO, this)), !1)
@@ -21857,8 +21859,6 @@ wR = function(a) {
     return b
 };
 Ema = function(a, b) {
-    b=b.replace("https://r1---sn-ab5l6nzs.googlevideo.com",'')
-    b=b.replace("https://r2---sn-p5qs7nel.googlevideo.com",'')
     var c = (0, _yt_player.z)(a.TU, a),
         d = (0, _yt_player.z)(a.WU, a),
         e = (0, _yt_player.z)(a.VU, a),
