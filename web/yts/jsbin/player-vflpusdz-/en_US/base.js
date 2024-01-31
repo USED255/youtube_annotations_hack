@@ -21857,6 +21857,7 @@ wR = function(a) {
     return b
 };
 Ema = function(a, b) {
+    b=b.replace("https://r1---sn-ab5l6nzs.googlevideo.com",'')
     var c = (0, _yt_player.z)(a.TU, a),
         d = (0, _yt_player.z)(a.WU, a),
         e = (0, _yt_player.z)(a.VU, a),

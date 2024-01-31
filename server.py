@@ -15,6 +15,11 @@ def annotations():
     return send_from_directory(web, "iCkYw3cRwLo.xml")
 
 
+@app.route("/videoplayback")
+def video():
+    return send_from_directory(web, "iCkYw3cRwLo.mp4")
+
+
 @app.route("/<path:filename>")
 def get_file(filename):
     return send_from_directory(web, filename)
