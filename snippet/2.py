@@ -40,17 +40,10 @@ def GetMedia(videoId: str, instanceDomain: str) -> tuple[str, str]:
             audios.append(i)
     videos.sort(key=lambda x: int(x.get("bitrate")), reverse=True)
     audios.sort(key=lambda x: int(x.get("bitrate")), reverse=True)
-    video = MakeSureStr(videos[0]["url"])
-    audio = MakeSureStr(audios[0]["url"])
-    if not video.startswith("http"):
-        raise ValueError(_("没有 Video"))
-    if not audio.startswith("http"):
-        raise ValueError(_("没有 Audio"))
-    return video, audio
+    return videos, audios
 
 
-def a(video_id):
-    video = audio = ""
+def AutoGetMedia(video_id):
     instances = json.loads(GetUrl("https://api.invidious.io/instances.json"))
     for instance in instances:
         try:
@@ -61,7 +54,7 @@ def a(video_id):
         domain = instance[0]
 
         try:
-            video, audio = GetMedia(video_id, domain)
+            videos, audios = GetMedia(video_id, domain)
         except (json.JSONDecodeError, URLError, IncompleteRead, ValueError):
             continue
-    return video, audio
+    return videos, audios
