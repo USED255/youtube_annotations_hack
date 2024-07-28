@@ -1,0 +1,59 @@
+//错误渲染2 透明
+    "B2": [
+        "svgObject",
+        "pathObject",
+        "stroke",
+        "fill"
+    ]
+
+// 渲染错误 黑体
+    "Awa": [
+        "textColor",
+        "backgroundColor",
+        "borderColor",
+        "borderWidth",
+        "backgroundAlpha",
+        "highlightTextColor",
+        "highlightWidth",
+        "textAlign",
+        "textSize",
+        "fontWeight",
+        "padding",
+        "effects",
+        "cornerRadius",
+        "gradient"
+    ],
+
+// 不渲染
+    "a3": [
+        "id",
+        "author",
+        "type",
+        "style",
+        "text",
+        "segment",
+        "actions",
+        "triggers",
+        "styleObject",
+        "coordinateSystem",
+        "isCloseable",
+        "data",
+        "logData",
+        "itct"
+    ],
+
+    // 错误定位
+
+    "Z2": [
+        "x",
+        "y",
+        "width",
+        "height",
+        "time",
+        "depth",
+        "offsetX",
+        "offsetY",
+        "scaleX",
+        "scaleY",
+        "scaleDimension"
+    ]

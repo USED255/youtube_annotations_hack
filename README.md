@@ -22,8 +22,8 @@
 
 您可以替换 iCkYw3cRwLo.webm 文件为您想播放的视频
 
-如果您遇到了什么问题, 您也可以发邮件给我 wrtyis@outlook.com
+如果您遇到了什么问题, 您也可以发邮件给我 <wrtyis@outlook.com>
 
 如果您懒得发邮件, 不妨问问 ChatGPT 或者 Gemini 1.5 Pro, 一亿上下文的语言模型简直就是魔法
 
-不论如何, 祝您调试快乐!
+不论如何, 祝您调试愉快!
