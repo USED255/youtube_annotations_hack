@@ -1,28 +1,23 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, send_from_directory
 
-web = "web"
+root = "web"
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return send_from_directory(web, "iCkYw3cRwLo.html")
-
-
-@app.route("/videoplayback")
-def video():
-    return send_from_directory(web, "iCkYw3cRwLo.mp4")
+    return send_from_directory(root, "iCkYw3cRwLo.html")
 
 
 @app.route("/annotations_invideo", methods=["GET", "POST"])
 def annotations():
-    return send_from_directory(web, "iCkYw3cRwLo.xml")
+    return send_from_directory(root, "iCkYw3cRwLo.xml")
 
 
 @app.route("/<path:filename>")
 def get_file(filename):
-    return send_from_directory(web, filename)
+    return send_from_directory(root, filename)
 
 
 if __name__ == "__main__":

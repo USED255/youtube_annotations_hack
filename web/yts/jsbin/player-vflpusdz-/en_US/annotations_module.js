@@ -1477,9 +1477,40 @@ function createActionFromData(data) {
 }
 
 function calculateScaledWidth(containerSize, elementWidth, scaleDimension) {
-    var d = (scaleDimension = 'xx' == scaleDimension || 'xy' == scaleDimension) ? 640 : 360;
-    return (d + ((scaleDimension ? containerSize.width : containerSize.height) - d) * elementWidth) / d;
-}
+    // 1. 确定基准尺寸
+    // 根据缩放模式，确定计算缩放宽度时使用的基准尺寸
+    let baseDimension;
+    if ('xx' === scaleDimension || 'xy' === scaleDimension) {
+      // 如果缩放模式为 "xx" 或 "xy"，则基准尺寸为 640
+      baseDimension = 640; 
+    } else {
+      // 否则，基准尺寸为 360
+      baseDimension = 360; 
+    }
+  
+    // 2. 计算容器尺寸与基准尺寸的差值
+    // 根据缩放模式，计算容器尺寸与基准尺寸之间的差值
+    let sizeDifference;
+    if (scaleDimension) {
+      // 如果 scaleDimension 为真，则差值为容器宽度减去基准尺寸
+      sizeDifference = containerSize.width - baseDimension;
+    } else {
+      // 否则，差值为容器高度减去基准尺寸
+      sizeDifference = containerSize.height - baseDimension;
+    }
+  
+    // 3. 计算差值缩放后的元素宽度
+    // 将容器尺寸与基准尺寸的差值按比例缩放，缩放比例为元素宽度
+    let scaledDifference = sizeDifference * elementWidth;
+  
+    // 4. 将缩放后的差值加到基准尺寸上
+    // 将缩放后的差值加到基准尺寸上，得到初步的缩放宽度
+    let scaledWidth = baseDimension + scaledDifference;
+  
+    // 5. 将最终结果除以基准尺寸，得到最终的缩放宽度
+    // 将初步的缩放宽度除以基准尺寸，得到最终的缩放宽度，使其相对于基准尺寸进行缩放
+    return scaledWidth / baseDimension;
+  }
 
 function calculateScaledHeight(containerSize, elementHeight, scaleDimension) {
     var d = (scaleDimension = 'xy' == scaleDimension || 'yy' == scaleDimension) ? 360 : 640;
@@ -1518,29 +1549,104 @@ function createAnnotationPositionFromData1(data, constructor) {
     return constructor(c, d, e, f, k, l, m, n, r, p, v);
 }
 
-function $2(a, b) {
-    var c = calculateAbsolutePosition(b, calculateScaledAnnotationRect(a, new _yt_player.bh(a.x, a.y, a.Qk, a.o), b.g)),
-        d = b.g,
-        e = c.clone();
-    d && !d.contains(c) && (c.width < d.width ? e.left = _yt_player.dd(c.left, d
-        .left, d.left + d.width - c.width) : (e.left = d.left, e.width =
-        d.width), c.height < d.height ? e.top = _yt_player.dd(c.top, d
-        .top, d.top + d.height - c.height) : (e.top = d.top, e.height =
-        d.height));
-    return e;
-}
+function calculateFinalAnnotationPosition(positionObject, context) {
+    // 根据 positionObject 和 容器大小 计算缩放后的矩形。
+    // positionObject：包含注释位置和尺寸信息的注释位置对象。
+    // context：包含容器边界和锚点位置信息的上下文对象。
+    let scaledRect = calculateScaledAnnotationRect(
+      positionObject,
+      // 创建一个新的 _yt_player.bh 对象，表示注释的初始矩形。
+      new _yt_player.bh(positionObject.x, positionObject.y, positionObject.Qk, positionObject.o),
+      // 从 context 对象中获取容器大小信息。
+      context.g
+    );
+  
+    // 根据缩放后的矩形和上下文计算注释的绝对位置。
+    // scaledRect：缩放后的注释矩形。
+    let absolutePosition = calculateAbsolutePosition(context, scaledRect);
+  
+    // 创建 absolutePosition 的副本，以便进行调整。
+    let finalPosition = absolutePosition.clone();
+  
+    // 如果注释在容器之外，调整其位置以使其适合容器。
+    // context.g：容器的边界信息。
+    if (context.g && !context.g.contains(absolutePosition)) {
+      // 如果注释的宽度小于容器的宽度，调整其左侧位置。
+      if (absolutePosition.width < context.g.width) {
+        finalPosition.left = _yt_player.dd(
+          // 调整注释的左侧位置，使其在容器的左侧边界和右侧边界之间。
+          absolutePosition.left,
+          context.g.left,
+          context.g.left + context.g.width - absolutePosition.width
+        );
+      } else {
+        // 否则，将其左侧位置设置为容器的左侧边缘，并将其宽度设置为容器的宽度。
+        finalPosition.left = context.g.left;
+        finalPosition.width = context.g.width;
+      }
+  
+      // 如果注释的高度小于容器的高度，调整其顶部位置。
+      if (absolutePosition.height < context.g.height) {
+        finalPosition.top = _yt_player.dd(
+          // 调整注释的顶部位置，使其在容器的顶部边界和底部边界之间。
+          absolutePosition.top,
+          context.g.top,
+          context.g.top + context.g.height - absolutePosition.height
+        );
+      } else {
+        // 否则，将其顶部位置设置为容器的顶部边缘，并将其高度设置为容器的高度。
+        finalPosition.top = context.g.top;
+        finalPosition.height = context.g.height;
+      }
+    }
+  
+    // 返回注释的最终位置。
+    return finalPosition;
+  }
 
 function calculateScaledAnnotationRect(positionObject, rect, containerSize) {
-    var d = positionObject.C,
-        e = positionObject.D,
-        f = positionObject.g ? positionObject.g : 'xy',
-        k = calculateScaledWidth(containerSize, positionObject.A, f);
-    positionObject = calculateScaledHeight(containerSize, positionObject.l, f);
-    f = 640 * rect.width * k / 100;
-    var l = 360 * rect.height * positionObject / 100;
-    return new _yt_player.bh(0 == d ? 640 * rect.left * k / 100 : 0 < d ? d : containerSize
-        .width + d - f, 0 == e ? 360 * rect.top * positionObject / 100 : 0 < e ? e : containerSize
-        .height + e - l, f, l);
+  // 获取 x 和 y 维度的缩放斜率。
+  var scaleSlopeX = positionObject.A; // X 轴缩放斜率
+  var scaleSlopeY = positionObject.l; // Y 轴缩放斜率
+
+  // 确定缩放维度。
+  var scaleDimension = positionObject.g || 'xy'; // 缩放维度，默认为 'xy'，表示同时缩放 X 和 Y 轴
+
+  // 根据容器大小、缩放斜率和缩放维度计算注释的缩放宽度和高度。
+  var scaledWidth = calculateScaledWidth(containerSize, scaleSlopeX, scaleDimension); // 缩放后的宽度
+  var scaledHeight = calculateScaledHeight(containerSize, scaleSlopeY, scaleDimension); // 缩放后的高度
+
+  // 计算注释的最终宽度和高度。
+  var finalWidth = 640 * rect.width * scaledWidth / 100; // 最终宽度
+  var finalHeight = 360 * rect.height * scaledHeight / 100; // 最终高度
+
+  // 获取注释的左上角位置坐标。
+  var left = positionObject.C; // 注释左上角的 X 坐标
+  var top = positionObject.D; // 注释左上角的 Y 坐标
+
+  // 根据缩放维度调整左上角位置坐标。
+  if (left === 0) {
+    // 如果 left 为 0，则注释的左侧与容器的左侧对齐，并根据缩放后的宽度计算 left 值。
+    left = 640 * rect.left * scaledWidth / 100;
+  } else if (left > 0) {
+    // 如果 left 大于 0，则注释的左侧距离容器左侧 left 个单位，无需调整。
+  } else {
+    // 如果 left 小于 0，则注释的右侧距离容器右侧 -left 个单位，根据缩放后的宽度计算 left 值。
+    left = containerSize.width + left - finalWidth;
+  }
+
+  if (top === 0) {
+    // 如果 top 为 0，则注释的顶部与容器的顶部对齐，并根据缩放后的高度计算 top 值。
+    top = 360 * rect.top * scaledHeight / 100;
+  } else if (top > 0) {
+    // 如果 top 大于 0，则注释的顶部距离容器顶部 top 个单位，无需调整。
+  } else {
+    // 如果 top 小于 0，则注释的底部距离容器底部 -top 个单位，根据缩放后的高度计算 top 值。
+    top = containerSize.height + top - finalHeight;
+  }
+
+  // 返回一个新的边界矩形，其中包含缩放后的尺寸和调整后的位置。
+  return new _yt_player.bh(left, top, finalWidth, finalHeight); // 返回一个新的边界矩形对象
 }
 
 function createAnnotationPositionFromData2(data) {
@@ -1555,14 +1661,36 @@ function createAnnotationContext(containerRect, anchorPosition) {
 }
 
 function calculateAbsolutePosition(context, rect) {
-    var c = context.l ? $2(context.l, new createAnnotationContext(context.g)) : context.g;
-    var d = rect.clone(),
-        e = c.left;
-    c = c.top;
-    e instanceof _yt_player.hd ? (d.left += e.x, d.top += e.y) : (d.left += e,
-        _yt_player.ua(c) && (d.top += c));
-    return d;
-}
+    // 如果上下文对象包含锚点位置，则根据锚点计算注释的最终位置。
+    // 锚点位置 (context.l) 用于将注释固定到特定元素。
+    var containerRect = context.l
+      ? calculateFinalAnnotationPosition(context.l, new createAnnotationContext(context.g))
+      : context.g; // 否则，使用上下文对象中的容器矩形 (context.g) 作为容器矩形。
+  
+    // 克隆输入矩形，避免修改原始矩形。
+    var absoluteRect = rect.clone();
+  
+    // 获取容器矩形的左上角坐标。
+    var containerLeft = containerRect.left;
+    var containerTop = containerRect.top;
+  
+    // 将容器的左上角坐标添加到矩形的坐标中。
+    // 这考虑了容器相对于文档的位置。
+    // 如果容器的左侧坐标是 _yt_player.hd 对象（表示偏移量），
+    // 则将其 x 和 y 值分别添加到矩形的 left 和 top 属性中。
+    if (containerLeft instanceof _yt_player.hd) {
+      absoluteRect.left += containerLeft.x;
+      absoluteRect.top += containerLeft.y;
+    } else {
+      // 否则，直接添加容器的 left 和 top 值。
+      absoluteRect.left += containerLeft;
+      // 如果 containerTop 是数字，则将其添加到 absoluteRect.top。
+      _yt_player.ua(containerTop) && (absoluteRect.top += containerTop);
+    }
+  
+    // 返回计算出的矩形的绝对位置。
+    return absoluteRect;
+  }
 
 function createAnchoredAnnotationPositionObject(x, y, width, height, time, startX, startY, depth, offsetX, offsetY, scaleX, scaleY, scaleDimension) {
     createAnnotationPositionObject.call(this, x, y, width, height, time, depth, offsetX, offsetY, scaleX, scaleY, scaleDimension);
@@ -2099,128 +2227,319 @@ function createAnnotationViewEventHandler(view, eventName, callback) {
     }, view);
 }
 
+// 该函数用于更新注释视图的位置，例如弹出式注解、标签等。
 function updateAnnotationViewPosition(view) {
-    if (view.l || view.o) {
-        var b = getFirstAnnotationRegion(view.g);
-        if (b) {
-            var c = getAnnotationContext(view);
-            if (view.l) {
-                b = $2(b, c);
-                var d = _yt_player.W_(_yt_player.VU(view.C));
-                _yt_player.Jh(view.l, b.width, b.height);
-                _yt_player.wh(view.l, b.left, b.top);
-                view.K = new _yt_player.bh(d.left + b.left, d.top + b.top, b.width,
-                    b.height);
-                var e = (e = getFirstAnnotationRegion(view.g)) && d ? calculateScaledWidth(d, e.A, e.g ? e.g : 'xy') : 1;
-                var f = calculateAnnotationScaleX(view.g, d);
-                d = view.g.l;
-                d.padding ? d = d.padding : (d = 'speech' == view.g.style ? 1.6 :
-                    0.8, d = new _yt_player.Zg(d, d, d, d));
-                d = new _yt_player.Zg(360 * d.top * f / 100, 640 * d.right * e /
-                    100, 360 * d.bottom * f / 100, 640 * d.left * e / 100);
-                view.B && (d.right += 1.5 * c.g.height / 100);
-                view.l.style.padding = d.top + 'px ' + d.right + 'px ' + d.bottom +
-                    'px ' + d.left + 'px';
-                'label' == view.g.style && view.D && (view.D.style.padding = view.l.style
-                    .padding);
-                d = c.g;
-                var k = !1,
-                    l = 0,
-                    m = 0;
-                var n = _yt_player.W_(_yt_player.VU(view.C));
-                var p = _yt_player.eV(view.C);
-                _yt_player.dh(n, p) ? n = null : (p.top += 20, p.height -= 40,
-                    'player_relative' != view.g.C && (p.left -= n.left, p
-                        .top -= n.top), n = p);
-                n && (l = n.top - (b.top + b.height), m = b.top - (n.top + n
-                    .height), k = 0 < l || 0 < m);
-                if (k && n) {
-                    d = l;
-                    e = m;
-                    if (view.B) {
-                        f = calculateAnnotationBubbleRect(view, 23, b, d, e);
-                        if (view.A) {
-                            var r = 43 - f.width;
-                            0 < r && (b.left + f.left - r > n.left && (f.left -=
-                                r), f.width += r);
-                        }
-                        r = f;
-                        _yt_player.Jh(view.B, f.width, f.height);
-                        _yt_player.wh(view.B, f.left, f.top);
-                    }
-                    view.A && (r ? b = new _yt_player.hd(r.left + r.width - 23 -
-                            18, view.getUiClassName ? r.top + 2 : r.top + r.height - 18 - 2
-                            ) : (r = calculateAnnotationBubbleRect(view, 18, b, d, e), b = new _yt_player
-                            .hd(r.left, r.top), _yt_player.Jh(view.A, r.width,
-                                r.height)), _yt_player.wh(view.A, b));
-                    view.M = new _yt_player.bh(view.K.left + r.left, view.K.top + r.top,
-                        r.width, r.height);
-                    view.J = view.W.U(_yt_player.VU(view.C), 'mousemove', view.KO, view);
-                } else
-                    view.B && (r = e / f * d.height * 4.2 / 100, r = new _yt_player
-                        .I(r, r), 'highlight' == view.g.type || 'label' == view.g
-                        .style ? (e = 1.5 * d.height / 100, r = new _yt_player
-                            .bh(b.width - r.width - e, b.height - r.height - e,
-                                r.width, r.height)) : r = new _yt_player.bh(b
-                            .width - r.width - 3 * d.height / 100, (b.height - r
-                                .height) / 2, r.width, r.height), _yt_player.Jh(
-                            view.B, r.width, r.height), _yt_player.wh(view.B, r.left,
-                            r.top)), view.A && (r = 9 <= d.left + d.width - (b
-                            .left + b.width), e = 9 <= b.top - d.top, _yt_player
-                        .wh(view.A, r && e ? new _yt_player.hd(b.width - 9, -9) :
-                            r ? new _yt_player.hd(b.width - 9, 45 < b.height ?
-                                9 : b.height - 9) : e ? new _yt_player.hd(45 < b
-                                .width ? b.width - 9 - 18 : -9, -9) : b.width /
-                            d.width > b.height / d.height ? new _yt_player.hd(
-                                45 < b.width ? b.width - 9 - 18 : -9, b.height -
-                                9) : new _yt_player.hd(-9, 45 < b.height ? 9 : b
-                                .height - 9)));
+    // 检查视图是否包含可见元素 (view.l 主元素，view.o 形状渲染器)
+    if (view.l || view.o) { 
+      // 获取注释的第一个区域，区域定义了注释在视频中的位置和时间。
+      var region = getFirstAnnotationRegion(view.g);
+      if (region) {
+        // 获取注释上下文，包含视频区域大小和锚点位置等信息。
+        var context = getAnnotationContext(view); 
+        
+        // 如果视图包含主元素，则进行位置计算和样式设置。
+        if (view.l) { 
+  
+          // 计算注释区域的缩放和定位后的矩形。
+          region = calculateFinalAnnotationPosition(region, context); 
+          
+          // 获取视频播放器的尺寸。
+          var playerRect = _yt_player.W_(_yt_player.VU(view.C)); 
+  
+          // 设置主元素的尺寸和位置。
+          _yt_player.Jh(view.l, region.width, region.height);
+          _yt_player.wh(view.l, region.left, region.top);
+  
+          // 存储主元素的绝对边界框。
+          view.K = new _yt_player.bh(
+            playerRect.left + region.left, 
+            playerRect.top + region.top, 
+            region.width, 
+            region.height
+          );
+  
+          // 计算宽度和高度的缩放因子。
+          var scaleX = region && playerRect 
+            ? calculateScaledWidth(playerRect, region.A, region.g || 'xy') 
+            : 1;
+          var scaleY = calculateAnnotationScaleX(view.g, playerRect);
+  
+          // 获取注释样式中的 padding，如果没有则根据样式设置默认值。
+          var padding = view.g.l.padding;
+          if (!padding) {
+            padding = 'speech' === view.g.style ? 1.6 : 0.8;
+            padding = new _yt_player.Zg(padding, padding, padding, padding);
+          }
+  
+          // 计算缩放后的 padding。
+          padding = new _yt_player.Zg(
+            360 * padding.top * scaleY / 100, 
+            640 * padding.right * scaleX / 100, 
+            360 * padding.bottom * scaleY / 100, 
+            640 * padding.left * scaleX / 100
+          );
+  
+          // 如果有关闭按钮，调整 padding。
+          view.B && (padding.right += 1.5 * context.g.height / 100);
+  
+          // 将计算后的 padding 应用于主元素。
+          view.l.style.padding = padding.top + 'px ' + 
+                                padding.right + 'px ' + 
+                                padding.bottom + 'px ' + 
+                                padding.left + 'px';
+  
+          // 如果存在标签文本元素，则应用 padding。
+          if ('label' === view.g.style && view.D) {
+            view.D.style.padding = view.l.style.padding;
+          }
+  
+          // 检查与播放器控件是否发生碰撞。
+          var playerControlsRect = _yt_player.eV(view.C);
+          var videoRect = _yt_player.W_(_yt_player.VU(view.C));
+          
+          // 针对非播放器相对注释调整控件矩形。
+          if (!_yt_player.dh(videoRect, playerControlsRect)) {
+            playerControlsRect.top += 20;
+            playerControlsRect.height -= 40;
+            if ('player_relative' !== view.g.C) {
+              playerControlsRect.left -= videoRect.left;
+              playerControlsRect.top -= videoRect.top;
             }
-            view.o && view.o.o(view.g, c);
-            if (view.l) {
-                c = view.l;
-                b = view.g.l;
-                c.style.color = 'highlightText' == view.g.style ? b.C : b.l;
-                r = _yt_player.W_(_yt_player.VU(view.C));
-                c.style.fontSize = 360 * b.textSize * calculateAnnotationScaleX(view.g, r) / 100 + 'px';
-                r = view.g.style;
-                c.style.textAlign = b.textAlign ? b.textAlign : 'title' == r ||
-                    'highlightText' == r ? 'center' : 'left';
-                b.A && (c.style.fontWeight = b.A);
-                view = view.l;
-                c = view.style.overflow;
-                r = (b = _yt_player.J('annotation-link-icon', view)) ? _yt_player
-                    .Nh(b) : !1;
-                e = (d = _yt_player.J('annotation-close-button', view)) ?
-                    _yt_player.Nh(d) : !1;
-                r && _yt_player.O(b, !1);
-                e && _yt_player.O(d, !1);
-                m = f = '';
-                if (n = _yt_player.J('inner-text', view))
-                    f = n.style.overflow, m = n.style.position, n.style
-                    .overflow = 'visible', n.style.position = 'static';
-                view.style.overflow = 'scroll';
-                if (view.scrollHeight > view.offsetHeight || view.scrollWidth > view
-                    .offsetWidth) {
-                    l = k = getFontSizeInPixels(view);
-                    p = 5;
-                    for (var v = Math.floor(k / 2); v;)
-                        view.scrollHeight <= view.offsetHeight && view.scrollWidth <= view
-                        .offsetWidth ? (p = l, l = Math.min(l + v, k)) : l =
-                        Math.max(l - v, p), v = Math.floor(v / 2), view.style
-                        .fontSize = l + 'px';
-                    l != p && (view.scrollHeight > view.offsetHeight || view
-                        .scrollWidth > view.offsetWidth) && (view.style.fontSize =
-                        p + 'px');
+          }
+  
+          var collision = false; // 是否发生碰撞
+          var offsetBottom = 0; // 底部偏移
+          var offsetTop = 0; // 顶部偏移
+  
+          // 计算偏移量并判断是否发生碰撞
+          if (playerControlsRect) {
+            offsetBottom = playerControlsRect.top - 
+                          (region.top + region.height);
+            offsetTop = region.top - 
+                       (playerControlsRect.top + playerControlsRect.height);
+            collision = 0 < offsetBottom || 0 < offsetTop;
+          }
+  
+          // 如果发生碰撞，则调整气泡位置和关闭按钮位置。
+          if (collision && playerControlsRect) {
+            if (view.B) { // 如果有气泡元素
+              // 计算气泡的矩形
+              var bubbleRect = calculateAnnotationBubbleRect(
+                view, 23, region, offsetBottom, offsetTop
+              );
+              
+              // 如果有关闭按钮，调整关闭按钮位置
+              if (view.A) {
+                var closeButtonOffset = 43 - bubbleRect.width;
+                if (0 < closeButtonOffset && 
+                    region.left + bubbleRect.left - closeButtonOffset > 
+                    playerControlsRect.left) {
+                  bubbleRect.left -= closeButtonOffset;
+                  bubbleRect.width += closeButtonOffset;
                 }
-                view.style.overflow = c;
-                n && (n.style.overflow = f, n.style.position = m);
-                e && _yt_player.O(d, !0);
-                r && _yt_player.O(b, !0);
+              }
+  
+              // 设置气泡元素的尺寸和位置
+              _yt_player.Jh(view.B, bubbleRect.width, bubbleRect.height);
+              _yt_player.wh(view.B, bubbleRect.left, bubbleRect.top);
             }
+  
+            // 定位关闭按钮
+            if (view.A) { // 如果有关闭按钮
+              if (bubbleRect) { 
+                // 如果气泡已经计算，则根据气泡位置设置关闭按钮位置
+                region = new _yt_player.hd(
+                  bubbleRect.left + bubbleRect.width - 23 - 18, 
+                  view.getUiClassName 
+                    ? bubbleRect.top + 2 
+                    : bubbleRect.top + bubbleRect.height - 18 - 2
+                );
+              } else {
+                // 否则，计算关闭按钮的矩形并设置位置
+                bubbleRect = calculateAnnotationBubbleRect(
+                  view, 18, region, offsetBottom, offsetTop
+                );
+                region = new _yt_player.hd(bubbleRect.left, bubbleRect.top);
+                _yt_player.Jh(view.A, bubbleRect.width, bubbleRect.height);
+              }
+              _yt_player.wh(view.A, region);
+            }
+  
+            // 更新 view.M，存储气泡的绝对边界框
+            view.M = new _yt_player.bh(
+              view.K.left + bubbleRect.left, 
+              view.K.top + bubbleRect.top, 
+              bubbleRect.width, 
+              bubbleRect.height
+            );
+  
+            // 添加 mousemove 监听器以跟踪鼠标位置
+            view.J = view.W.U(
+              _yt_player.VU(view.C), 
+              'mousemove', 
+              view.KO, 
+              view
+            );
+  
+          } else {
+            // 未发生碰撞，则正常定位气泡和关闭按钮
+            if (view.B) { // 如果有气泡元素
+              // 计算气泡的矩形
+              bubbleRect = offsetTop / scaleY * videoRect.height * 4.2 / 100;
+              bubbleRect = new _yt_player.I(bubbleRect, bubbleRect); 
+              if ('highlight' === view.g.type || 'label' === view.g.style) {
+                // 对于高亮或标签类型，根据视频区域高度计算气泡位置
+                offsetTop = 1.5 * videoRect.height / 100;
+                bubbleRect = new _yt_player.bh(
+                  region.width - bubbleRect.width - offsetTop, 
+                  region.height - bubbleRect.height - offsetTop, 
+                  bubbleRect.width, 
+                  bubbleRect.height
+                );
+              } else {
+                // 对于其他类型，根据区域尺寸计算气泡位置
+                bubbleRect = new _yt_player.bh(
+                  region.width - bubbleRect.width - 3 * videoRect.height / 100, 
+                  (region.height - bubbleRect.height) / 2, 
+                  bubbleRect.width, 
+                  bubbleRect.height
+                );
+              }
+              // 设置气泡的尺寸和位置
+              _yt_player.Jh(view.B, bubbleRect.width, bubbleRect.height);
+              _yt_player.wh(view.B, bubbleRect.left, bubbleRect.top);
+            }
+  
+            // 正常定位关闭按钮
+            if (view.A) { // 如果有关闭按钮
+              // 计算关闭按钮的位置，根据 padding 和区域尺寸
+              bubbleRect = 9 <= padding.left + padding.width - 
+                            (region.left + region.width);
+              offsetTop = 9 <= region.top - padding.top;
+              _yt_player.wh(
+                view.A, 
+                // 根据不同的情况，设置关闭按钮的位置
+                bubbleRect && offsetTop 
+                  ? new _yt_player.hd(region.width - 9, -9) 
+                  : bubbleRect 
+                    ? new _yt_player.hd(
+                        region.width - 9, 
+                        45 < region.height ? 9 : region.height - 9
+                      ) 
+                    : offsetTop 
+                      ? new _yt_player.hd(
+                          45 < region.width ? region.width - 9 - 18 : -9, 
+                          -9
+                        ) 
+                      : region.width / videoRect.width > region.height / videoRect.height 
+                        ? new _yt_player.hd(
+                            45 < region.width ? region.width - 9 - 18 : -9, 
+                            region.height - 9
+                          ) 
+                        : new _yt_player.hd(-9, 45 < region.height ? 9 : region.height - 9)
+              );
+            }
+          }
         }
+  
+        // 如果有形状渲染器，则渲染注释形状。
+        view.o && view.o.o(view.g, context);
+  
+        // 将文本样式应用于主元素。
+        if (view.l) {
+          var mainElement = view.l;
+          var annotationStyle = view.g.l;
+          
+          // 根据注释样式设置文本颜色。
+          mainElement.style.color = 'highlightText' === view.g.style 
+                                   ? annotationStyle.C 
+                                   : annotationStyle.l;
+          
+          // 计算并应用字体大小。
+          var playerRect = _yt_player.W_(_yt_player.VU(view.C));
+          mainElement.style.fontSize = 360 * annotationStyle.textSize * 
+                                       calculateAnnotationScaleX(view.g, playerRect) / 
+                                       100 + 'px';
+  
+          // 根据注释样式设置文本对齐方式。
+          var annotationType = view.g.style;
+          mainElement.style.textAlign = annotationStyle.textAlign 
+                                        ? annotationStyle.textAlign 
+                                        : 'title' === annotationType || 
+                                          'highlightText' === annotationType 
+                                          ? 'center' 
+                                          : 'left';
+  
+          // 如果定义了字体粗细，则应用字体粗细。
+          annotationStyle.A && (mainElement.style.fontWeight = annotationStyle.A);
+  
+          // 如果发生溢出，则调整字体大小以适合元素。
+          var originalOverflow = mainElement.style.overflow;
+          var linkIcon = _yt_player.J('annotation-link-icon', mainElement);
+          var linkIconVisible = linkIcon ? _yt_player.Nh(linkIcon) : false;
+          var closeButton = _yt_player.J('annotation-close-button', mainElement);
+          var closeButtonVisible = closeButton ? _yt_player.Nh(closeButton) : false;
+  
+          // 隐藏链接图标和关闭按钮以进行字体大小调整
+          linkIconVisible && _yt_player.O(linkIcon, false);
+          closeButtonVisible && _yt_player.O(closeButton, false);
+          
+          // 获取内部文本元素，并保存其原始样式
+          var innerText = _yt_player.J('inner-text', mainElement);
+          var originalInnerTextOverflow = '';
+          var originalInnerTextPosition = '';
+          if (innerText) {
+            originalInnerTextOverflow = innerText.style.overflow;
+            originalInnerTextPosition = innerText.style.position;
+            innerText.style.overflow = 'visible';
+            innerText.style.position = 'static';
+          }
+          
+          // 设置主元素溢出为滚动
+          mainElement.style.overflow = 'scroll';
+  
+          // 如果内容溢出，则调整字体大小
+          if (mainElement.scrollHeight > mainElement.offsetHeight || 
+              mainElement.scrollWidth > mainElement.offsetWidth) {
+            var fontSize = getFontSizeInPixels(mainElement);
+            var minFontSize = 5;
+            var maxFontSize = fontSize;
+  
+            // 使用二分查找法调整字体大小，直到内容适合元素或达到最小字体大小
+            for (var step = Math.floor(fontSize / 2); step;) {
+              if (mainElement.scrollHeight <= mainElement.offsetHeight && 
+                  mainElement.scrollWidth <= mainElement.offsetWidth) {
+                minFontSize = fontSize;
+                fontSize = Math.min(fontSize + step, maxFontSize);
+              } else {
+                fontSize = Math.max(fontSize - step, minFontSize);
+              }
+              step = Math.floor(step / 2);
+              mainElement.style.fontSize = fontSize + 'px';
+            }
+  
+            // 如果调整后的字体大小仍然溢出，则恢复到之前的字体大小
+            if (fontSize !== minFontSize && 
+                (mainElement.scrollHeight > mainElement.offsetHeight || 
+                mainElement.scrollWidth > mainElement.offsetWidth)) {
+              mainElement.style.fontSize = minFontSize + 'px';
+            }
+          }
+  
+          // 恢复原始溢出样式
+          mainElement.style.overflow = originalOverflow;
+          if (innerText) {
+            innerText.style.overflow = originalInnerTextOverflow;
+            innerText.style.position = originalInnerTextPosition;
+          }
+  
+          // 恢复链接图标和关闭按钮的可见性
+          closeButtonVisible && _yt_player.O(closeButton, true);
+          linkIconVisible && _yt_player.O(linkIcon, true);
+        }
+      }
     }
-}
+  }
 
 function calculateAnnotationBubbleRect(view, bubbleHeight, rect, offsetBottom, offsetTop) {
     var f = 0 < offsetTop;
@@ -5582,7 +5901,7 @@ _yt_player.q(createSpeechBubbleRenderer, createAnnotationRendererBase);
 createSpeechBubbleRenderer.prototype.o = function(a, b) {
     var c = getFirstAnnotationRegion(a);
     if (c) {
-        var d = $2(c, b);
+        var d = calculateFinalAnnotationPosition(c, b);
         if (!(0 >= d.width || 0 >= d.height)) {
             var e;
             if (e = (c = (c = getAnnotationSegment(a)) && c.g ? c.g : null) && c.length ? c[
@@ -5661,7 +5980,7 @@ _yt_player.q(m3, createAnnotationRendererBase);
 m3.prototype.o = function(a, b) {
     var c = getFirstAnnotationRegion(a);
     if (c) {
-        var d = $2(c, b);
+        var d = calculateFinalAnnotationPosition(c, b);
         if (!(0 >= d.width || 0 >= d.height)) {
             var e = a.l;
             c = calculateAnnotationBoundingRect(d, e.effects);
@@ -5686,7 +6005,7 @@ _yt_player.q(n3, createAnnotationRendererBase);
 n3.prototype.o = function(a, b) {
     var c = getFirstAnnotationRegion(a);
     if (c) {
-        var d = $2(c, b);
+        var d = calculateFinalAnnotationPosition(c, b);
         if (!(0 >= d.width || 0 >= d.height)) {
             c = a.l;
             var e = calculateAnnotationBoundingRect(d, c.effects),
@@ -5765,10 +6084,11 @@ _yt_player.h.show = function() {
     if (a) {
         var d = getAnnotationContext(this),
             e = null;
-        'highlight' == this.g.type || 'label' == this.g.style ? e =
-        new m3() : 'popup' == this.g.style ? e = new n3() : 'anchored' ==
-            this.g.style ? e = new createSpeechBubbleRenderer() : 'speech' == this.g.style && (e =
-                new o3());
+        'highlight' == this.g.type || 'label' == this.g.style ?
+            e = new m3() : 'popup' == this.g.style ?
+                e = new n3() : 'anchored' == this.g.style ?
+                    e = new createSpeechBubbleRenderer() : 'speech' == this.g.style && (e = new o3());
+
         e && (e.o(this.g, d), this.o = e, d = e.la()) && (_yt_player.O(d, !
             1), _yt_player.S(d, 'annotation-type-' + this.g.type
             .toLowerCase()), this.X(d));

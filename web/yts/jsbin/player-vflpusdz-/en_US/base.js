@@ -1,48 +1,3 @@
-const originalCreateObjectURL = URL.createObjectURL;
-window.myBuffer = new window.MediaSource 
-window.myBuffer.addEventListener("sourceopen", sourceOpen);
-const assetURL = "iCkYw3cRwLo.mp4";
-// Need to be specific for Blink regarding codecs
-// ./mp4info frag_bunny.mp4 | grep Codec
-const mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
-
-function sourceOpen(_) {
-  console.log(this.readyState); // open
-  const mediaSource = this;
-  const sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
-  fetchAB(assetURL, function (buf) {
-    sourceBuffer.addEventListener("updateend", function (_) {
-    //   mediaSource.endOfStream();
-    //   document.querySelector("video").play();
-      console.log(mediaSource.readyState); // ended
-
-    });
-    sourceBuffer.appendBuffer(buf);
-  });
-}
-
-function fetchAB(url, cb) {
-  console.log(url);
-  const xhr = new XMLHttpRequest();
-  xhr.open("get", url);
-  xhr.responseType = "arraybuffer";
-  xhr.onload = function () {
-    cb(xhr.response);
-  };
-  xhr.send();
-}
-
-Object.defineProperty(URL, 'createObjectURL', {
-  value: function(blob) {
-    window.Buffer = blob
-    // 在这里你可以对 blob 做任何操作
-    console.log('劫持了 createObjectURL 调用，Blob 数据：', blob); 
-
-    // 你可以返回一个自定义的 URL，或者调用原始函数
-    return originalCreateObjectURL.call(URL, window.myBuffer ); 
-  }
-});
-
 var _yt_player = {};
 
 var window = this;
@@ -16923,7 +16878,6 @@ vI = function(a) {
     this.l = this.g = null;
     a = this.o = a;
     a = a.WO ? a.g.webkitMediaSourceURL : window.URL.createObjectURL(a);
-    a = "iCkYw3cRwLo.mp4"
     a = "iCkYw3cRwLo.webm"
     this.Kt = new uI(a, !0);
     this.A = null;
@@ -21778,8 +21732,6 @@ dR = function(a) {
     return Math.max(16384, .125 * a)
 };
 kR = function(a, b, c, d, e) {
-    a=a.replace("https://r1---sn-ab5l6nzs.googlevideo.com",'')
-    a=a.replace("https://r2---sn-p5qs7nel.googlevideo.com",'')
     this.status = 0;
     this.response = null;
     this.l = this.o = !1;
@@ -21791,9 +21743,9 @@ kR = function(a, b, c, d, e) {
     this.A = d;
     this.C = c;
     this.B = e;
-    f = TD((0, _yt_player.z)(this.lO, this));
-    //this.g.addEventListener("load", f, !1);
-    this.g.addEventListener("error", f, !1);
+    a = TD((0, _yt_player.z)(this.lO, this));
+    //this.g.addEventListener("load", a, !1);
+    this.g.addEventListener("error", a, !1);
     this.g.send();
     b();
     this.g.addEventListener("progress", TD((0, _yt_player.z)(this.mO, this)), !1)
